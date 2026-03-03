@@ -1,0 +1,411 @@
+/* ── Font & Base ── */
+.phone-screen-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-family:
+    -apple-system, "SF Pro Display", "Plus Jakarta Sans", "Inter", sans-serif;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #000;
+  /* Prevent text selection everywhere in the phone to feel like a native app */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.phone-screen-off {
+  width: 100%;
+  height: 100%;
+  background: #000;
+}
+
+/* ── Boot Screen ── */
+
+.boot-screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+}
+
+.otopio-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otopio-logo-text {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: baseline;
+  letter-spacing: -0.02em;
+}
+
+.otopio-logo-name {
+  font-weight: 600;
+}
+
+.otopio-logo-os {
+  font-weight: 700;
+  opacity: 0.8;
+  margin-left: 2px;
+  color: rgb(255, 188, 65);
+}
+
+/* ── Lock Screen Base ── */
+.lock-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.ls-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 20px 30px;
+}
+
+.ls-top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 15px; /* Push down past status bar */
+}
+
+/* ── Wallpaper Blobs ── */
+.ls-wallpaper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: #111;
+  overflow: hidden;
+}
+
+.ls-wallpaper-layer {
+  position: absolute;
+  filter: blur(28px);
+  will-change: transform, opacity;
+}
+
+.ls-wallpaper-base {
+  inset: -10%;
+  background: linear-gradient(
+    135deg,
+    #a51012,
+    #ea4206,
+    #ee0265,
+    #ce0a9f,
+    #1bb5dc
+  );
+  filter: blur(40px);
+}
+
+.ls-wallpaper-blob1 {
+  top: -20%;
+  left: -20%;
+  width: 160%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, #780206 0%, transparent 60%);
+  border-radius: 50%;
+  animation: float1 15s ease-in-out infinite alternate;
+}
+
+.ls-wallpaper-blob2 {
+  top: 30%;
+  right: -30%;
+  width: 140%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #de0c73 0%, transparent 65%);
+  border-radius: 50%;
+  animation: float2 18s ease-in-out infinite alternate;
+}
+
+.ls-wallpaper-blob3 {
+  bottom: -10%;
+  left: -10%;
+  width: 120%;
+  height: 80%;
+  background: radial-gradient(ellipse at center, #872cf3 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float3 20s ease-in-out infinite alternate;
+}
+
+.ls-wallpaper-blob4 {
+  bottom: -30%;
+  right: -10%;
+  width: 150%;
+  height: 90%;
+  background: radial-gradient(ellipse at center, #2fecde 0%, transparent 60%);
+  border-radius: 50%;
+  animation: float4 22s ease-in-out infinite alternate;
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-5%, 5%) scale(1.1);
+    opacity: 0.9;
+  }
+}
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-8%, -5%) scale(1);
+    opacity: 0.9;
+  }
+}
+@keyframes float3 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(5%, -8%) scale(1.15);
+    opacity: 0.8;
+  }
+}
+@keyframes float4 {
+  0% {
+    transform: translate(0, 0) scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-3%, 3%) scale(0.95);
+    opacity: 0.95;
+  }
+}
+
+/* ── Lock Screen Date ── */
+.ls-date {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  margin: 0 0 -4px 0;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Lock Screen Clock ── */
+.ls-clock {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 78px;
+  font-weight: 700;
+  color: white;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+}
+
+.ls-clock-digit,
+.ls-clock-colon {
+  display: inline-block;
+}
+
+/* ── Lock Screen Widgets ── */
+.ls-widgets {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.ls-widget {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Bottom Actions ── */
+.ls-bottom-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  margin-bottom: 25px; /* Above home indicator */
+}
+
+.ls-action-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ls-action-btn-active {
+  background: #fff;
+  color: #000;
+}
+
+/* ── Home Indicator Hit Area (for unlocking) ── */
+.ls-home-indicator-hitarea {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 50;
+  cursor: grab;
+}
+
+.ls-home-indicator-hitarea:active {
+  cursor: grabbing;
+}
+
+/* ── Home Screen ── */
+.home-screen {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.hs-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Group everything from the top */
+  padding: 60px 0 20px; /* Vertical padding only, horizontal handled by grid */
+}
+
+/* App Grid Area */
+.hs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 0; /* Vertical gap, horizontal handled by centering items */
+  padding: 10px 12px 20px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hs-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bottom Dock */
+.hs-dock-container {
+  margin-top: auto; /* Push dock to bottom */
+  padding: 10px 16px 24px;
+}
+
+.hs-dock {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-radius: 32px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ── App Icon ── */
+.app-icon-btn {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  transition: transform 0.1s ease;
+  /* Core fix for alignment: ensure each cell is a fixed width container */
+  min-width: 0; 
+}
+
+.app-icon-squircle {
+  width: 60px; /* Slightly larger for better fill on 4 columns */
+  height: 60px;
+  max-width: 100%; /* Responsive safety */
+  aspect-ratio: 1/1;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Adjust icon size inside squircle */
+.app-icon-squircle svg {
+  width: 32px;
+  height: 32px;
+}
+
+.app-icon-label {
+  font-size: 11px;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+  width: 100%;
+  max-width: 70px; /* Prevent label from stretching cell */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.app-icon-btn:active .app-icon-squircle {
+  transform: scale(0.85);
+}
+
+.app-icon-btn:active {
+  transform: scale(0.98);
+}
+
+/* Dock specific icon sizing */
+.hs-dock .app-icon-squircle {
+  width: 54px;
+  height: 54px;
+}
+

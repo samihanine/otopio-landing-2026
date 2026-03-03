@@ -1,0 +1,124 @@
+import { Link } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navLinks = [
+  { name: "Accueil", path: "/" },
+  { name: "Nos projets", path: "/projets" },
+  // { name: "Expertises", path: "/expertises" },
+  { name: "À propos", path: "/a-propos" },
+  // { name: "Équipe", path: "/equipe" },
+  // { name: "Blog", path: "/blog" },
+];
+
+export function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  return (
+    <>
+      {/* Navigation */}
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        className="flex items-center justify-between px-8 md:px-16 py-6 md:max-w-3/4 md:mx-auto"
+      >
+        <div
+          className="text-[#ff5500] font-semibold text-[28px] border-none"
+          style={{ fontFamily: "'Clash Display', sans-serif" }}
+        >
+          <Link to="/">Otopio.</Link>
+        </div>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8 text-[15px]">
+          {navLinks
+            .map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className="text-[#333] hover:text-[#ff5500] transition-colors duration-300 font-medium [&.active]:text-[#ff5500]"
+              >
+                {item.name}
+              </Link>
+            ))}
+        </nav>
+
+        {/* Desktop Action */}
+        <div className="hidden md:block">
+          <Link to="/contact">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#1a1a1a] text-white px-6 py-2.5 rounded-full hover:bg-[#333] transition-colors duration-300 text-[14px] cursor-pointer"
+            >
+              Contact
+            </motion.button>
+          </Link>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden text-[#333]"
+          onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Open Menu"
+        >
+          <Menu size={28} />
+        </button>
+      </motion.header>
+
+      {/* Mobile Sidebar */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <div className="fixed inset-0 z-50 flex md:hidden">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+
+            {/* Sidebar */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="relative ml-auto w-[80%] max-w-sm h-full shadow-xl flex flex-col p-6 font-medium bg-[#F0F0F0]"
+            >
+              <button
+                className="self-end mb-8 text-[#333]"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <X size={28} />
+              </button>
+
+              <nav className="flex flex-col gap-6 text-[18px]">
+                {navLinks.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-[#333] hover:text-[#ff5500] transition-colors [&.active]:text-[#ff5500]"
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <Link
+                  to="/contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="mt-4 bg-[#1a1a1a] text-white px-6 py-3 rounded-full hover:bg-[#333] transition-colors duration-300 text-[16px] text-center"
+                >
+                  Contact
+                </Link>
+              </nav>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
