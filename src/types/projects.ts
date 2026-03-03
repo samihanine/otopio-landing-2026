@@ -155,7 +155,7 @@ export const coordia = {
   description:
     "Coordia centralise la coordination autour de l'enfant en réunissant tous les acteurs de son parcours — parents, orthopédagogues, enseignants, psychologues et professionnels de l'enfance — dans un espace commun sécurisé.\n\nLa gestion des rendez-vous est simplifiée grâce à un calendrier synchronisé à l'échelle du professionnel et de la clinique. Parents et partenaires peuvent confirmer, déplacer ou annuler leurs rendez-vous directement depuis la plateforme.\n\nLes échanges sont centralisés dans un module de messagerie qui permet des conversations individuelles ou de groupe entre tous les intervenants, favorisant un suivi cohérent et une communication fluide.\n\nDes mini-jeux éducatifs et des plans de suivi interactifs seront intégrés pour accompagner l'enfant dans sa progression entre les séances, en lien avec les objectifs fixés par les professionnels.\n\nOtopio a conçu et développé l'intégralité de la plateforme Coordia.",
   imageUrl:
-    "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/coordia-landing.png",
+    "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/coordia-conversation.png",
   url: "https://dashboard.coordia.com",
   startedAt: "2025-01-01",
   endedAt: "",
@@ -169,20 +169,12 @@ export const coordia = {
       lucideIcon: "CalendarDays",
     },
     {
-      title: "Messagerie & conversations de groupe",
+      title: "Collaboration & conversations de groupe",
       description:
         "Un espace de communication sécurisé permet d'échanger en tête-à-tête ou en groupe entre parents, enseignants, orthopédagogues, psychologues et professionnels de l'enfance, pour un suivi coordonné autour de chaque enfant.",
       imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/coordia-conversation.png",
+        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/coordia-members.png",
       lucideIcon: "MessageCircle",
-    },
-    {
-      title: "Suivi interactif & mini-jeux éducatifs",
-      description:
-        "Des plans de suivi interactifs et des mini-jeux éducatifs permettent d'accompagner l'enfant entre les séances, en lien avec les objectifs définis par les professionnels, pour rendre la progression ludique et mesurable.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/coordia-landing.png",
-      lucideIcon: "Gamepad2",
     },
   ],
   lucideIcon: "Brain",
