@@ -48,7 +48,7 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
+          className="max-w-5xl mx-auto rounded-card-lg overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
         >
           {/* Background */}
           <div className="absolute inset-0 bg-dark">
@@ -93,10 +93,7 @@ export function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-white/50 leading-relaxed max-w-[320px] font-body"
-                style={{
-                  fontSize: "16px",
-                }}
+                className="text-white/50 leading-relaxed max-w-[320px] font-body text-md-body"
               >
                 Prêt à donner vie à vos idées ? Envoyez-nous un message et
                 commençons l'aventure ensemble.
@@ -114,8 +111,7 @@ export function ContactSection() {
             >
               <div className="group">
                 <label
-                  className="text-white/80 block mb-3 uppercase tracking-widest font-semibold"
-                  style={{ fontSize: "11px" }}
+                  className="label-dark"
                 >
                   Nom Complet
                 </label>
@@ -126,15 +122,13 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300"
-                  style={{ fontSize: "15px" }}
+                  className="input-dark text-base-body"
                 />
               </div>
 
               <div className="group">
                 <label
-                  className="text-white/80 block mb-3 uppercase tracking-widest font-semibold"
-                  style={{ fontSize: "11px" }}
+                  className="label-dark"
                 >
                   Email
                 </label>
@@ -145,15 +139,13 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300"
-                  style={{ fontSize: "15px" }}
+                  className="input-dark text-base-body"
                 />
               </div>
 
               <div className="group">
                 <label
-                  className="text-white/80 block mb-3 uppercase tracking-widest font-semibold"
-                  style={{ fontSize: "11px" }}
+                  className="label-dark"
                 >
                   Description du projet
                 </label>
@@ -164,8 +156,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
-                  style={{ fontSize: "15px" }}
+                  className="input-dark text-base-body resize-none"
                 />
               </div>
 
@@ -173,8 +164,7 @@ export function ContactSection() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 type="submit"
-                className="w-full py-5 rounded-full bg-white text-dark mt-4 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider"
-                style={{ fontSize: "13px" }}
+                className="w-full py-5 rounded-full bg-white text-dark mt-4 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider text-caption"
               >
                 Envoyer le message
               </motion.button>

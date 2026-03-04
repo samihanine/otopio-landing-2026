@@ -70,12 +70,11 @@ export function ServicesSection() {
                   backgroundColor: "var(--color-primary)",
                   rotate: index % 2 === 0 ? 0.8 : -0.8,
                 }}
-                className="flex items-center gap-2 px-5 py-2.5 rounded-full cursor-pointer shadow-sm"
                 style={{
                   backgroundColor: "var(--color-mid)",
                   color: "#fff",
-                  fontSize: "15px",
                 }}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full cursor-pointer shadow-sm text-base-body"
               >
                 <Icon size={16} />
                 {service.label}

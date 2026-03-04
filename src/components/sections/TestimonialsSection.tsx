@@ -83,8 +83,7 @@ export function TestimonialsSection() {
                     {stat.value}
                   </p>
                   <p
-                    className="text-white/60 mt-1"
-                    style={{ fontSize: "13px" }}
+                    className="text-white/60 mt-1 text-caption"
                   >
                     {stat.label}
                   </p>
@@ -126,7 +125,7 @@ export function TestimonialsSection() {
 
             <div className="relative z-10 p-8 flex flex-col justify-between h-full">
               {/* Counter */}
-              <div className="text-primary" style={{ fontSize: "13px" }}>
+              <div className="text-primary text-caption">
                 {String(current + 1).padStart(2, "0")} /{" "}
                 {String(testimonials.length).padStart(2, "0")}
               </div>
@@ -148,8 +147,7 @@ export function TestimonialsSection() {
                     className="absolute inset-x-0 bottom-0"
                   >
                     <p
-                      className="text-primary mb-2 uppercase tracking-widest"
-                      style={{ fontSize: "12px", fontWeight: 600 }}
+                      className="text-primary mb-2 uppercase tracking-widest text-overline font-semibold"
                     >
                       {testimonials[current].quoteTitle}
                     </p>
@@ -165,12 +163,11 @@ export function TestimonialsSection() {
                     </p>
                     <div>
                       <p
-                        className="text-white"
-                        style={{ fontSize: "15px", fontWeight: 500 }}
+                        className="text-white text-base-body font-medium"
                       >
                         {testimonials[current].name}
                       </p>
-                      <p className="text-white/60" style={{ fontSize: "13px" }}>
+                      <p className="text-white/60 text-caption">
                         {testimonials[current].handle}
                       </p>
                     </div>

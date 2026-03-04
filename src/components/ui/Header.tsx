@@ -31,7 +31,7 @@ export function Header() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-[15px]">
+        <nav className="hidden md:flex items-center gap-8 text-base-body">
           {navLinks
             .map((item) => (
               <Link
@@ -50,7 +50,7 @@ export function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-dark-light transition-colors duration-300 text-[14px] cursor-pointer"
+              className="btn-dark px-6 py-2.5 text-sm-body"
             >
               Contact
             </motion.button>
@@ -95,7 +95,7 @@ export function Header() {
                 <X size={28} />
               </button>
 
-              <nav className="flex flex-col gap-6 text-[18px]">
+              <nav className="flex flex-col gap-6 text-lg-body">
                 {navLinks.map((item) => (
                   <Link
                     key={item.name}
@@ -109,7 +109,7 @@ export function Header() {
                 <Link
                   to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 bg-dark text-white px-6 py-3 rounded-full hover:bg-dark-light transition-colors duration-300 text-[16px] text-center"
+                  className="mt-4 btn-dark px-6 py-3 text-md-body text-center"
                 >
                   Contact
                 </Link>

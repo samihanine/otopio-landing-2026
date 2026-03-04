@@ -18,7 +18,7 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: (index % 2) * 0.1 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="shadow-[0_10px_40px_rgba(0,0,0,0.2)] rounded-[2rem]"
+      className="shadow-[0_10px_40px_rgba(0,0,0,0.2)] rounded-card"
     >
       <Link
         to="/projets/$projectId"
@@ -26,7 +26,7 @@ export function ProjectCard({
         className="block group no-underline project-card-interactive"
       >
         <div
-          className={`relative ${aspectRatio} rounded-[2rem] overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
+          className={`relative ${aspectRatio} rounded-card overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
           style={{ transform: "scale(1)", transformOrigin: "center" }}
         >
           <img
@@ -46,10 +46,8 @@ export function ProjectCard({
               return (
                 <span
                   key={tagId}
-                  className="px-3 py-1 rounded-full shadow-sm tracking-wide transition-colors duration-300 group-hover:!bg-primary"
+                  className="px-3 py-1 rounded-full shadow-sm tracking-wide transition-colors duration-300 group-hover:!bg-primary text-label font-semibold"
                   style={{
-                    fontSize: "11px",
-                    fontWeight: 600,
                     backgroundColor: tagObj.hexColor,
                     color: "#ffffff",
                   }}

@@ -102,11 +102,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-muted max-w-lg mb-10 font-body"
-            style={{
-              fontSize: "15px",
-              lineHeight: 1.7,
-            }}
+            className="text-muted max-w-lg mb-10 font-body text-base-body leading-[1.7]"
           >
             Nous accompagnons les industries dans la conception de SaaS robustes
             et l'intégration d'intelligence artificielle sur mesure.
@@ -122,8 +118,7 @@ export function HeroSection() {
               boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="bg-dark text-white px-8 py-3.5 rounded-full flex items-center gap-2 hover:bg-dark-light transition-colors duration-300 cursor-pointer w-fit font-body"
-            style={{ fontSize: "15px" }}
+            className="btn-dark px-8 py-3.5 flex items-center gap-2 w-fit font-body text-base-body"
           >
             Découvrir notre offre
             <ArrowRight size={16} />

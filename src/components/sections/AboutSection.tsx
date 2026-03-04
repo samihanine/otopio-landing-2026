@@ -95,9 +95,8 @@ export default function AboutSection() {
               className="h-0.5 bg-primary mb-8"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
+              className="section-heading"
             >
-              L'Équipe Otopio
             </h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Chez Otopio, la technologie et la créativité ne font qu'un grâce à
@@ -122,9 +121,8 @@ export default function AboutSection() {
               className="h-0.5 bg-primary mb-8 ml-auto"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
+              className="section-heading"
             >
-              Excellence & Engagement
             </h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Nous plaçons la barre haut en termes de qualité et de performance.
@@ -146,9 +144,8 @@ export default function AboutSection() {
               className="h-0.5 bg-primary mb-8"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
+              className="section-heading"
             >
-              Flexibilité & Adaptabilité
             </h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Otopio est synonyme de flexibilité et d'adaptabilité. Nous

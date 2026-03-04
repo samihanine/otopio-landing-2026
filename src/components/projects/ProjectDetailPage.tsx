@@ -35,8 +35,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         </h1>
         <Link
           to="/projets"
-          className="mt-6 text-primary hover:underline no-underline"
-          style={{ fontSize: "15px" }}
+          className="mt-6 text-primary hover:underline no-underline text-base-body"
         >
           &larr; Retour aux Projets
         </Link>
@@ -66,8 +65,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         >
           <button
             onClick={() => navigate({ to: "/projets" })}
-            className="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-dark-light transition-colors duration-300 cursor-pointer flex items-center gap-2"
-            style={{ fontSize: "14px" }}
+            className="btn-dark px-6 py-2.5 flex items-center gap-2 text-sm-body"
           >
             <LucideIcons.ArrowLeft size={16} />
             Tous les Projets
@@ -114,12 +112,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
               className="shrink-0 w-full md:w-auto md:min-w-[360px]"
             >
               <table
-                className="w-full"
-                style={{
-                  fontSize: "14px",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                }}
+                className="w-full text-sm-body uppercase tracking-wide"
               >
                 <tbody>
                   <MetaRow
@@ -143,7 +136,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="px-4 md:px-8"
         >
-          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-border/10 shadow-lg">
+          <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-lg">
             <img
               src={project.imageUrl}
               alt={project.title}
@@ -163,15 +156,13 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
             {project.tagIds?.map((tag: string) => (
               <span
                 key={tag}
-                className="px-4 py-1.5 rounded-full border border-border-dark text-muted"
-                style={{ fontSize: "13px" }}
+                className="px-4 py-1.5 rounded-full border border-border-dark text-muted text-caption"
               >
                 {tag}
               </span>
             ))}
             <span
-              className="px-4 py-1.5 rounded-full bg-dark text-white/60"
-              style={{ fontSize: "13px" }}
+              className="px-4 py-1.5 rounded-full bg-dark text-white/60 text-caption"
             >
               {projectYear}
             </span>
@@ -184,8 +175,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full hover:bg-primary-dark transition-colors duration-300 no-underline shrink-0"
-                style={{ fontSize: "14px", fontWeight: 500 }}
+                className="inline-flex items-center gap-2 btn-primary px-6 py-3 no-underline shrink-0 text-sm-body font-medium"
               >
                 Live Preview
                 <LucideIcons.ExternalLink size={16} />
@@ -197,8 +187,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         {project.description && (
           <div className="px-8 md:px-16 pb-16 w-full md:w-[80%]">
             <p
-              className="text-dark whitespace-pre-line leading-relaxed"
-              style={{ fontSize: "18px" }}
+              className="text-dark whitespace-pre-line leading-relaxed text-lg-body"
             >
               {project.description}
             </p>
@@ -221,22 +210,17 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                 params={{ projectId: prevProject.id }}
                 className="group flex items-center gap-4 no-underline"
               >
-                <div className="w-12 h-12 rounded-full bg-dark text-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                <div className="w-12 h-12 icon-circle">
                   <LucideIcons.ArrowLeft size={20} />
                 </div>
                 <div className="hidden md:block">
                   <p
-                    className="text-subtle uppercase tracking-wider"
-                    style={{ fontSize: "11px" }}
+                    className="text-subtle uppercase tracking-wider text-label"
                   >
                     Précédent
                   </p>
                   <p
-                    className="text-dark font-heading"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: 500,
-                    }}
+                    className="text-dark font-heading text-xl font-medium"
                   >
                     {prevProject.title.replace(/\n/g, " ")}
                   </p>
@@ -246,8 +230,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
 
             <Link
               to="/projets"
-              className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold"
-              style={{ fontSize: "12px" }}
+              className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold text-overline"
             >
               Tous les Projets
             </Link>
@@ -260,22 +243,17 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
               >
                 <div className="hidden md:block text-right">
                   <p
-                    className="text-subtle uppercase tracking-wider"
-                    style={{ fontSize: "11px" }}
+                    className="text-subtle uppercase tracking-wider text-label"
                   >
                     Suivant
                   </p>
                   <p
-                    className="text-dark font-heading"
-                    style={{
-                      fontSize: "20px",
-                      fontWeight: 500,
-                    }}
+                    className="text-dark font-heading text-xl font-medium"
                   >
                     {nextProject.title.replace(/\n/g, " ")}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-dark text-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
+                <div className="w-12 h-12 icon-circle">
                   <LucideIcons.ArrowRight size={20} />
                 </div>
               </Link>
@@ -302,18 +280,12 @@ function MetaRow({
   return (
     <tr className="border-b border-border">
       <td
-        className="py-3.5 text-subtle pr-8"
-        style={{ fontSize: "12px", fontWeight: "600" }}
+        className="py-3.5 text-subtle pr-8 text-overline font-semibold"
       >
         {label}
       </td>
       <td
-        className="py-3.5 text-dark text-right"
-        style={{
-          fontSize: "14px",
-          textTransform: "none",
-          letterSpacing: "normal",
-        }}
+        className="py-3.5 text-dark text-right text-sm-body normal-case tracking-normal"
       >
         {value}
       </td>
@@ -363,8 +335,7 @@ function SectionBlock({
               {block.title}
             </h3>
             <p
-              className="text-body leading-relaxed font-light"
-              style={{ fontSize: "17px" }}
+              className="text-body leading-relaxed font-light text-prose"
             >
               {block.description}
             </p>
@@ -375,7 +346,7 @@ function SectionBlock({
       {/* Image Content */}
       <div className={`${isEven ? "md:order-2" : "md:order-1"}`}>
         {block.imageUrl && (
-          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-border/10 shadow-sm border border-border-mid">
+          <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-sm border border-border-mid">
             <img
               src={block.imageUrl}
               alt={block.title}

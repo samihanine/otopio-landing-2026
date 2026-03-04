@@ -61,8 +61,7 @@ export function ProjectsPage() {
         >
           <div className="w-8 h-[2px] bg-dark" />
           <span
-            className="text-dark uppercase tracking-widest"
-            style={{ fontSize: "12px", fontWeight: 500 }}
+            className="text-dark uppercase tracking-widest text-overline font-medium"
           >
             Studio Technologique & IA
           </span>
@@ -82,9 +81,8 @@ export function ProjectsPage() {
             <button
               key={tag.id}
               onClick={() => toggleTag(tag.id)}
-              className="px-4 py-2 rounded-full border transition-all duration-300 font-medium tracking-wide cursor-pointer flex items-center gap-2"
+              className="px-4 py-2 rounded-full border transition-all duration-300 font-medium tracking-wide cursor-pointer flex items-center gap-2 text-caption"
               style={{
-                fontSize: "13px",
                 borderColor: isSelected ? tag.hexColor : "var(--color-border-light)",
                 backgroundColor: isSelected ? tag.hexColor : "var(--color-border-dark)",
                 filter: isSelected ? "none" : "grayscale(100%)",
