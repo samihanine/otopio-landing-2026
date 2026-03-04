@@ -5,7 +5,7 @@ import PhoneBootSequence from "../phone/PhoneBootSequence";
 
 export function HeroSection() {
   return (
-    <section className=" px-6 md:px-16 pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
+    <section className="px-6 md:px-16 pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20 w-full">
         {/* Left Content - Hero Text */}
         <div className="text-left max-w-2xl flex-1">
@@ -17,20 +17,17 @@ export function HeroSection() {
             className="flex items-center gap-2 mb-8"
           >
             <div className="flex -space-x-2">
-              <div className="w-8 h-8 rounded-full bg-[#333] border-2 border-white overflow-hidden shadow-sm">
+              <div className="w-8 h-8 rounded-full bg-dark-light border-2 border-white overflow-hidden shadow-sm">
                 <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-[#555] border-2 border-white overflow-hidden shadow-sm">
+              <div className="w-8 h-8 rounded-full bg-mid-dark border-2 border-white overflow-hidden shadow-sm">
                 <div className="w-full h-full bg-gradient-to-br from-gray-500 to-gray-700" />
               </div>
-              <div className="w-8 h-8 rounded-full bg-[#777] border-2 border-white overflow-hidden shadow-sm">
+              <div className="w-8 h-8 rounded-full bg-mid border-2 border-white overflow-hidden shadow-sm">
                 <div className="w-full h-full bg-gradient-to-br from-gray-400 to-gray-600" />
               </div>
             </div>
-            <span
-              className="text-[#666]"
-              style={{ fontFamily: "'Poppins', sans-serif", fontSize: "14px" }}
-            >
+            <span className="text-muted font-body text-sm">
               Studio de produits technologiques.
             </span>
           </motion.div>
@@ -43,9 +40,8 @@ export function HeroSection() {
             className="mb-8"
           >
             <h1
-              className="text-[#0a0a0a]"
+              className="text-darkest font-heading"
               style={{
-                fontFamily: "'Clash Display', sans-serif",
                 fontSize: "clamp(32px, 4vw, 56px)",
                 fontWeight: 600,
                 lineHeight: 1.1,
@@ -55,13 +51,10 @@ export function HeroSection() {
               Produits
               <span className="inline-flex items-center align-middle mx-1 md:mx-2">
                 <span
-                  className="overflow-hidden inline-flex shadow-sm"
+                  className="overflow-hidden inline-flex shadow-sm rounded-full bg-primary relative"
                   style={{
                     width: "clamp(40px, 6vw, 70px)",
                     height: "clamp(28px, 4vw, 50px)",
-                    borderRadius: "9999px",
-                    background: "#ff5500",
-                    position: "relative",
                   }}
                 >
                   <img
@@ -77,17 +70,14 @@ export function HeroSection() {
                   />
                 </span>
               </span>
-              <span className="text-[#ff5500]">Technologiques</span>
+              <span className="text-primary">Technologiques</span>
               <br className="hidden md:block" /> et
               <span className="inline-flex items-center align-middle mx-1 md:mx-2 mt-2 md:mt-0">
                 <span
-                  className="overflow-hidden inline-flex shadow-sm"
+                  className="overflow-hidden inline-flex shadow-sm rounded-full bg-dark relative"
                   style={{
                     width: "clamp(40px, 6vw, 70px)",
                     height: "clamp(28px, 4vw, 50px)",
-                    borderRadius: "9999px",
-                    background: "#1a1a1a",
-                    position: "relative",
                   }}
                 >
                   <img
@@ -112,9 +102,8 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-[#666] max-w-lg mb-10"
+            className="text-muted max-w-lg mb-10 font-body"
             style={{
-              fontFamily: "'Poppins', sans-serif",
               fontSize: "15px",
               lineHeight: 1.7,
             }}
@@ -133,8 +122,8 @@ export function HeroSection() {
               boxShadow: "0 8px 30px rgba(0,0,0,0.12)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="bg-[#1a1a1a] text-white px-8 py-3.5 rounded-full flex items-center gap-2 hover:bg-[#333] transition-colors duration-300 cursor-pointer w-fit"
-            style={{ fontFamily: "'Poppins', sans-serif", fontSize: "15px" }}
+            className="bg-dark text-white px-8 py-3.5 rounded-full flex items-center gap-2 hover:bg-dark-light transition-colors duration-300 cursor-pointer w-fit font-body"
+            style={{ fontSize: "15px" }}
           >
             Découvrir notre offre
             <ArrowRight size={16} />
@@ -154,7 +143,7 @@ export function HeroSection() {
             </IPhoneMockup>
 
             {/* Added a subtle glow behind the phone */}
-            <div className="absolute -inset-20 bg-[#ff5500]/5 blur-[100px] rounded-full -z-10" />
+            <div className="absolute -inset-20 bg-primary/5 blur-[100px] rounded-full -z-10" />
           </div>
         </motion.div>
       </div>

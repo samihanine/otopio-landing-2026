@@ -22,12 +22,11 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
   if (!project) {
     return (
       <div
-        className="md:max-w-3/4 md:mx-auto min-h-screen flex flex-col items-center justify-center"
-        style={{ fontFamily: "'Poppins', sans-serif" }}
+        className="md:max-w-3/4 md:mx-auto min-h-screen flex flex-col items-center justify-center font-body"
       >
         <h1
+          className="font-heading"
           style={{
-            fontFamily: "'Clash Display', sans-serif",
             fontSize: "48px",
             fontWeight: 600,
           }}
@@ -36,7 +35,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         </h1>
         <Link
           to="/projets"
-          className="mt-6 text-[#ff5500] hover:underline no-underline"
+          className="mt-6 text-primary hover:underline no-underline"
           style={{ fontSize: "15px" }}
         >
           &larr; Retour aux Projets
@@ -56,10 +55,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
   return (
     <div className="w-full">
       <div
-        className="md:max-w-6xl md:mx-auto min-h-screen"
-        style={{
-          fontFamily: "'Poppins', sans-serif",
-        }}
+        className="md:max-w-6xl md:mx-auto min-h-screen font-body"
       >
         {/* Header */}
         <motion.header
@@ -70,7 +66,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         >
           <button
             onClick={() => navigate({ to: "/projets" })}
-            className="bg-[#1a1a1a] text-white px-6 py-2.5 rounded-full hover:bg-[#333] transition-colors duration-300 cursor-pointer flex items-center gap-2"
+            className="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-dark-light transition-colors duration-300 cursor-pointer flex items-center gap-2"
             style={{ fontSize: "14px" }}
           >
             <LucideIcons.ArrowLeft size={16} />
@@ -89,9 +85,8 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
               className="w-full"
             >
               <h1
-                className="text-[#1a1a1a] whitespace-pre-line mb-6"
+                className="text-dark whitespace-pre-line mb-6 font-heading"
                 style={{
-                  fontFamily: "'Clash Display', sans-serif",
                   fontSize: "clamp(56px, 5vw, 110px)",
                   fontWeight: 600,
                   lineHeight: 0.95,
@@ -101,7 +96,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                 {project.title}
               </h1>
               <p
-                className="text-[#666] text-lg"
+                className="text-muted text-lg"
                 style={{
                   lineHeight: 1.5,
                   fontWeight: 400,
@@ -148,7 +143,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="px-4 md:px-8"
         >
-          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-[#ddd]/10 shadow-lg">
+          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-border/10 shadow-lg">
             <img
               src={project.imageUrl}
               alt={project.title}
@@ -168,14 +163,14 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
             {project.tagIds?.map((tag: string) => (
               <span
                 key={tag}
-                className="px-4 py-1.5 rounded-full border border-[#ccc] text-[#666]"
+                className="px-4 py-1.5 rounded-full border border-border-dark text-muted"
                 style={{ fontSize: "13px" }}
               >
                 {tag}
               </span>
             ))}
             <span
-              className="px-4 py-1.5 rounded-full bg-[#1a1a1a] text-white/60"
+              className="px-4 py-1.5 rounded-full bg-dark text-white/60"
               style={{ fontSize: "13px" }}
             >
               {projectYear}
@@ -189,7 +184,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#ff5500] text-white px-6 py-3 rounded-full hover:bg-[#e64d00] transition-colors duration-300 no-underline shrink-0"
+                className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full hover:bg-primary-dark transition-colors duration-300 no-underline shrink-0"
                 style={{ fontSize: "14px", fontWeight: 500 }}
               >
                 Live Preview
@@ -202,7 +197,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         {project.description && (
           <div className="px-8 md:px-16 pb-16 w-full md:w-[80%]">
             <p
-              className="text-[#1a1a1a] whitespace-pre-line leading-relaxed"
+              className="text-dark whitespace-pre-line leading-relaxed"
               style={{ fontSize: "18px" }}
             >
               {project.description}
@@ -218,7 +213,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         </div>
 
         {/* ─── Project Navigation ─── */}
-        <div className="px-8 md:px-16 py-16 border-t border-[#ddd]">
+        <div className="px-8 md:px-16 py-16 border-t border-border">
           <div className="flex items-center justify-between max-w-6xl mx-auto">
             {prevProject && (
               <Link
@@ -226,20 +221,19 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                 params={{ projectId: prevProject.id }}
                 className="group flex items-center gap-4 no-underline"
               >
-                <div className="w-12 h-12 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center group-hover:bg-[#ff5500] transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-dark text-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <LucideIcons.ArrowLeft size={20} />
                 </div>
                 <div className="hidden md:block">
                   <p
-                    className="text-[#999] uppercase tracking-wider"
+                    className="text-subtle uppercase tracking-wider"
                     style={{ fontSize: "11px" }}
                   >
                     Précédent
                   </p>
                   <p
-                    className="text-[#1a1a1a]"
+                    className="text-dark font-heading"
                     style={{
-                      fontFamily: "'Clash Display', sans-serif",
                       fontSize: "20px",
                       fontWeight: 500,
                     }}
@@ -252,7 +246,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
 
             <Link
               to="/projets"
-              className="text-[#999] hover:text-[#ff5500] transition-colors no-underline uppercase tracking-wider font-semibold"
+              className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold"
               style={{ fontSize: "12px" }}
             >
               Tous les Projets
@@ -266,15 +260,14 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
               >
                 <div className="hidden md:block text-right">
                   <p
-                    className="text-[#999] uppercase tracking-wider"
+                    className="text-subtle uppercase tracking-wider"
                     style={{ fontSize: "11px" }}
                   >
                     Suivant
                   </p>
                   <p
-                    className="text-[#1a1a1a]"
+                    className="text-dark font-heading"
                     style={{
-                      fontFamily: "'Clash Display', sans-serif",
                       fontSize: "20px",
                       fontWeight: 500,
                     }}
@@ -282,7 +275,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
                     {nextProject.title.replace(/\n/g, " ")}
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-full bg-[#1a1a1a] text-white flex items-center justify-center group-hover:bg-[#ff5500] transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-dark text-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300">
                   <LucideIcons.ArrowRight size={20} />
                 </div>
               </Link>
@@ -307,15 +300,15 @@ function MetaRow({
 }) {
   if (!value) return null;
   return (
-    <tr className="border-b border-[#ddd]">
+    <tr className="border-b border-border">
       <td
-        className="py-3.5 text-[#999] pr-8"
+        className="py-3.5 text-subtle pr-8"
         style={{ fontSize: "12px", fontWeight: "600" }}
       >
         {label}
       </td>
       <td
-        className="py-3.5 text-[#1a1a1a] text-right"
+        className="py-3.5 text-dark text-right"
         style={{
           fontSize: "14px",
           textTransform: "none",
@@ -353,16 +346,15 @@ function SectionBlock({
         <div className="flex flex-col gap-6">
           {/* Tag-like icon container */}
           {Icon && (
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-[#eee]">
-              <Icon size={20} className="text-[#ff5500]" />
+            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-border-lighter">
+              <Icon size={20} className="text-primary" />
             </div>
           )}
 
           <div>
             <h3
-              className="text-[#1a1a1a] mb-4"
+              className="text-dark mb-4 font-heading"
               style={{
-                fontFamily: "'Clash Display', sans-serif",
                 fontSize: "clamp(24px, 3.5vw, 36px)",
                 fontWeight: 600,
                 lineHeight: 1.2,
@@ -371,7 +363,7 @@ function SectionBlock({
               {block.title}
             </h3>
             <p
-              className="text-[#444] leading-relaxed font-light"
+              className="text-body leading-relaxed font-light"
               style={{ fontSize: "17px" }}
             >
               {block.description}
@@ -383,7 +375,7 @@ function SectionBlock({
       {/* Image Content */}
       <div className={`${isEven ? "md:order-2" : "md:order-1"}`}>
         {block.imageUrl && (
-          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-[#ddd]/10 shadow-sm border border-[#e8e8e8]">
+          <div className="rounded-2xl overflow-hidden aspect-[3024/1652] bg-border/10 shadow-sm border border-border-mid">
             <img
               src={block.imageUrl}
               alt={block.title}

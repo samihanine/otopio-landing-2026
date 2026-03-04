@@ -31,7 +31,7 @@ export default function AboutSection() {
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-[#ff5500] rounded-full"
+            className="absolute w-1 h-1 bg-primary rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -64,15 +64,14 @@ export default function AboutSection() {
             </GradientTitle>
           </div>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#1a1a1a] leading-tight max-w-3xl"
-            style={{ fontFamily: "'Clash Display', sans-serif" }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight max-w-3xl font-heading"
           >
             Une Fusion de{" "}
             <motion.span
               initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-[#ff5500] italic font-medium block"
+              className="text-primary italic font-medium block"
             >
               Passion
             </motion.span>
@@ -93,15 +92,14 @@ export default function AboutSection() {
               initial={{ width: 0 }}
               whileInView={{ width: "3rem" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="h-0.5 bg-[#ff5500] mb-8"
+              className="h-0.5 bg-primary mb-8"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-[#1a1a1a] uppercase tracking-wider"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
             >
               L'Équipe Otopio
             </h2>
-            <p className="text-xl text-[#444] leading-relaxed font-light">
+            <p className="text-xl text-body leading-relaxed font-light">
               Chez Otopio, la technologie et la créativité ne font qu'un grâce à
               notre équipe dévouée de professionnels passionnés. Nous sommes
               dirigés par un CTO visionnaire, soutenus par une designeuse UI/UX
@@ -121,15 +119,14 @@ export default function AboutSection() {
               initial={{ width: 0 }}
               whileInView={{ width: "3rem" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="h-0.5 bg-[#ff5500] mb-8 ml-auto"
+              className="h-0.5 bg-primary mb-8 ml-auto"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-[#1a1a1a] uppercase tracking-wider"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
             >
               Excellence & Engagement
             </h2>
-            <p className="text-xl text-[#444] leading-relaxed font-light">
+            <p className="text-xl text-body leading-relaxed font-light">
               Nous plaçons la barre haut en termes de qualité et de performance.
               Notre objectif n'est pas seulement de répondre à vos attentes,
               mais de les surpasser. Nous sommes dédiés à bien faire les choses,
@@ -146,15 +143,14 @@ export default function AboutSection() {
               initial={{ width: 0 }}
               whileInView={{ width: "3rem" }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="h-0.5 bg-[#ff5500] mb-8"
+              className="h-0.5 bg-primary mb-8"
             />
             <h2
-              className="text-2xl font-bold mb-6 text-[#1a1a1a] uppercase tracking-wider"
-              style={{ fontFamily: "'Clash Display', sans-serif" }}
+              className="text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading"
             >
               Flexibilité & Adaptabilité
             </h2>
-            <p className="text-xl text-[#444] leading-relaxed font-light">
+            <p className="text-xl text-body leading-relaxed font-light">
               Otopio est synonyme de flexibilité et d'adaptabilité. Nous
               comprenons que chaque client est unique, avec des besoins et des
               budgets variés. Que vous soyez une start-up avec des ressources

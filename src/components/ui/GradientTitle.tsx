@@ -25,11 +25,10 @@ export function GradientTitle({
       }}
     >
       <span
+        className="font-heading text-dark-light"
         style={{
-          fontFamily: "'Clash Display', sans-serif",
           fontSize: "clamp(40px, 10vw, 180px)",
           fontWeight: 600,
-          color: "#333",
           lineHeight: 1,
         }}
       >

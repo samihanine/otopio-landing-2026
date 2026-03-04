@@ -52,7 +52,9 @@ export function CustomCursor() {
           style={{
             width: "56px",
             height: "56px",
-            backgroundColor: isMouseDown ? "#ff884d" : "#ff5500", // Lighter orange on click, darker orange default
+            backgroundColor: isMouseDown
+              ? "var(--color-primary-lighter)"
+              : "var(--color-primary)",
           }}
           initial={{
             opacity: 0,

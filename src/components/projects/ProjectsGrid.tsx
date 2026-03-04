@@ -17,20 +17,18 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
           <div className="px-2">
             <div className="flex items-baseline gap-3 mb-2">
               <span
-                className="text-[#999]"
+                className="text-subtle font-heading"
                 style={{
                   fontSize: "14px",
-                  fontFamily: "'Clash Display', sans-serif",
                 }}
               >
                 {String(idx + 1).padStart(2, "0")}.
               </span>
               <span
-                className="text-[#1a1a1a]"
+                className="text-dark font-heading"
                 style={{
                   fontSize: "24px",
                   fontWeight: 500,
-                  fontFamily: "'Clash Display', sans-serif",
                 }}
               >
                 {project.title}
@@ -38,7 +36,7 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
             </div>
             {project.summary && (
               <p
-                className="text-[#666] leading-relaxed"
+                className="text-muted leading-relaxed"
                 style={{ fontSize: "15px" }}
               >
                 {project.summary}

@@ -21,9 +21,8 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-[#ff5500] mb-6"
+          className="text-primary mb-6 font-heading"
           style={{
-            fontFamily: "'Clash Display', sans-serif",
             fontSize: "30px",
             fontStyle: "italic",
           }}
@@ -38,16 +37,16 @@ export function ServicesSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true }}
           style={{
-            fontFamily: "'Clash Display', sans-serif",
+            fontFamily: "var(--font-heading)",
             fontSize: "clamp(28px, 4vw, 48px)",
             fontWeight: 500,
             lineHeight: 1.3,
-            color: "#1a1a1a",
+            color: "var(--color-dark)",
           }}
         >
           Nous aidons les entreprises à concevoir des SaaS robustes et de l'IA
           sur mesure — avec clarté,{" "}
-          <span className="text-[#999]">vitesse, et fiabilité.</span>
+          <span className="text-subtle">vitesse, et fiabilité.</span>
         </motion.h2>
 
         {/* Service Tags */}
@@ -68,12 +67,12 @@ export function ServicesSection() {
                 viewport={{ once: true }}
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "#ff5500",
+                  backgroundColor: "var(--color-primary)",
                   rotate: index % 2 === 0 ? 0.8 : -0.8,
                 }}
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full cursor-pointer shadow-sm"
                 style={{
-                  backgroundColor: "#777",
+                  backgroundColor: "var(--color-mid)",
                   color: "#fff",
                   fontSize: "15px",
                 }}

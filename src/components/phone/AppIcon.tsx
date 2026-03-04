@@ -14,7 +14,7 @@ export default function AppIcon({
   name,
   iconName,
   imageUrl,
-  color = "#333",
+  color = "var(--color-dark-light)",
   onClick,
   showLabel = true,
 }: AppIconProps) {

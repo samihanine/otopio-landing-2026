@@ -28,7 +28,7 @@ export function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden bg-[#1a1a1a]"
+      className="relative overflow-hidden bg-dark"
       style={{ minHeight: "340px" }}
     >
       {/* Background gradient - Lightened Neon Effect */}
@@ -52,8 +52,8 @@ export function Footer() {
 
       {/* Top bar */}
       <div
-        className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-8 md:px-16 py-10 text-white/40"
-        style={{ fontSize: "13px", fontFamily: "'Poppins', sans-serif" }}
+        className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-8 md:px-16 py-10 text-white/40 font-body"
+        style={{ fontSize: "13px" }}
       >
         <div className="flex flex-col gap-4 order-2 sm:order-1 mt-6 sm:mt-0 items-center sm:items-start text-center sm:text-left">
           <p>&copy; {new Date().getFullYear()} Otopio. Tous droits réservés.</p>
@@ -61,18 +61,18 @@ export function Footer() {
           <div className="flex flex-col gap-2.5 opacity-60">
             <a
               href={email.url}
-              className="flex items-center gap-2.5 hover:text-[#ff5500] transition-colors group"
+              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-[#ff5500]/10">
+              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
                 <Mail size={12} />
               </div>
               <span>{email.value}</span>
             </a>
             <a
               href={phoneNumber.url}
-              className="flex items-center gap-2.5 hover:text-[#ff5500] transition-colors group"
+              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-[#ff5500]/10">
+              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
                 <Phone size={12} />
               </div>
               <span>{phoneNumber.value}</span>
@@ -81,9 +81,9 @@ export function Footer() {
               href={formattedAddress.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 hover:text-[#ff5500] transition-colors group"
+              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-[#ff5500]/10">
+              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
                 <MapPin size={12} />
               </div>
               <span className="max-w-[200px] sm:max-w-none">
@@ -100,7 +100,7 @@ export function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="text-[#ff5500] hover:text-[#ff7733] transition-colors cursor-pointer bg-transparent border-none uppercase tracking-widest font-semibold"
+            className="text-primary hover:text-primary-light transition-colors cursor-pointer bg-transparent border-none uppercase tracking-widest font-semibold"
             style={{ fontSize: "11px" }}
           >
             Retour en haut ↑
@@ -120,9 +120,8 @@ export function Footer() {
         }}
       >
         <span
-          className="w-full"
+          className="w-full font-heading"
           style={{
-            fontFamily: "'Clash Display', sans-serif",
             fontSize: "clamp(90px, 16vw, 300px)",
             fontWeight: 700,
             lineHeight: 0.8,

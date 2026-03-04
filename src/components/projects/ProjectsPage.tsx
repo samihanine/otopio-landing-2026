@@ -34,8 +34,7 @@ export function ProjectsPage() {
 
   return (
     <div
-      className="md:mx-auto min-h-screen pb-20"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      className="md:mx-auto min-h-screen pb-20 font-body"
     >
       <CustomCursor />
       {/* Hero Title */}
@@ -44,9 +43,8 @@ export function ProjectsPage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-[#1a1a1a]"
+          className="text-dark font-heading"
           style={{
-            fontFamily: "'Clash Display', sans-serif",
             fontSize: "clamp(60px, 12vw, 120px)",
             fontWeight: 700,
             lineHeight: 0.9,
@@ -61,9 +59,9 @@ export function ProjectsPage() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex items-center gap-3 mt-4"
         >
-          <div className="w-8 h-[2px] bg-[#1a1a1a]" />
+          <div className="w-8 h-[2px] bg-dark" />
           <span
-            className="text-[#1a1a1a] uppercase tracking-widest"
+            className="text-dark uppercase tracking-widest"
             style={{ fontSize: "12px", fontWeight: 500 }}
           >
             Studio Technologique & IA
@@ -87,10 +85,10 @@ export function ProjectsPage() {
               className="px-4 py-2 rounded-full border transition-all duration-300 font-medium tracking-wide cursor-pointer flex items-center gap-2"
               style={{
                 fontSize: "13px",
-                borderColor: isSelected ? tag.hexColor : "#e5e5e5",
-                backgroundColor: isSelected ? tag.hexColor : "#cacacaff",
+                borderColor: isSelected ? tag.hexColor : "var(--color-border-light)",
+                backgroundColor: isSelected ? tag.hexColor : "var(--color-border-dark)",
                 filter: isSelected ? "none" : "grayscale(100%)",
-                color: isSelected ? "#f3f3f3ff" : "#1a1a1a",
+                color: isSelected ? "#f3f3f3ff" : "var(--color-dark)",
                 boxShadow: isSelected
                   ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
                   : "none",

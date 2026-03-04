@@ -51,16 +51,16 @@ export function ContactSection() {
           className="max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
         >
           {/* Background */}
-          <div className="absolute inset-0 bg-[#1a1a1a]">
+          <div className="absolute inset-0 bg-dark">
             {/* Grid pattern */}
             <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-10">
               {Array.from({ length: 9 }).map((_, i) => (
-                <div key={i} className="rounded-2xl bg-[#333]" />
+                <div key={i} className="rounded-2xl bg-dark-light" />
               ))}
             </div>
 
             {/* Base gradient */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-[#ff5500]/05" />
+            <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-primary/5" />
 
             {/* Mouse-following radial gradient */}
             <motion.div
@@ -78,26 +78,24 @@ export function ContactSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-white mb-6"
+                className="text-white mb-6 font-heading"
                 style={{
-                  fontFamily: "'Clash Display', sans-serif",
                   fontSize: "clamp(36px, 5vw, 56px)",
                   fontWeight: 500,
                   lineHeight: 1.1,
                 }}
               >
                 Parlons de votre{" "}
-                <span className="text-[#ff5500] italic">projet.</span>
+                <span className="text-primary italic">projet.</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
                 viewport={{ once: true }}
-                className="text-white/50 leading-relaxed max-w-[320px]"
+                className="text-white/50 leading-relaxed max-w-[320px] font-body"
                 style={{
                   fontSize: "16px",
-                  fontFamily: "'Poppins', sans-serif",
                 }}
               >
                 Prêt à donner vie à vos idées ? Envoyez-nous un message et
@@ -128,7 +126,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#ff5500] transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300"
                   style={{ fontSize: "15px" }}
                 />
               </div>
@@ -147,7 +145,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#ff5500] transition-colors duration-300"
+                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300"
                   style={{ fontSize: "15px" }}
                 />
               </div>
@@ -166,7 +164,7 @@ export function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
                   }
-                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-[#ff5500] transition-colors duration-300 resize-none"
+                  className="w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300 resize-none"
                   style={{ fontSize: "15px" }}
                 />
               </div>
@@ -175,7 +173,7 @@ export function ContactSection() {
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.99 }}
                 type="submit"
-                className="w-full py-5 rounded-full bg-white text-[#1a1a1a] mt-4 cursor-pointer hover:bg-[#ff5500] hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider"
+                className="w-full py-5 rounded-full bg-white text-dark mt-4 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider"
                 style={{ fontSize: "13px" }}
               >
                 Envoyer le message

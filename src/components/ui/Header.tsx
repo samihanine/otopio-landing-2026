@@ -25,8 +25,7 @@ export function Header() {
         className="flex items-center justify-between px-8 md:px-16 py-6 md:max-w-3/4 md:mx-auto"
       >
         <div
-          className="text-[#ff5500] font-semibold text-[28px] border-none"
-          style={{ fontFamily: "'Clash Display', sans-serif" }}
+          className="text-primary font-semibold text-[28px] border-none font-heading"
         >
           <Link to="/">Otopio.</Link>
         </div>
@@ -38,7 +37,7 @@ export function Header() {
               <Link
                 key={item.name}
                 to={item.path}
-                className="text-[#333] hover:text-[#ff5500] transition-colors duration-300 font-medium [&.active]:text-[#ff5500]"
+                className="text-dark-light hover:text-primary transition-colors duration-300 font-medium [&.active]:text-primary"
               >
                 {item.name}
               </Link>
@@ -51,7 +50,7 @@ export function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#1a1a1a] text-white px-6 py-2.5 rounded-full hover:bg-[#333] transition-colors duration-300 text-[14px] cursor-pointer"
+              className="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-dark-light transition-colors duration-300 text-[14px] cursor-pointer"
             >
               Contact
             </motion.button>
@@ -60,7 +59,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-[#333]"
+          className="md:hidden text-dark-light"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
@@ -90,7 +89,7 @@ export function Header() {
               className="relative ml-auto w-[80%] max-w-sm h-full shadow-xl flex flex-col p-6 font-medium"
             >
               <button
-                className="self-end mb-8 text-[#333]"
+                className="self-end mb-8 text-dark-light"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X size={28} />
@@ -102,7 +101,7 @@ export function Header() {
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-[#333] hover:text-[#ff5500] transition-colors [&.active]:text-[#ff5500]"
+                    className="text-dark-light hover:text-primary transition-colors [&.active]:text-primary"
                   >
                     {item.name}
                   </Link>
@@ -110,7 +109,7 @@ export function Header() {
                 <Link
                   to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 bg-[#1a1a1a] text-white px-6 py-3 rounded-full hover:bg-[#333] transition-colors duration-300 text-[16px] text-center"
+                  className="mt-4 bg-dark text-white px-6 py-3 rounded-full hover:bg-dark-light transition-colors duration-300 text-[16px] text-center"
                 >
                   Contact
                 </Link>

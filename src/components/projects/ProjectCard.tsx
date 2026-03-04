@@ -26,7 +26,7 @@ export function ProjectCard({
         className="block group no-underline project-card-interactive"
       >
         <div
-          className={`relative ${aspectRatio} rounded-[2rem] overflow-hidden bg-[#ddd]/10 transition-transform duration-500 shadow-xl`}
+          className={`relative ${aspectRatio} rounded-[2rem] overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
           style={{ transform: "scale(1)", transformOrigin: "center" }}
         >
           <img
@@ -46,7 +46,7 @@ export function ProjectCard({
               return (
                 <span
                   key={tagId}
-                  className="px-3 py-1 rounded-full shadow-sm tracking-wide transition-colors duration-300 group-hover:!bg-[#ff5500]"
+                  className="px-3 py-1 rounded-full shadow-sm tracking-wide transition-colors duration-300 group-hover:!bg-primary"
                   style={{
                     fontSize: "11px",
                     fontWeight: 600,

@@ -11,7 +11,7 @@ export default function OtipioLogo() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <span className="otopio-logo-name">Otop</span>
-        <span className="otopio-logo-os text-[#FF5501]!">iOS</span>
+        <span className="otopio-logo-os text-primary!">iOS</span>
       </motion.div>
     </div>
   );

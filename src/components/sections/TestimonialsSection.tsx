@@ -73,9 +73,8 @@ export function TestimonialsSection() {
                   viewport={{ once: true }}
                 >
                   <p
-                    className="text-white"
+                    className="text-white font-heading"
                     style={{
-                      fontFamily: "'Clash Display', sans-serif",
                       fontSize: "42px",
                       fontWeight: 400,
                       lineHeight: 1,
@@ -127,7 +126,7 @@ export function TestimonialsSection() {
 
             <div className="relative z-10 p-8 flex flex-col justify-between h-full">
               {/* Counter */}
-              <div className="text-[#ff5500]" style={{ fontSize: "13px" }}>
+              <div className="text-primary" style={{ fontSize: "13px" }}>
                 {String(current + 1).padStart(2, "0")} /{" "}
                 {String(testimonials.length).padStart(2, "0")}
               </div>
@@ -149,15 +148,14 @@ export function TestimonialsSection() {
                     className="absolute inset-x-0 bottom-0"
                   >
                     <p
-                      className="text-[#ff5500] mb-2 uppercase tracking-widest"
+                      className="text-primary mb-2 uppercase tracking-widest"
                       style={{ fontSize: "12px", fontWeight: 600 }}
                     >
                       {testimonials[current].quoteTitle}
                     </p>
                     <p
-                      className="text-white mb-6"
+                      className="text-white mb-6 font-heading"
                       style={{
-                        fontFamily: "'Clash Display', sans-serif",
                         fontSize: "clamp(18px, 2.5vw, 26px)",
                         fontWeight: 400,
                         lineHeight: 1.4,
