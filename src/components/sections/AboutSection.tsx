@@ -25,7 +25,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="relative min-h-screen py-24 px-8 md:px-16 bg-[#F0F0F0] overflow-hidden">
+    <section className="relative min-h-screen py-24 px-8 md:px-16 overflow-hidden">
       {/* Subtle Background Particles */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         {[...Array(6)].map((_, i) => (

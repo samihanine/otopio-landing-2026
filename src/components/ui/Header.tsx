@@ -87,7 +87,7 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="relative ml-auto w-[80%] max-w-sm h-full shadow-xl flex flex-col p-6 font-medium bg-[#F0F0F0]"
+              className="relative ml-auto w-[80%] max-w-sm h-full shadow-xl flex flex-col p-6 font-medium"
             >
               <button
                 className="self-end mb-8 text-[#333]"

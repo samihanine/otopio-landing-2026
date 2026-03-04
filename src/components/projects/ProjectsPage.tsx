@@ -34,7 +34,7 @@ export function ProjectsPage() {
 
   return (
     <div
-      className="md:mx-auto min-h-screen pb-20 bg-[#F0F0F0]"
+      className="md:mx-auto min-h-screen pb-20"
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <CustomCursor />

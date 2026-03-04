@@ -13,7 +13,6 @@ export function ServicesSection() {
   return (
     <section
       className="py-20 md:py-32 px-4"
-      style={{ backgroundColor: "#F0F0F0" }}
     >
       <div className="max-w-4xl mx-auto text-center">
         {/* Hello label */}

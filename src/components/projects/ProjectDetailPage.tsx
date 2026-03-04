@@ -22,7 +22,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
   if (!project) {
     return (
       <div
-        className="md:max-w-3/4 md:mx-auto min-h-screen flex flex-col items-center justify-center bg-[#f0f0f0]"
+        className="md:max-w-3/4 md:mx-auto min-h-screen flex flex-col items-center justify-center"
         style={{ fontFamily: "'Poppins', sans-serif" }}
       >
         <h1
@@ -54,12 +54,11 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
   const projectYear = project.startedAt ? dateObj.getFullYear() : "2024";
 
   return (
-    <div className="w-full bg-[#f0f0f0]">
+    <div className="w-full">
       <div
         className="md:max-w-6xl md:mx-auto min-h-screen"
         style={{
           fontFamily: "'Poppins', sans-serif",
-          backgroundColor: "#f0f0f0",
         }}
       >
         {/* Header */}

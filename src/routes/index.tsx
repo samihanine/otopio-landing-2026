@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="bg-[#F0F0F0] min-h-screen">
+    <div className="min-h-screen">
       <HeroSection />
       <AnimatedBanner />
       <RecentWorksSection />

@@ -12,7 +12,7 @@ export function RecentWorksSection() {
     )
     .slice(0, 4);
   return (
-    <section className="py-20 md:py-32 px-4 bg-[#E8E8E8] relative overflow-hidden">
+    <section className="py-20 md:py-32 px-4  relative overflow-hidden">
       <CustomCursor />
       <div className="md:max-w-3/4 md:mx-auto mx-auto">
         <div className="md:-mb-5 lg:-mb-8 mb-12">

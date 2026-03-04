@@ -5,7 +5,7 @@ import PhoneBootSequence from "../phone/PhoneBootSequence";
 
 export function HeroSection() {
   return (
-    <section className="bg-[#E8E8E8] px-6 md:px-16 pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
+    <section className=" px-6 md:px-16 pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-20 w-full">
         {/* Left Content - Hero Text */}
         <div className="text-left max-w-2xl flex-1">

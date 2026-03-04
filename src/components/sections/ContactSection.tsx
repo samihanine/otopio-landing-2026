@@ -33,7 +33,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-8 bg-[#E8E8E8]">
+    <section className="py-16 md:py-24 px-4 md:px-8 ">
       <div className="relative">
         {/* Title Section */}
         <div className="md:-mb-5 lg:-mb-8 mb-12">
