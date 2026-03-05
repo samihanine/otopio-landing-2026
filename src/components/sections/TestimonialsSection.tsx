@@ -34,10 +34,7 @@ export function TestimonialsSection() {
   };
 
   return (
-    <Section
-      className="py-16 md:py-24 md:px-8 w-full"
-      containerClassName="relative"
-    >
+    <Section className="py-16 md:py-24 w-full" containerClassName="relative">
       {/* Title Section */}
       <div className="md:-mb-5 lg:-mb-8 mb-12">
         <GradientTitle>Témoignages</GradientTitle>

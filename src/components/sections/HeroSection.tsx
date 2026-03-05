@@ -7,7 +7,7 @@ import { Section } from "./Section";
 export function HeroSection() {
   return (
     <Section
-      className="px-6 md:px-16 pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden"
+      className="pt-8 pb-16 md:pt-12 md:pb-24 min-h-[calc(100vh-100px)] flex items-center overflow-hidden"
       containerClassName="flex flex-col md:flex-row items-center gap-12 md:gap-20 w-full"
     >
       {/* Left Content - Hero Text */}

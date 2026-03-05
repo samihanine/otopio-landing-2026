@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import { GradientTitle } from "../ui/GradientTitle";
 import { Section } from "./Section";
 
-export default function AboutSection() {
+export function AboutSection() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -26,7 +25,7 @@ export default function AboutSection() {
   };
 
   return (
-    <Section className="relative min-h-screen py-24 px-8 md:px-16 overflow-hidden">
+    <Section className="relative min-h-screen py-24 overflow-hidden">
       {/* Subtle Background Particles */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         {[...Array(6)].map((_, i) => (
@@ -52,32 +51,6 @@ export default function AboutSection() {
       </div>
 
       <div className="relative z-10 pt-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] as any }}
-          className="mb-32"
-        >
-          <div className="mb-4">
-            <GradientTitle className="opacity-10 mb-[-60px] md:mb-[-100px]">
-              Otopio
-            </GradientTitle>
-          </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight max-w-3xl font-heading">
-            Une Fusion de{" "}
-            <motion.span
-              initial={{ x: -10, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="text-primary italic font-medium block"
-            >
-              Passion
-            </motion.span>
-            et d'innovation
-          </h1>
-        </motion.div>
-
         <motion.div
           variants={containerVariants}
           initial="hidden"

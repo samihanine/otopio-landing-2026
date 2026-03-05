@@ -51,9 +51,7 @@ export function Footer() {
       />
 
       {/* Top bar */}
-      <div
-        className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-8 md:px-16 py-10 text-white/40 font-body text-caption"
-      >
+      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-8 md:px-16 py-10 text-white/40 font-body text-caption">
         <div className="flex flex-col gap-4 order-2 sm:order-1 mt-6 sm:mt-0 items-center sm:items-start text-center sm:text-left">
           <p>&copy; {new Date().getFullYear()} Otopio. Tous droits réservés.</p>
 

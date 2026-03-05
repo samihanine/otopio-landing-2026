@@ -22,26 +22,23 @@ export function Header() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="flex items-center justify-between px-8 md:px-16 py-6 md:max-w-3/4 md:mx-auto"
+        className="flex items-center justify-between py-6 md:max-w-3/4 md:mx-auto"
       >
-        <div
-          className="text-primary font-semibold text-[28px] border-none font-heading"
-        >
+        <div className="text-primary font-semibold text-[28px] border-none font-heading">
           <Link to="/">Otopio.</Link>
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8 text-base-body">
-          {navLinks
-            .map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className="text-dark-light hover:text-primary transition-colors duration-300 font-medium [&.active]:text-primary"
-              >
-                {item.name}
-              </Link>
-            ))}
+          {navLinks.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className="text-dark-light hover:text-primary transition-colors duration-300 font-medium [&.active]:text-primary"
+            >
+              {item.name}
+            </Link>
+          ))}
         </nav>
 
         {/* Desktop Action */}
