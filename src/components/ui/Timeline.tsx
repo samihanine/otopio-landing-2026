@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { timelineEvents } from "../../types/timeline";
 import { Section } from "../sections/Section";
+import { SectionLabel } from "./SectionLabel";
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,18 +31,7 @@ export function Timeline() {
     // <section className="py-20 md:py-28 px-8 md:px-16 overflow-hidden">
     <Section>
       {/* Section label */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="flex items-center gap-2 mb-6"
-      >
-        <div className="w-2 h-2 rounded-full bg-primary" />
-        <span className="text-dark uppercase tracking-widest text-overline font-medium">
-          Notre Parcours
-        </span>
-      </motion.div>
+      <SectionLabel text="Notre Parcours" className="mb-6" />
 
       {/* Decorative background title */}
       <div

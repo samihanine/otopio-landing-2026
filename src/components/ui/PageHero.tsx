@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Section } from "../sections/Section";
+import { SectionLabel } from "./SectionLabel";
 
 interface PageHeroProps {
   title: string;
@@ -18,17 +19,11 @@ export function PageHero({
     <Section className={`sm:py-12 md:py-12 lg:py-12 ${className}`}>
       <div className="flex flex-col gap-16 text-left">
         {label && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-2 h-2 rounded-full bg-primary" />
-            <span className="text-dark uppercase tracking-widest text-overline font-medium">
-              {label}
-            </span>
-          </motion.div>
+          <SectionLabel
+            text={label}
+            animateOnScroll={false}
+            className="gap-3"
+          />
         )}
 
         <motion.h1

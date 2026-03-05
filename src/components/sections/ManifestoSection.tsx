@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Section } from "./Section";
+import { SectionLabel } from "../ui/SectionLabel";
 import { defaultManifesto } from "../../types/manifesto";
 import type { ManifestoData } from "../../types/manifesto";
 
@@ -29,24 +30,13 @@ export function ManifestoSection({
   return (
     <Section className="relative py-20 md:py-28 overflow-hidden bg-dark">
       {/* Section label */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="flex items-center gap-2 mb-10"
-      >
-        <div className="w-2 h-2 rounded-full bg-primary" />
-        <span className="text-white/40 uppercase tracking-widest text-label font-medium">
-          {data.label}
-        </span>
-      </motion.div>
+      <SectionLabel text={data.label} variant="light" className="mb-10" />
 
       {/* Decorative background title */}
       <div
-        className="pointer-events-none select-none font-heading text-dark-light"
+        className="pointer-events-none select-none font-heading text-light"
         style={{
-          fontSize: "clamp(40px, 8vw, 100px)",
+          fontSize: "clamp(40px, 8vw, 60px)",
           fontWeight: 600,
           lineHeight: 1,
           letterSpacing: "-0.03em",
@@ -63,7 +53,7 @@ export function ManifestoSection({
           ref={containerRef}
           className="flex flex-wrap items-center gap-x-[0.3em] gap-y-[0.1em] font-heading"
           style={{
-            fontSize: "clamp(22px, 3.5vw, 38px)",
+            fontSize: "clamp(20px, 3vw, 30px)",
             fontWeight: 500,
             lineHeight: 1.3,
           }}
@@ -147,14 +137,14 @@ export function ManifestoSection({
                       ry="34"
                       fill="none"
                       stroke="var(--color-primary)"
-                      strokeWidth="2.5"
+                      strokeWidth="2"
                       strokeLinecap="round"
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{
                         pathLength: isRevealed ? 1 : 0,
                         opacity: isRevealed ? 0.7 : 0,
                       }}
-                      transition={{ duration: 0.7, ease: "easeOut" }}
+                      transition={{ duration: 0.8, ease: "easeOut" }}
                     />
                   </svg>
                 </motion.span>

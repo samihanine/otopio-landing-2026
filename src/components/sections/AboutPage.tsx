@@ -2,6 +2,7 @@ import { PageHero } from "../ui/PageHero";
 import { StatsSection } from "../ui/StatsSection";
 import { Timeline } from "../ui/Timeline";
 import { ManifestoSection } from "./ManifestoSection";
+import { VennSection } from "./VennSection";
 
 export default function AboutPage() {
   return (
@@ -14,6 +15,7 @@ export default function AboutPage() {
       <StatsSection />
       <ManifestoSection />
       <Timeline />
+      <VennSection />
     </>
   );
 }
