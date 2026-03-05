@@ -4,6 +4,7 @@ import { projects } from "../../types/projects";
 import { tags as allTags } from "../../types/tags";
 import { CustomCursor } from "../ui/CustomCursor";
 import { ProjectsGrid } from "./ProjectsGrid";
+import { Section } from "../sections/Section";
 
 export function ProjectsPage() {
   // Compute which tags are actually used by projects
@@ -33,12 +34,14 @@ export function ProjectsPage() {
   }, [selectedTags]);
 
   return (
-    <div
-      className="md:mx-auto min-h-screen pb-20 font-body"
+    <Section
+      as="div"
+      className="min-h-screen pb-20 font-body"
+      containerClassName=""
     >
       <CustomCursor />
       {/* Hero Title */}
-      <div className="md:max-w-3/4 md:mx-auto px-8 md:px-16 pt-16 pb-12 overflow-hidden">
+      <div className="px-8 md:px-16 pt-16 pb-12 overflow-hidden">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -60,9 +63,7 @@ export function ProjectsPage() {
           className="flex items-center gap-3 mt-4"
         >
           <div className="w-8 h-[2px] bg-dark" />
-          <span
-            className="text-dark uppercase tracking-widest text-overline font-medium"
-          >
+          <span className="text-dark uppercase tracking-widest text-overline font-medium">
             Studio Technologique & IA
           </span>
         </motion.div>
@@ -73,7 +74,7 @@ export function ProjectsPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
-        className="px-4 md:px-8 md:max-w-3/4 mx-auto pb-12 flex flex-wrap gap-3"
+        className="px-4 md:px-8 pb-12 flex flex-wrap gap-3"
       >
         {filterTags.map((tag) => {
           const isSelected = selectedTags.includes(tag.id);
@@ -83,8 +84,12 @@ export function ProjectsPage() {
               onClick={() => toggleTag(tag.id)}
               className="px-4 py-2 rounded-full border transition-all duration-300 font-medium tracking-wide cursor-pointer flex items-center gap-2 text-caption"
               style={{
-                borderColor: isSelected ? tag.hexColor : "var(--color-border-light)",
-                backgroundColor: isSelected ? tag.hexColor : "var(--color-border-dark)",
+                borderColor: isSelected
+                  ? tag.hexColor
+                  : "var(--color-border-light)",
+                backgroundColor: isSelected
+                  ? tag.hexColor
+                  : "var(--color-border-dark)",
                 filter: isSelected ? "none" : "grayscale(100%)",
                 color: isSelected ? "#f3f3f3ff" : "var(--color-dark)",
                 boxShadow: isSelected
@@ -99,9 +104,9 @@ export function ProjectsPage() {
       </motion.div>
 
       {/* Simple Grid */}
-      <div className="px-4 md:px-8 md:max-w-3/4 mx-auto pb-24 min-h-[50vh]">
+      <div className="px-4 md:px-8 pb-24 min-h-[50vh]">
         <ProjectsGrid projects={filteredProjects} />
       </div>
-    </div>
+    </Section>
   );
 }

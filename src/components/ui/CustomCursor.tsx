@@ -14,7 +14,7 @@ export function CustomCursor() {
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (target.closest(".project-card-interactive")) {
+      if (target.closest(".project-card-custom-cursor")) {
         // Initials mouse position properly before making it show up
         setMousePosition({ x: e.clientX, y: e.clientY });
         setIsHovering(true);
@@ -48,7 +48,7 @@ export function CustomCursor() {
     <AnimatePresence>
       {isHovering && (
         <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-50 flex items-center justify-center rounded-full text-white shadow-md backdrop-blur-md opacity-25"
+          className="fixed top-0 left-0 pointer-events-none z-50 flex items-center justify-center rounded-full text-white shadow-md backdrop-blur-md opacity-50"
           style={{
             width: "56px",
             height: "56px",
@@ -65,7 +65,7 @@ export function CustomCursor() {
           animate={{
             x: mousePosition.x - 28,
             y: mousePosition.y - 28,
-            opacity: 0.75,
+            opacity: 0.85,
             scale: 1,
           }}
           exit={{

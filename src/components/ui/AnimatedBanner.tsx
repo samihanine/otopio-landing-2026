@@ -26,7 +26,7 @@ export function AnimatedBanner() {
         transition={{
           repeat: Infinity,
           repeatType: "loop",
-          duration: 30, // Adjust this to make it faster/slower
+          duration: 25, // Adjust this to make it faster/slower
           ease: "linear",
         }}
       >
@@ -38,9 +38,7 @@ export function AnimatedBanner() {
                 key={`${arrayIndex}-${index}`}
                 className="flex items-center px-8 md:px-12 text-subtle hover:text-white transition-colors duration-300"
               >
-                <span
-                  className="text-xl md:text-2xl font-medium tracking-wider font-heading"
-                >
+                <span className="text-xl md:text-2xl font-medium tracking-wider font-heading">
                   {item}
                 </span>
 

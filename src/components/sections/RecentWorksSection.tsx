@@ -2,6 +2,7 @@ import { projects } from "../../types/projects";
 import { GradientTitle } from "../ui/GradientTitle";
 import { ProjectsGrid } from "../projects/ProjectsGrid";
 import { CustomCursor } from "../ui/CustomCursor";
+import { Section } from "./Section";
 
 export function RecentWorksSection() {
   // Sort by latest dates first, and take only the first 4
@@ -12,15 +13,13 @@ export function RecentWorksSection() {
     )
     .slice(0, 4);
   return (
-    <section className="py-20 md:py-32 px-4  relative overflow-hidden">
+    <Section className="relative overflow-hidden">
       <CustomCursor />
-      <div className="md:max-w-3/4 md:mx-auto mx-auto">
-        <div className="md:-mb-5 lg:-mb-8 mb-12">
-          <GradientTitle>Réalisations</GradientTitle>
-        </div>
-
-        <ProjectsGrid projects={latestProjects} />
+      <div className="md:-mb-5 lg:-mb-8 mb-12">
+        <GradientTitle>Réalisations</GradientTitle>
       </div>
-    </section>
+
+      <ProjectsGrid projects={latestProjects} />
+    </Section>
   );
 }

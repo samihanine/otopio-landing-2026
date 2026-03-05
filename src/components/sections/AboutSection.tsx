@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { GradientTitle } from "../ui/GradientTitle";
+import { Section } from "./Section";
 
 export default function AboutSection() {
   const containerVariants = {
@@ -25,7 +26,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section className="relative min-h-screen py-24 px-8 md:px-16 overflow-hidden">
+    <Section className="relative min-h-screen py-24 px-8 md:px-16 overflow-hidden">
       {/* Subtle Background Particles */}
       <div className="absolute inset-0 pointer-events-none opacity-30">
         {[...Array(6)].map((_, i) => (
@@ -50,7 +51,7 @@ export default function AboutSection() {
         ))}
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto pt-12">
+      <div className="relative z-10 pt-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,9 +64,7 @@ export default function AboutSection() {
               Otopio
             </GradientTitle>
           </div>
-          <h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight max-w-3xl font-heading"
-          >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-dark leading-tight max-w-3xl font-heading">
             Une Fusion de{" "}
             <motion.span
               initial={{ x: -10, opacity: 0 }}
@@ -94,10 +93,7 @@ export default function AboutSection() {
               transition={{ duration: 1, delay: 0.2 }}
               className="h-0.5 bg-primary mb-8"
             />
-            <h2
-              className="section-heading"
-            >
-            </h2>
+            <h2 className="section-heading"></h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Chez Otopio, la technologie et la créativité ne font qu'un grâce à
               notre équipe dévouée de professionnels passionnés. Nous sommes
@@ -120,10 +116,7 @@ export default function AboutSection() {
               transition={{ duration: 1, delay: 0.2 }}
               className="h-0.5 bg-primary mb-8 ml-auto"
             />
-            <h2
-              className="section-heading"
-            >
-            </h2>
+            <h2 className="section-heading"></h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Nous plaçons la barre haut en termes de qualité et de performance.
               Notre objectif n'est pas seulement de répondre à vos attentes,
@@ -143,10 +136,7 @@ export default function AboutSection() {
               transition={{ duration: 1, delay: 0.2 }}
               className="h-0.5 bg-primary mb-8"
             />
-            <h2
-              className="section-heading"
-            >
-            </h2>
+            <h2 className="section-heading"></h2>
             <p className="text-xl text-body leading-relaxed font-light">
               Otopio est synonyme de flexibilité et d'adaptabilité. Nous
               comprenons que chaque client est unique, avec des besoins et des
@@ -161,6 +151,6 @@ export default function AboutSection() {
           </motion.div>
         </motion.div>
       </div>
-    </section>
+    </Section>
   );
 }

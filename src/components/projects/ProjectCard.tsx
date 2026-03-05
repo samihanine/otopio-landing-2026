@@ -18,15 +18,15 @@ export function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: (index % 2) * 0.1 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="shadow-[0_10px_40px_rgba(0,0,0,0.2)] rounded-card"
+      className="rounded-2xl"
     >
       <Link
         to="/projets/$projectId"
         params={{ projectId: project.id }}
-        className="block group no-underline project-card-interactive"
+        className="block group no-underline project-card-custom-cursor"
       >
         <div
-          className={`relative ${aspectRatio} rounded-card overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
+          className={`relative ${aspectRatio} rounded-2xl overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
           style={{ transform: "scale(1)", transformOrigin: "center" }}
         >
           <img
@@ -35,7 +35,7 @@ export function ProjectCard({
             className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
           />
           {/* Subtle dark overlay on hover to make image slightly darker without the button */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-500 pointer-events-none" />
 
           {/* Tags */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2 pointer-events-none z-10">

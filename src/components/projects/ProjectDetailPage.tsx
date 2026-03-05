@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { projects, type ProjectSection } from "../../types/projects";
+import { Section } from "../sections/Section";
 
 /* ═══════════════════════════════════════════
    Main Component
@@ -21,8 +22,9 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
 
   if (!project) {
     return (
-      <div
-        className="md:max-w-3/4 md:mx-auto min-h-screen flex flex-col items-center justify-center font-body"
+      <Section
+        as="div"
+        className="min-h-screen flex flex-col items-center justify-center font-body"
       >
         <h1
           className="font-heading"
@@ -39,7 +41,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         >
           &larr; Retour aux Projets
         </Link>
-      </div>
+      </Section>
     );
   }
 
@@ -52,216 +54,200 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
   const projectYear = project.startedAt ? dateObj.getFullYear() : "2024";
 
   return (
-    <div className="w-full">
-      <div
-        className="md:max-w-6xl md:mx-auto min-h-screen font-body"
+    <Section
+      as="div"
+      className="w-full"
+      containerClassName="min-h-screen font-body"
+    >
+      {/* Header */}
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center w-full justify-end px-8 md:px-16 py-6"
       >
-        {/* Header */}
-        <motion.header
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center w-full justify-end px-8 md:px-16 py-6"
+        <button
+          onClick={() => navigate({ to: "/projets" })}
+          className="btn-dark px-6 py-2.5 flex items-center gap-2 text-sm-body"
         >
-          <button
-            onClick={() => navigate({ to: "/projets" })}
-            className="btn-dark px-6 py-2.5 flex items-center gap-2 text-sm-body"
+          <LucideIcons.ArrowLeft size={16} />
+          Tous les Projets
+        </button>
+      </motion.header>
+
+      {/* ─── Hero: Title + Metadata Table ─── */}
+      <div className="px-8 md:px-16 pt-8 pb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
+          {/* Title (left) */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full"
           >
-            <LucideIcons.ArrowLeft size={16} />
-            Tous les Projets
-          </button>
-        </motion.header>
-
-        {/* ─── Hero: Title + Metadata Table ─── */}
-        <div className="px-8 md:px-16 pt-8 pb-14">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10">
-            {/* Title (left) */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="w-full"
+            <h1
+              className="text-dark whitespace-pre-line mb-6 font-heading"
+              style={{
+                fontSize: "clamp(56px, 5vw, 110px)",
+                fontWeight: 600,
+                lineHeight: 0.95,
+                letterSpacing: "-0.03em",
+              }}
             >
-              <h1
-                className="text-dark whitespace-pre-line mb-6 font-heading"
-                style={{
-                  fontSize: "clamp(56px, 5vw, 110px)",
-                  fontWeight: 600,
-                  lineHeight: 0.95,
-                  letterSpacing: "-0.03em",
-                }}
-              >
-                {project.title}
-              </h1>
-              <p
-                className="text-muted text-lg"
-                style={{
-                  lineHeight: 1.5,
-                  fontWeight: 400,
-                }}
-              >
-                {project.summary}
-              </p>
-            </motion.div>
-
-            {/* General Info (right) */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="shrink-0 w-full md:w-auto md:min-w-[360px]"
-            >
-              <table
-                className="w-full text-sm-body uppercase tracking-wide"
-              >
-                <tbody>
-                  <MetaRow
-                    label="Début"
-                    value={project.startedAt?.split("T")[0]}
-                  />
-                  <MetaRow
-                    label="Fin"
-                    value={project.endedAt?.split("T")[0] || "En cours"}
-                  />
-                </tbody>
-              </table>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* ─── Cover Image ─── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="px-4 md:px-8"
-        >
-          <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-lg">
-            <img
-              src={project.imageUrl}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
-
-        {/* ─── Tags + Live Preview button ─── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="px-8 md:px-16 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
-        >
-          <div className="flex flex-wrap gap-2">
-            {project.tagIds?.map((tag: string) => (
-              <span
-                key={tag}
-                className="px-4 py-1.5 rounded-full border border-border-dark text-muted text-caption"
-              >
-                {tag}
-              </span>
-            ))}
-            <span
-              className="px-4 py-1.5 rounded-full bg-dark text-white/60 text-caption"
-            >
-              {projectYear}
-            </span>
-          </div>
-
-          {project.url &&
-            project.url !== "#" &&
-            !project.url.startsWith("#") && (
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 btn-primary px-6 py-3 no-underline shrink-0 text-sm-body font-medium"
-              >
-                Live Preview
-                <LucideIcons.ExternalLink size={16} />
-              </a>
-            )}
-        </motion.div>
-
-        {/* ─── Project Main Description ─── */}
-        {project.description && (
-          <div className="px-8 md:px-16 pb-16 w-full md:w-[80%]">
+              {project.title}
+            </h1>
             <p
-              className="text-dark whitespace-pre-line leading-relaxed text-lg-body"
+              className="text-muted text-lg"
+              style={{
+                lineHeight: 1.5,
+                fontWeight: 400,
+              }}
             >
-              {project.description}
+              {project.summary}
             </p>
-          </div>
-        )}
+          </motion.div>
 
-        {/* ─── Modular Content Sections ─── */}
-        <div className="px-8 md:px-16 pb-16 space-y-32">
-          {project.sections.map((section, index) => (
-            <SectionBlock key={index} block={section} index={index} />
-          ))}
-        </div>
-
-        {/* ─── Project Navigation ─── */}
-        <div className="px-8 md:px-16 py-16 border-t border-border">
-          <div className="flex items-center justify-between max-w-6xl mx-auto">
-            {prevProject && (
-              <Link
-                to="/projets/$projectId"
-                params={{ projectId: prevProject.id }}
-                className="group flex items-center gap-4 no-underline"
-              >
-                <div className="w-12 h-12 icon-circle">
-                  <LucideIcons.ArrowLeft size={20} />
-                </div>
-                <div className="hidden md:block">
-                  <p
-                    className="text-subtle uppercase tracking-wider text-label"
-                  >
-                    Précédent
-                  </p>
-                  <p
-                    className="text-dark font-heading text-xl font-medium"
-                  >
-                    {prevProject.title.replace(/\n/g, " ")}
-                  </p>
-                </div>
-              </Link>
-            )}
-
-            <Link
-              to="/projets"
-              className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold text-overline"
-            >
-              Tous les Projets
-            </Link>
-
-            {nextProject && (
-              <Link
-                to="/projets/$projectId"
-                params={{ projectId: nextProject.id }}
-                className="group flex items-center gap-4 no-underline"
-              >
-                <div className="hidden md:block text-right">
-                  <p
-                    className="text-subtle uppercase tracking-wider text-label"
-                  >
-                    Suivant
-                  </p>
-                  <p
-                    className="text-dark font-heading text-xl font-medium"
-                  >
-                    {nextProject.title.replace(/\n/g, " ")}
-                  </p>
-                </div>
-                <div className="w-12 h-12 icon-circle">
-                  <LucideIcons.ArrowRight size={20} />
-                </div>
-              </Link>
-            )}
-          </div>
+          {/* General Info (right) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="shrink-0 w-full md:w-auto md:min-w-[360px]"
+          >
+            <table className="w-full text-sm-body uppercase tracking-wide">
+              <tbody>
+                <MetaRow
+                  label="Début"
+                  value={project.startedAt?.split("T")[0]}
+                />
+                <MetaRow
+                  label="Fin"
+                  value={project.endedAt?.split("T")[0] || "En cours"}
+                />
+              </tbody>
+            </table>
+          </motion.div>
         </div>
       </div>
-    </div>
+
+      {/* ─── Cover Image ─── */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="px-4 md:px-8"
+      >
+        <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-lg">
+          <img
+            src={project.imageUrl}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </motion.div>
+
+      {/* ─── Tags + Live Preview button ─── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="px-8 md:px-16 py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+      >
+        <div className="flex flex-wrap gap-2">
+          {project.tagIds?.map((tag: string) => (
+            <span
+              key={tag}
+              className="px-4 py-1.5 rounded-full border border-border-dark text-muted text-caption"
+            >
+              {tag}
+            </span>
+          ))}
+          <span className="px-4 py-1.5 rounded-full bg-dark text-white/60 text-caption">
+            {projectYear}
+          </span>
+        </div>
+
+        {project.url && project.url !== "#" && !project.url.startsWith("#") && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 btn-primary px-6 py-3 no-underline shrink-0 text-sm-body font-medium"
+          >
+            Live Preview
+            <LucideIcons.ExternalLink size={16} />
+          </a>
+        )}
+      </motion.div>
+
+      {/* ─── Project Main Description ─── */}
+      {project.description && (
+        <div className="px-8 md:px-16 pb-16 w-full md:w-[80%]">
+          <p className="text-dark whitespace-pre-line leading-relaxed text-lg-body">
+            {project.description}
+          </p>
+        </div>
+      )}
+
+      {/* ─── Modular Content Sections ─── */}
+      <div className="px-8 md:px-16 pb-16 space-y-32">
+        {project.sections.map((section, index) => (
+          <SectionBlock key={index} block={section} index={index} />
+        ))}
+      </div>
+
+      {/* ─── Project Navigation ─── */}
+      <div className="px-8 md:px-16 py-16 border-t border-border">
+        <div className="flex items-center justify-between">
+          {prevProject && (
+            <Link
+              to="/projets/$projectId"
+              params={{ projectId: prevProject.id }}
+              className="group flex items-center gap-4 no-underline"
+            >
+              <div className="w-12 h-12 icon-circle">
+                <LucideIcons.ArrowLeft size={20} />
+              </div>
+              <div className="hidden md:block">
+                <p className="text-subtle uppercase tracking-wider text-label">
+                  Précédent
+                </p>
+                <p className="text-dark font-heading text-xl font-medium">
+                  {prevProject.title.replace(/\n/g, " ")}
+                </p>
+              </div>
+            </Link>
+          )}
+
+          <Link
+            to="/projets"
+            className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold text-overline"
+          >
+            Tous les Projets
+          </Link>
+
+          {nextProject && (
+            <Link
+              to="/projets/$projectId"
+              params={{ projectId: nextProject.id }}
+              className="group flex items-center gap-4 no-underline"
+            >
+              <div className="hidden md:block text-right">
+                <p className="text-subtle uppercase tracking-wider text-label">
+                  Suivant
+                </p>
+                <p className="text-dark font-heading text-xl font-medium">
+                  {nextProject.title.replace(/\n/g, " ")}
+                </p>
+              </div>
+              <div className="w-12 h-12 icon-circle">
+                <LucideIcons.ArrowRight size={20} />
+              </div>
+            </Link>
+          )}
+        </div>
+      </div>
+    </Section>
   );
 }
 
@@ -279,14 +265,10 @@ function MetaRow({
   if (!value) return null;
   return (
     <tr className="border-b border-border">
-      <td
-        className="py-3.5 text-subtle pr-8 text-overline font-semibold"
-      >
+      <td className="py-3.5 text-subtle pr-8 text-overline font-semibold">
         {label}
       </td>
-      <td
-        className="py-3.5 text-dark text-right text-sm-body normal-case tracking-normal"
-      >
+      <td className="py-3.5 text-dark text-right text-sm-body normal-case tracking-normal">
         {value}
       </td>
     </tr>
@@ -334,9 +316,7 @@ function SectionBlock({
             >
               {block.title}
             </h3>
-            <p
-              className="text-body leading-relaxed font-light text-prose"
-            >
+            <p className="text-body leading-relaxed font-light text-prose">
               {block.description}
             </p>
           </div>
