@@ -9,20 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ExpertisesRouteImport } from './routes/expertises'
 import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjetsIndexRouteImport } from './routes/projets/index'
+import { Route as ExpertisesIndexRouteImport } from './routes/expertises/index'
 import { Route as ProjetsProjectIdRouteImport } from './routes/projets/$projectId'
+import { Route as ExpertisesServiceIdRouteImport } from './routes/expertises/$serviceId'
 
-const ExpertisesRoute = ExpertisesRouteImport.update({
-  id: '/expertises',
-  path: '/expertises',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const EquipeRoute = EquipeRouteImport.update({
   id: '/equipe',
   path: '/equipe',
@@ -53,9 +49,19 @@ const ProjetsIndexRoute = ProjetsIndexRouteImport.update({
   path: '/projets/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExpertisesIndexRoute = ExpertisesIndexRouteImport.update({
+  id: '/expertises/',
+  path: '/expertises/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjetsProjectIdRoute = ProjetsProjectIdRouteImport.update({
   id: '/projets/$projectId',
   path: '/projets/$projectId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpertisesServiceIdRoute = ExpertisesServiceIdRouteImport.update({
+  id: '/expertises/$serviceId',
+  path: '/expertises/$serviceId',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -65,8 +71,9 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/equipe': typeof EquipeRoute
-  '/expertises': typeof ExpertisesRoute
+  '/expertises/$serviceId': typeof ExpertisesServiceIdRoute
   '/projets/$projectId': typeof ProjetsProjectIdRoute
+  '/expertises/': typeof ExpertisesIndexRoute
   '/projets/': typeof ProjetsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -75,8 +82,9 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/equipe': typeof EquipeRoute
-  '/expertises': typeof ExpertisesRoute
+  '/expertises/$serviceId': typeof ExpertisesServiceIdRoute
   '/projets/$projectId': typeof ProjetsProjectIdRoute
+  '/expertises': typeof ExpertisesIndexRoute
   '/projets': typeof ProjetsIndexRoute
 }
 export interface FileRoutesById {
@@ -86,8 +94,9 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/equipe': typeof EquipeRoute
-  '/expertises': typeof ExpertisesRoute
+  '/expertises/$serviceId': typeof ExpertisesServiceIdRoute
   '/projets/$projectId': typeof ProjetsProjectIdRoute
+  '/expertises/': typeof ExpertisesIndexRoute
   '/projets/': typeof ProjetsIndexRoute
 }
 export interface FileRouteTypes {
@@ -98,8 +107,9 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/equipe'
-    | '/expertises'
+    | '/expertises/$serviceId'
     | '/projets/$projectId'
+    | '/expertises/'
     | '/projets/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -108,8 +118,9 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/equipe'
-    | '/expertises'
+    | '/expertises/$serviceId'
     | '/projets/$projectId'
+    | '/expertises'
     | '/projets'
   id:
     | '__root__'
@@ -118,8 +129,9 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/equipe'
-    | '/expertises'
+    | '/expertises/$serviceId'
     | '/projets/$projectId'
+    | '/expertises/'
     | '/projets/'
   fileRoutesById: FileRoutesById
 }
@@ -129,20 +141,14 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   EquipeRoute: typeof EquipeRoute
-  ExpertisesRoute: typeof ExpertisesRoute
+  ExpertisesServiceIdRoute: typeof ExpertisesServiceIdRoute
   ProjetsProjectIdRoute: typeof ProjetsProjectIdRoute
+  ExpertisesIndexRoute: typeof ExpertisesIndexRoute
   ProjetsIndexRoute: typeof ProjetsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/expertises': {
-      id: '/expertises'
-      path: '/expertises'
-      fullPath: '/expertises'
-      preLoaderRoute: typeof ExpertisesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/equipe': {
       id: '/equipe'
       path: '/equipe'
@@ -185,11 +191,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjetsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/expertises/': {
+      id: '/expertises/'
+      path: '/expertises'
+      fullPath: '/expertises/'
+      preLoaderRoute: typeof ExpertisesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projets/$projectId': {
       id: '/projets/$projectId'
       path: '/projets/$projectId'
       fullPath: '/projets/$projectId'
       preLoaderRoute: typeof ProjetsProjectIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expertises/$serviceId': {
+      id: '/expertises/$serviceId'
+      path: '/expertises/$serviceId'
+      fullPath: '/expertises/$serviceId'
+      preLoaderRoute: typeof ExpertisesServiceIdRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -201,8 +221,9 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   EquipeRoute: EquipeRoute,
-  ExpertisesRoute: ExpertisesRoute,
+  ExpertisesServiceIdRoute: ExpertisesServiceIdRoute,
   ProjetsProjectIdRoute: ProjetsProjectIdRoute,
+  ExpertisesIndexRoute: ExpertisesIndexRoute,
   ProjetsIndexRoute: ProjetsIndexRoute,
 }
 export const routeTree = rootRouteImport

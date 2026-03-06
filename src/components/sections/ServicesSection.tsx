@@ -1,14 +1,8 @@
 import { motion } from "framer-motion";
-import { PenTool, Target, Server, Brain, Zap } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Section } from "./Section";
-
-const services = [
-  { icon: PenTool, label: "Conception & Ingénierie" },
-  { icon: Target, label: "Conseil & Stratégie Produit" },
-  { icon: Server, label: "Ingénierie Logicielle & SaaS" },
-  { icon: Brain, label: "Intelligence Artificielle & Data Science" },
-  { icon: Zap, label: "Growth Tech & Automatisation" },
-];
+import { services } from "../../types/services";
 
 export function ServicesSection() {
   return (
@@ -56,27 +50,36 @@ export function ServicesSection() {
         className="flex flex-wrap items-center justify-center gap-3 mt-10"
       >
         {services.map((service, index) => {
-          const Icon = service.icon;
+          const Icon =
+            (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[
+              service.iconName
+            ] ?? LucideIcons.Circle;
           return (
-            <motion.div
+            <Link
               key={service.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "var(--color-primary)",
-                rotate: index % 2 === 0 ? 0.8 : -0.8,
-              }}
-              style={{
-                backgroundColor: "var(--color-mid)",
-                color: "#fff",
-              }}
-              className="flex items-center gap-2 px-5 py-2.5 rounded-full cursor-pointer shadow-sm text-base-body"
+              to="/expertises/$serviceId"
+              params={{ serviceId: service.id }}
+              className="no-underline"
             >
-              <Icon size={16} />
-              {service.label}
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "var(--color-primary)",
+                  rotate: index % 2 === 0 ? 0.8 : -0.8,
+                }}
+                style={{
+                  backgroundColor: "var(--color-mid)",
+                  color: "#fff",
+                }}
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full cursor-pointer shadow-sm text-base-body"
+              >
+                <Icon size={16} />
+                {service.label}
+              </motion.div>
+            </Link>
           );
         })}
       </motion.div>
