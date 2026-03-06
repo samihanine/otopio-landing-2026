@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { GradientTitle } from "../ui/GradientTitle";
 import { Section } from "../layout/Section";
+import { TagInput } from "./TagInput";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ export function ContactSection() {
     email: "",
     description: "",
   });
+  const [contactTags, setContactTags] = useState<string[]>([]);
 
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
@@ -100,15 +102,16 @@ export function ContactSection() {
             </motion.p>
           </div>
 
-          {/* Right side - Form */}
+          {/* Right side — Form */}
           <motion.form
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6"
             onSubmit={(e) => e.preventDefault()}
           >
+                        <TagInput value={contactTags} onChange={setContactTags} />
             <div className="group">
               <label className="label-dark">Nom Complet</label>
               <input
@@ -152,7 +155,7 @@ export function ContactSection() {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               type="submit"
-              className="w-full py-5 rounded-full bg-white text-dark mt-4 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider text-caption"
+              className="w-full py-5 rounded-full bg-white text-dark mt-2 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider text-caption"
             >
               Envoyer le message
             </motion.button>

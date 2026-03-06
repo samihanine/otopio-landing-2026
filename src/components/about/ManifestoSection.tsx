@@ -126,25 +126,53 @@ export function ManifestoSection({
                 >
                   {token.text}
                   <svg
-                    className="absolute -inset-x-2 -inset-y-0.5 w-[calc(100%+16px)] h-[calc(100%+4px)] pointer-events-none"
+                    className="absolute -inset-x-3 -inset-y-1 w-[calc(100%+24px)] h-[calc(100%+8px)] pointer-events-none"
                     viewBox="0 0 200 80"
                     preserveAspectRatio="none"
                   >
-                    <motion.ellipse
-                      cx="100"
-                      cy="40"
-                      rx="92"
-                      ry="34"
+                    {/* Main thick stroke — wobbly, loose shape */}
+                    <motion.path
+                      d="M 24 44 C 20 22, 50 4, 98 6 C 140 3, 178 12, 186 34 C 194 56, 168 76, 116 78 C 64 80, 16 72, 10 50 C 6 32, 38 8, 104 7"
+                      fill="none"
+                      stroke="var(--color-primary)"
+                      strokeWidth="4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{
+                        pathLength: isRevealed ? 1 : 0,
+                        opacity: isRevealed ? 0.5 : 0,
+                      }}
+                      transition={{ duration: 0.75, ease: "easeOut" }}
+                    />
+                    {/* Thinner overlay — slightly offset for variable width feel */}
+                    <motion.path
+                      d="M 28 42 C 30 16, 68 2, 112 5 C 152 8, 182 18, 184 40 C 186 62, 148 78, 104 76 C 54 74, 14 64, 18 46 C 22 26, 56 14, 96 12"
                       fill="none"
                       stroke="var(--color-primary)"
                       strokeWidth="2"
                       strokeLinecap="round"
+                      strokeLinejoin="round"
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{
                         pathLength: isRevealed ? 1 : 0,
                         opacity: isRevealed ? 0.7 : 0,
                       }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
+                      transition={{ duration: 0.85, ease: "easeOut" }}
+                    />
+                    {/* Accent dab — thicker pressure point at bottom-right */}
+                    <motion.path
+                      d="M 140 72 C 160 74, 180 58, 176 42"
+                      fill="none"
+                      stroke="var(--color-primary)"
+                      strokeWidth="5.5"
+                      strokeLinecap="round"
+                      initial={{ pathLength: 0, opacity: 0 }}
+                      animate={{
+                        pathLength: isRevealed ? 1 : 0,
+                        opacity: isRevealed ? 0.35 : 0,
+                      }}
+                      transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
                     />
                   </svg>
                 </motion.span>
