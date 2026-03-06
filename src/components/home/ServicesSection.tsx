@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { Section } from "../layout/Section";
+import { StickyNote } from "../ui/StickyNote";
 import { servicesDetails } from "../../types/services";
 
 export function ServicesSection() {
@@ -91,58 +91,10 @@ export function ServicesSection() {
           })}
         </div>
 
-        {/* Content card */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.25 }}
-            className="rounded-2xl border border-border bg-white p-6 flex flex-col gap-5"
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0"
-                style={{ backgroundColor: active.hexColor }}
-              >
-                {(() => { const I = resolveIcon(active.iconName); return <I size={20} />; })()}
-              </div>
-              <div>
-                <h3 className="font-heading text-dark text-lg font-semibold leading-snug">
-                  {active.title}
-                </h3>
-                <p className="text-primary text-[13px] font-medium italic">
-                  {active.tagline}
-                </p>
-              </div>
-            </div>
-            <p className="text-body leading-relaxed text-[14px]">
-              {active.summary}
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {active.keywords.map((kw) => (
-                <span
-                  key={kw}
-                  className="px-2.5 py-0.5 rounded-full text-[11px] font-medium tracking-wide border border-border text-muted"
-                >
-                  {kw}
-                </span>
-              ))}
-            </div>
-            <Link
-              to="/expertises/$serviceId"
-              params={{ serviceId: active.id }}
-              className="group inline-flex items-center gap-2 no-underline text-dark font-heading font-semibold text-[14px] hover:text-primary transition-colors duration-300"
-            >
-              Découvrir cette expertise
-              <LucideIcons.ArrowRight
-                size={15}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </motion.div>
-        </AnimatePresence>
+        {/* Content — sticky note */}
+        <div className="mt-2" style={{ perspective: "600px" }}>
+          <StickyNote service={active} compact />
+        </div>
       </motion.div>
 
       {/* ── Desktop: list + preview side by side ── */}
@@ -200,58 +152,10 @@ export function ServicesSection() {
           })}
         </div>
 
-        {/* Right — active service preview */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active.id}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-2xl border border-border bg-white p-8 md:p-10 flex flex-col gap-6 h-full"
-          >
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-white"
-                style={{ backgroundColor: active.hexColor }}
-              >
-                {(() => { const I = resolveIcon(active.iconName); return <I size={22} />; })()}
-              </div>
-              <div>
-                <h3 className="font-heading text-dark text-xl font-semibold leading-snug">
-                  {active.title}
-                </h3>
-                <p className="text-primary text-sm font-medium italic mt-0.5">
-                  {active.tagline}
-                </p>
-              </div>
-            </div>
-            <p className="text-body leading-relaxed text-[15px]">
-              {active.summary}
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {active.keywords.map((kw) => (
-                <span
-                  key={kw}
-                  className="px-3 py-1 rounded-full text-[12px] font-medium tracking-wide border border-border text-muted"
-                >
-                  {kw}
-                </span>
-              ))}
-            </div>
-            <Link
-              to="/expertises/$serviceId"
-              params={{ serviceId: active.id }}
-              className="group inline-flex items-center gap-2 no-underline text-dark font-heading font-semibold text-[15px] mt-auto hover:text-primary transition-colors duration-300"
-            >
-              Découvrir cette expertise
-              <LucideIcons.ArrowRight
-                size={16}
-                className="transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </Link>
-          </motion.div>
-        </AnimatePresence>
+        {/* Right — sticky note preview */}
+        <div className="flex items-stretch" style={{ perspective: "900px" }}>
+          <StickyNote service={active} />
+        </div>
       </motion.div>
     </Section>
   );
