@@ -1,8 +1,27 @@
+export type SectionLayout =
+  | "image-text"
+  | "text-image"
+  | "card"
+  | "cards"
+  | "banner"
+  | "gallery"
+  | "stats"
+  | "quote";
+
+export type ProjectSubSection = {
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+  lucideIcon?: string;
+};
+
 export type ProjectSection = {
-  title: string;
-  description: string;
-  imageUrl: string;
-  lucideIcon: string; // Used to store the Lucide icon name, e.g. "Search" or "Target"
+  type: SectionLayout;
+  title?: string;
+  description?: string;
+  imageUrl?: string;
+  lucideIcon?: string;
+  subsections?: ProjectSubSection[];
 };
 
 export type Project = {
@@ -37,28 +56,48 @@ export const medicPub = {
   endedAt: "",
   sections: [
     {
+      type: "image-text",
       title: "Gestion multi-cliniques",
       description:
-        "Organisation par cliniques et départements pour structurer les équipes, les ressources et les flux, tout en gardant une vision cohérente des opérations et des responsabilités au sein de l’établissement.",
+        "Organisation par cliniques et départements pour structurer les équipes, les ressources et les flux, tout en gardant une vision cohérente des opérations et des responsabilités au sein de l'établissement.",
       imageUrl:
         "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-clinics.png",
       lucideIcon: "Building2",
     },
     {
+      type: "text-image",
       title: "Gestion des lits",
       description:
-        "Suivi des lits et des transitions patient au sein des départements (ex. urgences) afin d’optimiser l’occupation, fluidifier les admissions et sécuriser le parcours de soin avec un état à jour en continu.",
+        "Suivi des lits et des transitions patient au sein des départements (ex. urgences) afin d'optimiser l'occupation, fluidifier les admissions et sécuriser le parcours de soin avec un état à jour en continu.",
       imageUrl:
         "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-beds.png",
       lucideIcon: "BedDouble",
     },
     {
-      title: "Facturation automatisée",
-      description:
-        "Génération en temps réel de la facture du séjour à partir des actes, durées, prescriptions et consommations, pour réduire les erreurs, accélérer le traitement et améliorer la traçabilité financière.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-invoice.png",
-      lucideIcon: "Receipt",
+      type: "cards",
+      title: "Fonctionnalités clés",
+      subsections: [
+        {
+          title: "Facturation automatisée",
+          description:
+            "Génération en temps réel de la facture du séjour à partir des actes, durées, prescriptions et consommations.",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-invoice.png",
+          lucideIcon: "Receipt",
+        },
+        {
+          title: "Dossiers patients",
+          description:
+            "Centralisation des prescriptions, diagnostics et parcours de soin pour chaque patient.",
+          lucideIcon: "FileText",
+        },
+        {
+          title: "Pilotage en temps réel",
+          description:
+            "Indicateurs clés, occupation des lits et suivi opérationnel accessible en un coup d'œil.",
+          lucideIcon: "Activity",
+        },
+      ],
     },
   ],
   lucideIcon: "Ambulance", 
@@ -81,6 +120,7 @@ export const drivite = {
   hexColor: "#00296B",
   sections: [
     {
+      type: "text-image",
       title: "Recherche personnalisée pour les acheteurs",
       description:
         "Les acheteurs saisissent leurs critères (budget, type, carburant, kilométrage, marque…) pour recevoir une sélection de véhicules parfaitement adaptée à leurs besoins, sans passer des heures à trier des annonces.",
@@ -89,11 +129,12 @@ export const drivite = {
       lucideIcon: "Search",
     },
     {
+      type: "banner",
       title: "Contrôle technique par formulaire dynamique",
       description:
         "Les techniciens effectuent l'inspection d'un véhicule grâce à un formulaire dynamique qui s'adapte au type de véhicule et guide l'expert point par point pour produire un rapport de contrôle technique structuré et fiable.",
       imageUrl:
-      "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/drivite-b2b.png",
+        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/drivite-b2b.png",
       lucideIcon: "ClipboardCheck",
     },
   ],
@@ -117,6 +158,7 @@ export const assoInfo = {
   endedAt: "2025-03-01",
   sections: [
     {
+      type: "banner",
       title: "Tableau de bord & pilotage",
       description:
         "Un dashboard centralisé donne aux responsables une vue d'ensemble de l'activité de l'association : membres actifs, adhésions récentes, paiements en attente et indicateurs clés pour piloter l'organisation au quotidien.",
@@ -125,15 +167,36 @@ export const assoInfo = {
       lucideIcon: "LayoutDashboard",
     },
     {
-      title: "Builder de site web visuel",
-      description:
-        "Un éditeur visuel no-code permet à chaque association de créer et personnaliser son site web par simple glisser-déposer, sans aucune compétence technique, pour disposer d'une présence en ligne professionnelle en quelques minutes.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/assoinfo-builder.png",
-      lucideIcon: "PanelsTopLeft",
+      type: "cards",
+      title: "Fonctionnalités principales",
+      subsections: [
+        {
+          title: "Builder de site web visuel",
+          description:
+            "Un éditeur visuel no-code pour créer et personnaliser son site web par simple glisser-déposer.",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/assoinfo-builder.png",
+          lucideIcon: "PanelsTopLeft",
+        },
+        {
+          title: "Gestion des membres",
+          description:
+            "Suivi complet des membres, renouvellements d'adhésion et paiements en ligne.",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/assoinfo-members.png",
+          lucideIcon: "Users",
+        },
+        {
+          title: "Cartes de membre",
+          description:
+            "Commande de cartes de membre physiques entièrement personnalisées aux couleurs de l'association.",
+          lucideIcon: "CreditCard",
+        },
+      ],
     },
     {
-      title: "Gestion des membres & adhésions",
+      type: "image-text",
+      title: "Gestion des adhésions",
       description:
         "Suivi complet des membres, renouvellements d'adhésion, paiements en ligne et commande de cartes de membre personnalisées, pour une gestion administrative fluide et une expérience soignée pour chaque adhérent.",
       imageUrl:
@@ -161,6 +224,7 @@ export const coordia = {
   endedAt: "",
   sections: [
     {
+      type: "image-text",
       title: "Calendrier synchronisé & gestion des RDV",
       description:
         "Un calendrier partagé synchronisé à l'échelle du professionnel et de la clinique permet de planifier, confirmer et gérer les rendez-vous en temps réel. Parents et partenaires reçoivent des notifications et peuvent interagir directement avec leur agenda.",
@@ -169,6 +233,7 @@ export const coordia = {
       lucideIcon: "CalendarDays",
     },
     {
+      type: "text-image",
       title: "Collaboration & conversations de groupe",
       description:
         "Un espace de communication sécurisé permet d'échanger en tête-à-tête ou en groupe entre parents, enseignants, orthopédagogues, psychologues et professionnels de l'enfance, pour un suivi coordonné autour de chaque enfant.",
@@ -197,6 +262,7 @@ export const heeroo = {
   endedAt: "",
   sections: [
     {
+      type: "text-image",
       title: "IA conversationnelle & relation client automatisée",
       description:
         "Une IA spécialisée dans le tourisme répond automatiquement aux prospects et clients en se comportant comme un vrai employé. Elle prend en charge la prospection, la conversion et l'après-vente pour que l'équipe se concentre sur les interactions à haute valeur ajoutée.",
@@ -205,6 +271,7 @@ export const heeroo = {
       lucideIcon: "BotMessageSquare",
     },
     {
+      type: "image-text",
       title: "Calendrier partagé & prise de rendez-vous",
       description:
         "Chaque membre crée son calendrier avec des créneaux disponibles et le partage en un lien. Clients et prospects réservent directement en ligne, sans aller-retour par email, avec une synchronisation en temps réel pour toute l'équipe.",
@@ -213,20 +280,33 @@ export const heeroo = {
       lucideIcon: "CalendarCheck",
     },
     {
-      title: "Gestion des membres & IA par employé",
-      description:
-        "La plateforme permet de gérer plusieurs employés, d'attribuer une IA personnalisée à chacun et de configurer finement ses comportements, ton, disponibilités et périmètre d'action pour une expérience client cohérente à tous les niveaux.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/heeroo-members.png",
-      lucideIcon: "Users",
+      type: "cards",
+      title: "Gestion avancée",
+      description: "Attribution d'une IA dédiée à chaque collaborateur, avec une configuration automatisée à partir des informations en ligne de l'entreprise pour un onboarding sans friction.",
+      subsections: [
+        {
+          title: "IA par employé",
+          description:
+            "Attribuez une IA personnalisée à chaque collaborateur avec son propre ton, périmètre et disponibilités.",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/heeroo-members.png",
+          lucideIcon: "Users",
+        },
+        {
+          title: "Onboarding intelligent",
+          description:
+            "L'IA scanne automatiquement les informations en ligne de l'entreprise pour se configurer seule.",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/heeroo-settings.png",
+          lucideIcon: "Sparkles",
+        },
+      ],
     },
     {
-      title: "Onboarding intelligent & configuration automatique",
+      type: "quote",
+      title: "L'équipe Heeroo",
       description:
-        "À la création du compte, l'IA scanne automatiquement toutes les informations disponibles en ligne sur l'entreprise pour se configurer seule. Chaque membre peut ensuite personnaliser son IA, ses prises de RDV et ses préférences depuis les paramètres.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/heeroo-settings.png",
-      lucideIcon: "Sparkles",
+        "Heeroo a transformé notre relation client : l'IA gère 80% des échanges avec un niveau de qualité qui surprend même nos propres équipes.",
     },
   ],
   lucideIcon: "Plane",
@@ -249,6 +329,7 @@ export const leap = {
   endedAt: "2024-12-31",
   sections: [
     {
+      type: "banner",
       title: "Design & site web",
       description:
         "Conception et réalisation du site web du studio, pensé pour refléter l'énergie et la crédibilité de l'équipe, présenter les formations et convertir les visiteurs en apprenants.",
@@ -257,6 +338,7 @@ export const leap = {
       lucideIcon: "Monitor",
     },
     {
+      type: "text-image",
       title: "Production vidéo & cours en ligne",
       description:
         "Accompagnement à la production de vidéos pédagogiques sur des sujets techniques comme l'IA et le code, enregistrées et montées pour une diffusion sur Udemy, avec un niveau de qualité adapté aux standards des meilleures formations en ligne.",
@@ -265,12 +347,27 @@ export const leap = {
       lucideIcon: "Video",
     },
     {
-      title: "Une équipe d'entrepreneurs à succès",
+      type: "gallery",
+      title: "L'équipe derrière Leap",
       description:
-        "Derrière Leap, une équipe d'entrepreneurs et d'influenceurs basés à Los Angeles, cumulant des audiences importantes et une solide expérience dans la création de contenus à fort impact.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/leap-team.png",
-      lucideIcon: "Star",
+        "Une équipe d'entrepreneurs et d'influenceurs basés à Los Angeles, cumulant des audiences importantes et une solide expérience dans la création de contenus à fort impact.",
+      subsections: [
+        {
+          title: "Équipe Leap",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/leap-team.png",
+        },
+        {
+          title: "Production vidéo",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/leap-video.png",
+        },
+        {
+          title: "Site web",
+          imageUrl:
+            "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/leap-hero.png",
+        },
+      ],
     },
   ],
   lucideIcon: "Clapperboard",
@@ -292,6 +389,7 @@ export const mtaRegion = {
   endedAt: "2024-06-01",
   sections: [
     {
+      type: "image-text",
       title: "Catalogue d'expériences locales vérifiées",
       description:
         "Près de 400 adresses sélectionnées et vérifiées par l'équipe M ta région — spas, restaurants, hôtels, microbrasseries, chalets, parcs régionaux et artisans locaux — pour garantir des recommandations fiables et de qualité partout au Québec.",
@@ -300,6 +398,7 @@ export const mtaRegion = {
       lucideIcon: "MapPin",
     },
     {
+      type: "banner",
       title: "Carte géolocalisée & itinéraires",
       description:
         "Une carte interactive géolocalisée permet d'explorer les expériences disponibles à proximité ou partout en province, avec la possibilité de créer des itinéraires personnalisés pour organiser ses escapades locales.",
@@ -308,12 +407,30 @@ export const mtaRegion = {
       lucideIcon: "Map",
     },
     {
-      title: "Pass d'abonnement & économies",
-      description:
-        "Un abonnement annuel donne accès à des tarifs préférentiels sur toutes les expériences du catalogue, rentabilisé dès la première sortie. Un programme de parrainage permet aux membres de cumuler des crédits et de réduire encore davantage leur coût d'abonnement.",
-      imageUrl:
-        "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/mtaregion-pricing.png",
-      lucideIcon: "Ticket",
+      type: "stats",
+      title: "M ta région en chiffres",
+      subsections: [
+        {
+          title: "400+",
+          description: "Adresses vérifiées",
+          lucideIcon: "MapPin",
+        },
+        {
+          title: "150+",
+          description: "Guides découvertes",
+          lucideIcon: "BookOpen",
+        },
+        {
+          title: "17",
+          description: "Régions couvertes",
+          lucideIcon: "Map",
+        },
+        {
+          title: "1re",
+          description: "Sortie rentabilisée",
+          lucideIcon: "Ticket",
+        },
+      ],
     },
   ],
   lucideIcon: "TreePine",
@@ -336,6 +453,7 @@ export const voolta = {
   endedAt: "2024-09-30",
   sections: [
     {
+      type: "banner",
       title: "Site vitrine minimaliste & élégant",
       description:
         "Un design ultra-épuré et haut de gamme présente l'offre de l'agence en quelques étapes claires, pour convaincre immédiatement une clientèle fortunée et des entreprises partenaires exigeantes.",
@@ -344,6 +462,7 @@ export const voolta = {
       lucideIcon: "Sparkles",
     },
     {
+      type: "text-image",
       title: "Suivi de course en temps réel",
       description:
         "Une interface client permet de suivre la position du véhicule, l'itinéraire et le statut de la course en temps réel, offrant une expérience premium et transparente du début à la fin de chaque trajet.",
@@ -352,6 +471,7 @@ export const voolta = {
       lucideIcon: "Navigation",
     },
     {
+      type: "image-text",
       title: "Dashboard chauffeur & statistiques",
       description:
         "Les chauffeurs accèdent à un tableau de bord dédié pour consulter leurs courses, suivre leur chiffre d'affaires et analyser leurs performances grâce à un ensemble de statistiques claires et actionnables.",

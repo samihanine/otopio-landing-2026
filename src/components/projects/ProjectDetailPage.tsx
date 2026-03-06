@@ -2,8 +2,10 @@ import { useNavigate, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
-import { projects, type ProjectSection } from "../../types/projects";
+import { projects } from "../../types/projects";
 import { Section } from "../sections/Section";
+import { SectionRenderer } from "./sections/SectionRenderer";
+import { ClickableImage } from "./sections/ImageLightbox";
 
 /* ═══════════════════════════════════════════
    Main Component
@@ -138,9 +140,10 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
         className="px-4 md:px-8"
       >
         <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-lg">
-          <img
+          <ClickableImage
             src={project.imageUrl}
             alt={project.title}
+            containerClassName="w-full h-full"
             className="w-full h-full object-cover"
           />
         </div>
@@ -192,7 +195,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
       {/* ─── Modular Content Sections ─── */}
       <div className="px-8 md:px-16 pb-16 space-y-32">
         {project.sections.map((section, index) => (
-          <SectionBlock key={index} block={section} index={index} />
+          <SectionRenderer key={index} section={section} />
         ))}
       </div>
 
@@ -272,69 +275,5 @@ function MetaRow({
         {value}
       </td>
     </tr>
-  );
-}
-
-function SectionBlock({
-  block,
-  index,
-}: {
-  block: ProjectSection;
-  index: number;
-}) {
-  const isEven = index % 2 === 0;
-  const Icon = block.lucideIcon ? (LucideIcons as any)[block.lucideIcon] : null;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as any }}
-      viewport={{ once: true, margin: "-100px" }}
-      className={`grid grid-cols-1 ${
-        isEven ? "md:grid-cols-[1fr_2fr]" : "md:grid-cols-[2fr_1fr]"
-      } gap-12 md:gap-24 items-center`}
-    >
-      {/* Text Content */}
-      <div className={`${isEven ? "md:order-1" : "md:order-2"}`}>
-        <div className="flex flex-col gap-6">
-          {/* Tag-like icon container */}
-          {Icon && (
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-border-lighter">
-              <Icon size={20} className="text-primary" />
-            </div>
-          )}
-
-          <div>
-            <h3
-              className="text-dark mb-4 font-heading"
-              style={{
-                fontSize: "clamp(24px, 3.5vw, 36px)",
-                fontWeight: 600,
-                lineHeight: 1.2,
-              }}
-            >
-              {block.title}
-            </h3>
-            <p className="text-body leading-relaxed font-light text-prose">
-              {block.description}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Image Content */}
-      <div className={`${isEven ? "md:order-2" : "md:order-1"}`}>
-        {block.imageUrl && (
-          <div className="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-sm border border-border-mid">
-            <img
-              src={block.imageUrl}
-              alt={block.title}
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
-      </div>
-    </motion.div>
   );
 }
