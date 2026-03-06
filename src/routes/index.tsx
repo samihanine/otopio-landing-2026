@@ -5,6 +5,7 @@ import { RecentWorksSection } from "../components/sections/RecentWorksSection";
 import { TestimonialsSection } from "../components/sections/TestimonialsSection";
 import { ContactSection } from "../components/sections/ContactSection";
 import { AnimatedBanner } from "../components/ui/AnimatedBanner";
+import { FaqSection } from "../components/sections/FaqSection";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -18,7 +19,6 @@ function Home() {
       <RecentWorksSection />
       <ServicesSection />
       <TestimonialsSection />
-      <ContactSection />
     </div>
   );
 }

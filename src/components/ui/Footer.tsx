@@ -28,25 +28,28 @@ export function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden bg-dark"
+      className="relative overflow-hidden bg-darkest"
       style={{ minHeight: "340px" }}
     >
       {/* Background gradient - Lightened Neon Effect */}
-      <div
+      {/* <div
         className="absolute inset-0"
         style={{
           background:
             "radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255, 85, 0, 0.21) 0%, rgba(255, 85, 0, 0.1) 40%, rgba(26, 26, 26, 0) 100%)",
         }}
-      />
+      /> */}
 
       {/* Dot texture overlay */}
       <div
-        className="absolute inset-0 opacity-15"
+        className="absolute inset-0 opacity-15 pointer-events-none"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
           backgroundSize: "8px 8px",
+          maskImage: "linear-gradient(to bottom, transparent, black 150px)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent, black 150px)",
         }}
       />
 
@@ -123,8 +126,7 @@ export function Footer() {
             lineHeight: 0.8,
             letterSpacing: "0.02em",
             padding: "0 40px",
-            background:
-              "linear-gradient(to bottom, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 40%, rgba(255,255,255,0) 80%)",
+            color: "white",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

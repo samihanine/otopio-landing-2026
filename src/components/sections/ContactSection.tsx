@@ -48,7 +48,7 @@ export function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto rounded-card-lg overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
+        className="max-w-5xl mx-auto rounded-2xl overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
       >
         {/* Background */}
         <div className="absolute inset-0 bg-dark">
