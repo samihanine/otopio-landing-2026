@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 import { SectionLabel } from "./SectionLabel";
 
 interface PageHeroProps {

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import AboutPage from "../components/sections/AboutPage";
+import AboutPage from "../components/about/AboutPage";
 
 export const Route = createFileRoute("/a-propos")({
   component: RouteComponent,

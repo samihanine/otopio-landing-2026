@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { GradientTitle } from "../ui/GradientTitle";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({

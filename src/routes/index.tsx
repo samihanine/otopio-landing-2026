@@ -1,11 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HeroSection } from "../components/sections/HeroSection";
-import { ServicesSection } from "../components/sections/ServicesSection";
-import { RecentWorksSection } from "../components/sections/RecentWorksSection";
-import { TestimonialsSection } from "../components/sections/TestimonialsSection";
-import { ContactSection } from "../components/sections/ContactSection";
+import { HeroSection } from "../components/home/HeroSection";
+import { ServicesSection } from "../components/home/ServicesSection";
+import { RecentWorksSection } from "../components/home/RecentWorksSection";
+import { TestimonialsSection } from "../components/home/TestimonialsSection";
 import { AnimatedBanner } from "../components/ui/AnimatedBanner";
-import { FaqSection } from "../components/sections/FaqSection";
 
 export const Route = createFileRoute("/")({
   component: Home,

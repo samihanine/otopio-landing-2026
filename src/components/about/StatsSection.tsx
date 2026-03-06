@@ -6,7 +6,7 @@ import {
   useInView,
 } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 
 interface CounterProps {
   from: number;

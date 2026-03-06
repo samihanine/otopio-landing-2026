@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { projects } from "../../types/projects";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 import { SectionRenderer } from "./sections/SectionRenderer";
-import { ClickableImage } from "./sections/ImageLightbox";
+import { ClickableImage } from "../ui/ImageLightbox";
 
 /* ═══════════════════════════════════════════
    Main Component

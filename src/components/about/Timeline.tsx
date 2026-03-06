@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { timelineEvents } from "../../types/timeline";
-import { Section } from "../sections/Section";
-import { SectionLabel } from "./SectionLabel";
+import { Section } from "../layout/Section";
+import { SectionLabel } from "../ui/SectionLabel";
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);

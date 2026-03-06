@@ -2,7 +2,7 @@ import { projects } from "../../types/projects";
 import { GradientTitle } from "../ui/GradientTitle";
 import { ProjectsGrid } from "../projects/ProjectsGrid";
 import { CustomCursor } from "../ui/CustomCursor";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 export function RecentWorksSection() {
   // Sort by latest dates first, and take only the first 4

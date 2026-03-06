@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { servicesDetails } from "../../types/services";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 import { ServiceSectionRenderer } from "./sections/ServiceSectionRenderer";
 import { RelatedProjectsSection } from "./sections/RelatedProjectsSection";
 

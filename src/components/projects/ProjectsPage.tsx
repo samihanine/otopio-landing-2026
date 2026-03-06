@@ -4,7 +4,7 @@ import { projects } from "../../types/projects";
 import { tags as allTags } from "../../types/tags";
 import { CustomCursor } from "../ui/CustomCursor";
 import { ProjectsGrid } from "./ProjectsGrid";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 import { PageHero } from "../ui/PageHero";
 
 export function ProjectsPage() {

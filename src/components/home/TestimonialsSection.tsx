@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "../../types/testimonials";
 import { GradientTitle } from "../ui/GradientTitle";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 export function TestimonialsSection() {
   const [[current, direction], setPage] = useState([0, 0]);

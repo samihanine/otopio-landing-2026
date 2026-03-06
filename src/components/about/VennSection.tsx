@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { defaultVennData, type VennData } from "../../types/venn";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 import { SectionLabel } from "../ui/SectionLabel";
 
 interface VennSectionProps {

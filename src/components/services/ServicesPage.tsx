@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import * as LucideIcons from "lucide-react";
 import { servicesDetails } from "../../types/services";
-import { Section } from "../sections/Section";
+import { Section } from "../layout/Section";
 import { PageHero } from "../ui/PageHero";
 
 export function ServicesPage() {

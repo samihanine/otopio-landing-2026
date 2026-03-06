@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 import { SectionLabel } from "../ui/SectionLabel";
 import { defaultManifesto } from "../../types/manifesto";
 import type { ManifestoData } from "../../types/manifesto";

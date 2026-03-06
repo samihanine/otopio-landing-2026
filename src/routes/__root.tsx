@@ -1,8 +1,8 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
-import { Header } from "../components/ui/Header";
-import { Footer } from "../components/ui/Footer";
-import { FaqSection } from "../components/sections/FaqSection";
-import { CTASection } from "../components/sections/CTASection";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
+import { FaqSection } from "../components/layout/FaqSection";
+import { CTASection } from "../components/layout/CTASection";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({

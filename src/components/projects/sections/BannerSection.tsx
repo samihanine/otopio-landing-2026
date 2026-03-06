@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { ProjectSection } from "../../../types/projects";
-import { ImageLightbox } from "./ImageLightbox";
+import { ImageLightbox } from "../../ui/ImageLightbox";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 40 },

@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import IPhoneMockup from "../phone/IPhoneMockup";
 import PhoneBootSequence from "../phone/PhoneBootSequence";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 
 export function HeroSection() {
   return (

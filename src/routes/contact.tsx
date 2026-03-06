@@ -1,4 +1,4 @@
-import { ContactSection } from "#/components/sections/ContactSection";
+import { ContactSection } from "../components/home/ContactSection";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/contact")({

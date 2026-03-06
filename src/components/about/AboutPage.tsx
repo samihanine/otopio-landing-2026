@@ -1,6 +1,6 @@
 import { PageHero } from "../ui/PageHero";
-import { StatsSection } from "../ui/StatsSection";
-import { Timeline } from "../ui/Timeline";
+import { StatsSection } from "./StatsSection";
+import { Timeline } from "./Timeline";
 import { ManifestoSection } from "./ManifestoSection";
 import { VennSection } from "./VennSection";
 

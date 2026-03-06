@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { Section } from "./Section";
+import { Section } from "../layout/Section";
 import { services } from "../../types/services";
 
 export function ServicesSection() {

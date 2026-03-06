@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ProjectSection } from "../../../types/projects";
-import { ClickableImage } from "./ImageLightbox";
+import { ClickableImage } from "../../ui/ImageLightbox";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 40 },
