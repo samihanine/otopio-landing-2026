@@ -11,7 +11,13 @@ export function ServicesSection() {
   const active = servicesDetails[activeIndex];
 
   const resolveIcon = (name: string) => {
-    const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number }>>)[name] ?? LucideIcons.Circle;
+    const Icon =
+      (
+        LucideIcons as unknown as Record<
+          string,
+          React.ComponentType<{ size?: number }>
+        >
+      )[name] ?? LucideIcons.Circle;
     return <Icon size={18} />;
   };
 
@@ -46,18 +52,17 @@ export function ServicesSection() {
 
       {/* ── Tabs + Content ── */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-stretch">
-        
         {/* Selector (Mobile: expanding row, Desktop: vertical list) */}
         <SideSelector
-          items={servicesDetails.map(s => ({
+          items={servicesDetails.map((s) => ({
             id: s.id,
             title: s.title,
             subtitle: s.tagline,
-            icon: resolveIcon(s.iconName)
+            icon: resolveIcon(s.iconName),
           }))}
           selectedId={active.id}
           onSelect={(id) => {
-            const index = servicesDetails.findIndex(s => s.id === id);
+            const index = servicesDetails.findIndex((s) => s.id === id);
             if (index !== -1) setActiveIndex(index);
           }}
           layoutIdPrefix="services"
@@ -67,7 +72,10 @@ export function ServicesSection() {
 
         {/* Content — sticky note */}
         <div className="flex items-stretch" style={{ perspective: "900px" }}>
-          <StickyNote service={active} compact={typeof window !== 'undefined' && window.innerWidth < 1024} />
+          <StickyNote
+            service={active}
+            compact={typeof window !== "undefined" && window.innerWidth < 1024}
+          />
         </div>
       </div>
     </Section>

@@ -3,9 +3,7 @@ import * as LucideIcons from "lucide-react";
 import type { ServiceSection } from "../../../types/services";
 
 export function HeroBannerSection({ section }: { section: ServiceSection }) {
-  const Icon = section.iconName
-    ? (LucideIcons as any)[section.iconName]
-    : null;
+  const Icon = section.iconName ? (LucideIcons as any)[section.iconName] : null;
 
   return (
     <motion.div

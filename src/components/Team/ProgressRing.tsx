@@ -9,20 +9,23 @@ interface ProgressRingProps {
   textColor?: string;
 }
 
-export function ProgressRing({ 
-  value, 
-  size = 70, 
+export function ProgressRing({
+  value,
+  size = 70,
   strokeWidth = 5,
   trackColor = "var(--color-border-lighter)",
   progressColor = "var(--color-primary)",
-  textColor = "var(--color-dark)"
+  textColor = "var(--color-dark)",
 }: ProgressRingProps) {
   const radius = (size - strokeWidth) / 2;
   const circumference = radius * 2 * Math.PI;
   const offset = circumference - (value / 100) * circumference;
 
   return (
-    <div className="relative flex items-center justify-center font-heading" style={{ width: size, height: size }}>
+    <div
+      className="relative flex items-center justify-center font-heading"
+      style={{ width: size, height: size }}
+    >
       <svg width={size} height={size} className="transform -rotate-90">
         <circle
           cx={size / 2}
@@ -46,7 +49,9 @@ export function ProgressRing({
           strokeLinecap="round"
         />
       </svg>
-      <span className="absolute text-sm font-bold" style={{ color: textColor }}>{value}%</span>
+      <span className="absolute text-sm font-bold" style={{ color: textColor }}>
+        {value}%
+      </span>
     </div>
   );
 }

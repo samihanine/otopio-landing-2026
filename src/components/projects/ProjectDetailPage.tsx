@@ -114,7 +114,7 @@ export function ProjectDetailPage({ projectId }: { projectId: string }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="shrink-0 w-full md:w-auto md:min-w-[360px]"
+            className="shrink-0 w-full md:w-80 md:min-w-0"
           >
             <table className="w-full text-sm-body uppercase tracking-wide">
               <tbody>

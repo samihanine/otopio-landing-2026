@@ -17,7 +17,7 @@ export function CardSection({ section }: { section: ProjectSection }) {
 
   return (
     <motion.div {...sectionAnim} className="flex justify-center">
-      <div className="max-w-[800px] w-full rounded-2xl border border-border-mid bg-white shadow-sm overflow-hidden">
+      <div className="w-full max-w-3xl lg:max-w-4xl rounded-2xl border border-border-mid bg-white shadow-sm overflow-hidden">
         {section.imageUrl && (
           <ClickableImage
             src={section.imageUrl}

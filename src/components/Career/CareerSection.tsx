@@ -8,17 +8,22 @@ import { SectionHeader } from "../ui/SectionHeader";
 export function CareerSection() {
   return (
     <Section className="bg-light">
-      <div className="max-w-full mx-auto">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           label="Rejoindre l'équipe"
-          title={<>Envie de construire le <span className="text-primary">futur</span> avec nous ?</>}
+          title={
+            <>
+              Envie de construire le <span className="text-primary">futur</span>{" "}
+              avec nous ?
+            </>
+          }
           subtext="Chez Otopio, nous recherchons des esprits curieux et des talents passionnés par l'innovation digitale. Découvrez nos opportunités actuelles."
           align="left"
           className="mb-16"
         />
 
         {/* Grille des offres */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
           {openPositions.map((job, index) => (
             <JobCard key={job.id} job={job} index={index} />
           ))}

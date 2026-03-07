@@ -10,9 +10,7 @@ const sectionAnim = {
 };
 
 export function TextHighlightSection({ section }: { section: ServiceSection }) {
-  const Icon = section.iconName
-    ? (LucideIcons as any)[section.iconName]
-    : null;
+  const Icon = section.iconName ? (LucideIcons as any)[section.iconName] : null;
 
   return (
     <motion.div

@@ -76,7 +76,7 @@
   --sticky-text-main: #2a2a2a;
   --sticky-text-body: #555555;
   --sticky-text-keywords: #888888;
-  --sticky-bg-keywords: rgba(255, 255, 255, 0.80);
+  --sticky-bg-keywords: rgba(255, 255, 255, 0.8);
 }
 
 /* ── Reusable component utilities ── */

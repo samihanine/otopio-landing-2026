@@ -30,11 +30,11 @@ export function SectionLabel({
     >
       {/* Le point orange reste constant car il ressort sur les deux fonds */}
       <div className="w-2 h-2 rounded-full bg-primary" />
-      
+
       <span
         className={cn(
           "uppercase tracking-[0.2em] text-overline font-semibold",
-          textColor
+          textColor,
         )}
       >
         {text}

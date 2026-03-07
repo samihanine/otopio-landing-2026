@@ -32,7 +32,7 @@ export function Timeline() {
   return (
     // <section className="py-20 md:py-28 px-8 md:px-16 overflow-hidden">
     <Section>
-      <SectionHeader 
+      <SectionHeader
         label="NOTRE PARCOURS"
         title="Ligne du temps"
         align="left"

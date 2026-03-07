@@ -44,7 +44,12 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
     <Section ref={sectionRef} className="bg-dark">
       <SectionHeader
         label={data.label}
-        title={<>{data.title} <span className="text-white/40">{data.titleAccent}</span></>}
+        title={
+          <>
+            {data.title}{" "}
+            <span className="text-white/40">{data.titleAccent}</span>
+          </>
+        }
         align="left"
         variant="light"
         className="mb-12"
@@ -60,7 +65,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
             width="500"
             height="420"
             viewBox="0 0 500 420"
-            className="w-[380px] h-[320px] md:w-[560px] md:h-[470px]"
+            className="w-full max-w-[380px] md:max-w-[560px] h-auto"
           >
             {/* ─── Defs: filters ─── */}
             <defs>
@@ -267,7 +272,9 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                 onMouseLeave={() => setHoveredId(null)}
                 className="p-5 rounded-2xl transition-all duration-300 cursor-pointer border"
                 style={{
-                  backgroundColor: isActive ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.03)",
+                  backgroundColor: isActive
+                    ? "rgba(255,255,255,0.08)"
+                    : "rgba(255,255,255,0.03)",
                   borderColor: isActive
                     ? "rgba(255,255,255,0.15)"
                     : "rgba(255,255,255,0.05)",
@@ -292,9 +299,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                       style={{
                         fontSize: "17px",
                         fontWeight: 600,
-                        color: isActive
-                          ? "var(--color-primary)"
-                          : "white",
+                        color: isActive ? "var(--color-primary)" : "white",
                       }}
                     >
                       {val.label}

@@ -32,7 +32,7 @@ export function ManifestoSection({
 
   return (
     <Section className="relative py-20 md:py-28 overflow-hidden bg-dark">
-      <SectionHeader 
+      <SectionHeader
         label={data.label}
         title={data.backgroundTitle}
         variant="light"

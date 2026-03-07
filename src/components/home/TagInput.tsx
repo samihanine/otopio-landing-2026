@@ -35,9 +35,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
     (s) => s.label.toLowerCase() === query.trim().toLowerCase(),
   );
   const showCustom =
-    query.trim().length > 0 &&
-    !exactMatch &&
-    !value.includes(query.trim());
+    query.trim().length > 0 && !exactMatch && !value.includes(query.trim());
 
   const totalOptions = filtered.length + (showCustom ? 1 : 0);
 
@@ -142,7 +140,9 @@ export function TagInput({ value, onChange }: TagInputProps) {
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={handleKeyDown}
-          placeholder={value.length === 0 ? "Ex: Application Web, UX/UI, IA…" : ""}
+          placeholder={
+            value.length === 0 ? "Ex: Application Web, UX/UI, IA…" : ""
+          }
           className="flex-1 min-w-[120px] bg-transparent outline-none text-white/80 placeholder-white/25 text-sm font-body"
         />
       </div>
@@ -167,9 +167,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
                 className="w-full flex items-center justify-between px-4 py-2.5 text-left text-sm transition-colors cursor-pointer"
                 style={{
                   backgroundColor:
-                    highlightIdx === idx
-                      ? "rgba(255,85,0,0.1)"
-                      : "transparent",
+                    highlightIdx === idx ? "rgba(255,85,0,0.1)" : "transparent",
                   color:
                     highlightIdx === idx
                       ? "var(--color-primary)"

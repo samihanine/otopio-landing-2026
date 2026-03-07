@@ -7,8 +7,7 @@ const pillars = [
   {
     icon: Sparkles,
     title: "Design & Excellence",
-    description:
-      "Un design réfléchi, pensé pour durer et marquer les esprits.",
+    description: "Un design réfléchi, pensé pour durer et marquer les esprits.",
   },
   {
     icon: Brain,
@@ -19,8 +18,7 @@ const pillars = [
   {
     icon: Users,
     title: "Accompagnement",
-    description:
-      "Un partenaire technique engagé, de l'idée au lancement.",
+    description: "Un partenaire technique engagé, de l'idée au lancement.",
   },
 ];
 

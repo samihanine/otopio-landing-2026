@@ -23,7 +23,10 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
         as="div"
         className="min-h-screen flex flex-col items-center justify-center font-body"
       >
-        <h1 className="font-heading" style={{ fontSize: "48px", fontWeight: 600 }}>
+        <h1
+          className="font-heading"
+          style={{ fontSize: "48px", fontWeight: 600 }}
+        >
           Service introuvable
         </h1>
         <Link
@@ -43,9 +46,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
       (serviceIndex - 1 + servicesDetails.length) % servicesDetails.length
     ];
 
-  const Icon = service.iconName
-    ? (LucideIcons as any)[service.iconName]
-    : null;
+  const Icon = service.iconName ? (LucideIcons as any)[service.iconName] : null;
 
   return (
     <Section
@@ -136,7 +137,6 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
           </motion.div>
         )}
       </div>
-      
 
       {/* ─── Modular Content Sections ─── */}
       <div className="px-8 md:px-16 pb-16 space-y-24">

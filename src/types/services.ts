@@ -5,11 +5,31 @@ export type Service = {
 };
 
 export const services: Service[] = [
-  { id: "conception-ingenierie", iconName: "PenTool", label: "Conception & Ingénierie" },
-  { id: "conseil-strategie", iconName: "Target", label: "Conseil & Stratégie Produit" },
-  { id: "ingenierie-logicielle", iconName: "Server", label: "Ingénierie Logicielle & SaaS" },
-  { id: "intelligence-artificielle", iconName: "Brain", label: "Intelligence Artificielle & Data Science" },
-  { id: "growth-automatisation", iconName: "Zap", label: "Growth Tech & Automatisation" },
+  {
+    id: "conception-ingenierie",
+    iconName: "PenTool",
+    label: "Conception & Ingénierie",
+  },
+  {
+    id: "conseil-strategie",
+    iconName: "Target",
+    label: "Conseil & Stratégie Produit",
+  },
+  {
+    id: "ingenierie-logicielle",
+    iconName: "Server",
+    label: "Ingénierie Logicielle & SaaS",
+  },
+  {
+    id: "intelligence-artificielle",
+    iconName: "Brain",
+    label: "Intelligence Artificielle & Data Science",
+  },
+  {
+    id: "growth-automatisation",
+    iconName: "Zap",
+    label: "Growth Tech & Automatisation",
+  },
 ];
 
 /* ═══════════════════════════════════════════
@@ -66,7 +86,13 @@ export const servicesDetails: ServiceDetail[] = [
       "Nous transformons vos idées en produits digitaux concrets : de la recherche utilisateur au design system, en passant par le prototypage interactif et l'architecture technique.",
     iconName: "PenTool",
     hexColor: "#6366F1",
-    keywords: ["UX Research", "UI Design", "Prototypage", "Design System", "Architecture"],
+    keywords: [
+      "UX Research",
+      "UI Design",
+      "Prototypage",
+      "Design System",
+      "Architecture",
+    ],
     projectIds: ["medicpub", "drivite", "assoinfo", "coordia", "voolta"],
     sections: [
       {
@@ -74,7 +100,8 @@ export const servicesDetails: ServiceDetail[] = [
         title: "Du concept au produit fini",
         description:
           "Une approche méthodique qui allie créativité et rigueur technique pour concevoir des expériences digitales qui marquent.",
-        imageUrl: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1600&q=80",
       },
       {
         type: "features-grid",
@@ -164,7 +191,8 @@ export const servicesDetails: ServiceDetail[] = [
       {
         type: "cta-block",
         title: "Un projet à concevoir ?",
-        description: "Parlons de votre idée et construisons ensemble le produit qui fera la différence.",
+        description:
+          "Parlons de votre idée et construisons ensemble le produit qui fera la différence.",
         items: [
           { title: "Discutons", href: "/contact", iconName: "ArrowRight" },
         ],
@@ -179,7 +207,13 @@ export const servicesDetails: ServiceDetail[] = [
       "Nous aidons les fondateurs et équipes produit à prendre les bonnes décisions : positionnement, roadmap, priorisation, go-to-market — avec clarté et méthode.",
     iconName: "Target",
     hexColor: "#F59E0B",
-    keywords: ["Stratégie", "Roadmap", "Positionnement", "Go-to-Market", "Product Management"],
+    keywords: [
+      "Stratégie",
+      "Roadmap",
+      "Positionnement",
+      "Go-to-Market",
+      "Product Management",
+    ],
     projectIds: ["heeroo", "leap", "mtaregion"],
     sections: [
       {
@@ -187,7 +221,8 @@ export const servicesDetails: ServiceDetail[] = [
         title: "Le bon produit, au bon moment",
         description:
           "On vous aide à passer de l'intuition à la conviction — avec des données, un cadre clair et une exécution sans friction.",
-        imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80",
       },
       {
         type: "features-grid",
@@ -253,12 +288,14 @@ export const servicesDetails: ServiceDetail[] = [
         items: [
           {
             title: "Avec stratégie",
-            description: "Roadmap claire et priorisée|Décisions basées sur la data|Time-to-market optimisé|Budget maîtrisé|Équipe alignée",
+            description:
+              "Roadmap claire et priorisée|Décisions basées sur la data|Time-to-market optimisé|Budget maîtrisé|Équipe alignée",
             iconName: "Check",
           },
           {
             title: "Sans stratégie",
-            description: "Features empilées sans vision|Décisions au feeling|Retards à répétition|Coûts qui explosent|Équipe perdue",
+            description:
+              "Features empilées sans vision|Décisions au feeling|Retards à répétition|Coûts qui explosent|Équipe perdue",
             iconName: "X",
           },
         ],
@@ -268,7 +305,11 @@ export const servicesDetails: ServiceDetail[] = [
         title: "Besoin de clarté sur votre produit ?",
         description: "Réservez un appel stratégique gratuit de 30 minutes.",
         items: [
-          { title: "Prendre rendez-vous", href: "/contact", iconName: "ArrowRight" },
+          {
+            title: "Prendre rendez-vous",
+            href: "/contact",
+            iconName: "ArrowRight",
+          },
         ],
       },
     ],
@@ -281,7 +322,15 @@ export const servicesDetails: ServiceDetail[] = [
       "Nous construisons des applications web et SaaS robustes, performantes et maintenables — avec les meilleures pratiques d'ingénierie moderne.",
     iconName: "Server",
     hexColor: "#10B981",
-    keywords: ["React", "TypeScript", "Node.js", "PostgreSQL", "SaaS", "API", "Cloud"],
+    keywords: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "SaaS",
+      "API",
+      "Cloud",
+    ],
     projectIds: ["medicpub", "assoinfo", "coordia", "drivite", "mtaregion"],
     sections: [
       {
@@ -289,19 +338,44 @@ export const servicesDetails: ServiceDetail[] = [
         title: "L'ingénierie au service du produit",
         description:
           "Stack moderne, architecture propre, CI/CD, tests — on ne fait pas de compromis sur la qualité technique.",
-        imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
       },
       {
         type: "icon-list",
         title: "Notre stack technique",
         subtitle: "Des technologies éprouvées, choisies pour leur fiabilité.",
         items: [
-          { title: "React / Next.js", description: "Interfaces réactives et performantes", iconName: "Code2" },
-          { title: "TypeScript", description: "Typage strict pour un code fiable", iconName: "FileCode2" },
-          { title: "Node.js / Python", description: "Backends rapides et flexibles", iconName: "Server" },
-          { title: "PostgreSQL / Redis", description: "Données structurées et cache performant", iconName: "Database" },
-          { title: "AWS / Vercel / Docker", description: "Déploiement cloud scalable", iconName: "Cloud" },
-          { title: "CI/CD & Tests", description: "Qualité automatisée à chaque commit", iconName: "GitBranch" },
+          {
+            title: "React / Next.js",
+            description: "Interfaces réactives et performantes",
+            iconName: "Code2",
+          },
+          {
+            title: "TypeScript",
+            description: "Typage strict pour un code fiable",
+            iconName: "FileCode2",
+          },
+          {
+            title: "Node.js / Python",
+            description: "Backends rapides et flexibles",
+            iconName: "Server",
+          },
+          {
+            title: "PostgreSQL / Redis",
+            description: "Données structurées et cache performant",
+            iconName: "Database",
+          },
+          {
+            title: "AWS / Vercel / Docker",
+            description: "Déploiement cloud scalable",
+            iconName: "Cloud",
+          },
+          {
+            title: "CI/CD & Tests",
+            description: "Qualité automatisée à chaque commit",
+            iconName: "GitBranch",
+          },
         ],
       },
       {
@@ -310,17 +384,20 @@ export const servicesDetails: ServiceDetail[] = [
         items: [
           {
             title: "Applications SaaS",
-            description: "Plateformes multi-tenant avec billing, auth, dashboards et API.",
+            description:
+              "Plateformes multi-tenant avec billing, auth, dashboards et API.",
             iconName: "LayoutDashboard",
           },
           {
             title: "Portails & Back-offices",
-            description: "Interfaces d'administration sur mesure, complexes et intuitives.",
+            description:
+              "Interfaces d'administration sur mesure, complexes et intuitives.",
             iconName: "PanelLeft",
           },
           {
             title: "APIs & Intégrations",
-            description: "REST et GraphQL, webhooks, connecteurs tiers — tout communique.",
+            description:
+              "REST et GraphQL, webhooks, connecteurs tiers — tout communique.",
             iconName: "Plug",
           },
           {
@@ -336,25 +413,29 @@ export const servicesDetails: ServiceDetail[] = [
         items: [
           {
             title: "Architecture",
-            description: "Définition du schéma de données, des services et de l'infrastructure.",
+            description:
+              "Définition du schéma de données, des services et de l'infrastructure.",
             iconName: "Boxes",
             label: "01",
           },
           {
             title: "Sprints",
-            description: "Développement itératif en cycles courts avec démos régulières.",
+            description:
+              "Développement itératif en cycles courts avec démos régulières.",
             iconName: "IterationCw",
             label: "02",
           },
           {
             title: "Review & QA",
-            description: "Code review systématique, tests automatisés, monitoring.",
+            description:
+              "Code review systématique, tests automatisés, monitoring.",
             iconName: "ShieldCheck",
             label: "03",
           },
           {
             title: "Déploiement",
-            description: "Mise en production continue avec rollback instantané.",
+            description:
+              "Mise en production continue avec rollback instantané.",
             iconName: "Upload",
             label: "04",
           },
@@ -363,9 +444,14 @@ export const servicesDetails: ServiceDetail[] = [
       {
         type: "cta-block",
         title: "Prêt à construire ?",
-        description: "Discutons de votre projet technique et voyons comment on peut vous aider.",
+        description:
+          "Discutons de votre projet technique et voyons comment on peut vous aider.",
         items: [
-          { title: "Lancer le projet", href: "/contact", iconName: "ArrowRight" },
+          {
+            title: "Lancer le projet",
+            href: "/contact",
+            iconName: "ArrowRight",
+          },
         ],
       },
     ],
@@ -378,7 +464,15 @@ export const servicesDetails: ServiceDetail[] = [
       "Nous concevons des solutions d'IA sur mesure — chatbots intelligents, analyse prédictive, automatisation cognitive — intégrées directement dans vos produits et workflows.",
     iconName: "Brain",
     hexColor: "#8B5CF6",
-    keywords: ["IA", "Machine Learning", "NLP", "LLM", "Data Science", "Chatbot", "RAG"],
+    keywords: [
+      "IA",
+      "Machine Learning",
+      "NLP",
+      "LLM",
+      "Data Science",
+      "Chatbot",
+      "RAG",
+    ],
     projectIds: ["heeroo"],
     sections: [
       {
@@ -386,7 +480,8 @@ export const servicesDetails: ServiceDetail[] = [
         title: "L'IA qui crée de la valeur",
         description:
           "Pas de buzzwords, pas de gadgets. Des solutions d'IA qui résolvent de vrais problèmes business et s'intègrent naturellement à vos outils.",
-        imageUrl: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1600&q=80",
       },
       {
         type: "features-grid",
@@ -444,19 +539,22 @@ export const servicesDetails: ServiceDetail[] = [
         items: [
           {
             title: "Cadrage IA",
-            description: "Identification des cas d'usage à fort impact et évaluation de la faisabilité technique.",
+            description:
+              "Identification des cas d'usage à fort impact et évaluation de la faisabilité technique.",
             iconName: "Target",
             label: "01",
           },
           {
             title: "Prototypage rapide",
-            description: "POC en 2-4 semaines pour valider l'approche avec de vraies données.",
+            description:
+              "POC en 2-4 semaines pour valider l'approche avec de vraies données.",
             iconName: "Zap",
             label: "02",
           },
           {
             title: "Industrialisation",
-            description: "Passage en production avec monitoring, A/B testing et amélioration continue.",
+            description:
+              "Passage en production avec monitoring, A/B testing et amélioration continue.",
             iconName: "Factory",
             label: "03",
           },
@@ -465,9 +563,14 @@ export const servicesDetails: ServiceDetail[] = [
       {
         type: "cta-block",
         title: "Explorez le potentiel de l'IA",
-        description: "Un audit IA gratuit pour identifier les opportunités dans votre business.",
+        description:
+          "Un audit IA gratuit pour identifier les opportunités dans votre business.",
         items: [
-          { title: "Demander un audit IA", href: "/contact", iconName: "ArrowRight" },
+          {
+            title: "Demander un audit IA",
+            href: "/contact",
+            iconName: "ArrowRight",
+          },
         ],
       },
     ],
@@ -480,7 +583,15 @@ export const servicesDetails: ServiceDetail[] = [
       "Nous automatisons vos processus métier et optimisons votre stack growth — pour que votre équipe se concentre sur ce qui compte vraiment.",
     iconName: "Zap",
     hexColor: "#EF4444",
-    keywords: ["Automatisation", "Growth", "No-code", "CRM", "Workflows", "Scraping", "Analytics"],
+    keywords: [
+      "Automatisation",
+      "Growth",
+      "No-code",
+      "CRM",
+      "Workflows",
+      "Scraping",
+      "Analytics",
+    ],
     projectIds: ["heeroo", "voolta"],
     sections: [
       {
@@ -488,7 +599,8 @@ export const servicesDetails: ServiceDetail[] = [
         title: "L'automatisation intelligente",
         description:
           "Chaque tâche répétitive est une opportunité d'optimisation. On identifie, on automatise, vous grandissez.",
-        imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
+        imageUrl:
+          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=80",
       },
       {
         type: "features-grid",
@@ -537,10 +649,26 @@ export const servicesDetails: ServiceDetail[] = [
         type: "icon-list",
         title: "Nos outils & technologies",
         items: [
-          { title: "n8n / Make", description: "Orchestration de workflows complexes", iconName: "Workflow" },
-          { title: "Zapier", description: "Connexions rapides entre apps", iconName: "Zap" },
-          { title: "Python & APIs", description: "Scripts sur mesure et intégrations custom", iconName: "Code2" },
-          { title: "Airtable / Notion", description: "Bases de données légères et flexibles", iconName: "Table" },
+          {
+            title: "n8n / Make",
+            description: "Orchestration de workflows complexes",
+            iconName: "Workflow",
+          },
+          {
+            title: "Zapier",
+            description: "Connexions rapides entre apps",
+            iconName: "Zap",
+          },
+          {
+            title: "Python & APIs",
+            description: "Scripts sur mesure et intégrations custom",
+            iconName: "Code2",
+          },
+          {
+            title: "Airtable / Notion",
+            description: "Bases de données légères et flexibles",
+            iconName: "Table",
+          },
         ],
       },
       {
@@ -549,12 +677,14 @@ export const servicesDetails: ServiceDetail[] = [
         items: [
           {
             title: "Après",
-            description: "Tâches exécutées en secondes|Données synchronisées en temps réel|Équipe focalisée sur la valeur|Scaling sans recruter|Erreurs humaines éliminées",
+            description:
+              "Tâches exécutées en secondes|Données synchronisées en temps réel|Équipe focalisée sur la valeur|Scaling sans recruter|Erreurs humaines éliminées",
             iconName: "Check",
           },
           {
             title: "Avant",
-            description: "Heures de copier-coller|Données éparpillées|Équipe noyée dans l'opérationnel|Croissance linéaire|Erreurs manuelles fréquentes",
+            description:
+              "Heures de copier-coller|Données éparpillées|Équipe noyée dans l'opérationnel|Croissance linéaire|Erreurs manuelles fréquentes",
             iconName: "X",
           },
         ],
@@ -564,7 +694,11 @@ export const servicesDetails: ServiceDetail[] = [
         title: "Prêt à automatiser ?",
         description: "On identifie vos quick wins en 30 minutes.",
         items: [
-          { title: "Réserver un appel", href: "/contact", iconName: "ArrowRight" },
+          {
+            title: "Réserver un appel",
+            href: "/contact",
+            iconName: "ArrowRight",
+          },
         ],
       },
     ],

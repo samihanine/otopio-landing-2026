@@ -48,7 +48,9 @@ export function TagSelector({ selected, onChange }: TagSelectorProps) {
                   backgroundColor: active
                     ? "rgba(255,85,0,0.15)"
                     : "transparent",
-                  color: active ? "var(--color-primary)" : "rgba(255,255,255,0.45)",
+                  color: active
+                    ? "var(--color-primary)"
+                    : "rgba(255,255,255,0.45)",
                 }}
               >
                 {opt.label}
@@ -78,7 +80,9 @@ export function TagSelector({ selected, onChange }: TagSelectorProps) {
                   backgroundColor: active
                     ? "rgba(255,85,0,0.15)"
                     : "transparent",
-                  color: active ? "var(--color-primary)" : "rgba(255,255,255,0.45)",
+                  color: active
+                    ? "var(--color-primary)"
+                    : "rgba(255,255,255,0.45)",
                 }}
               >
                 {opt.label}

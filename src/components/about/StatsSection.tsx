@@ -55,7 +55,7 @@ export function StatsSection() {
 
   return (
     <Section className="py-12 md:py-20 border-y border-border-light">
-      <SectionHeader 
+      <SectionHeader
         label="EN CHIFFRES"
         title="Notre impact mesurable"
         align="center"

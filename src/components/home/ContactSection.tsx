@@ -95,7 +95,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-white/50 leading-relaxed max-w-[320px] font-body text-md-body"
+              className="text-white/50 leading-relaxed w-full max-w-xs sm:max-w-sm font-body text-md-body"
             >
               Prêt à donner vie à vos idées ? Envoyez-nous un message et
               commençons l'aventure ensemble.
@@ -111,7 +111,7 @@ export function ContactSection() {
             className="flex flex-col gap-6"
             onSubmit={(e) => e.preventDefault()}
           >
-                        <TagInput value={contactTags} onChange={setContactTags} />
+            <TagInput value={contactTags} onChange={setContactTags} />
             <div className="group">
               <label className="label-dark">Nom Complet</label>
               <input

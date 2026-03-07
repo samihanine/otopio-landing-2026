@@ -8,7 +8,6 @@ import { useNavigate } from "@tanstack/react-router";
 export default function HomeScreen() {
   const navigate = useNavigate();
 
-
   return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
       <motion.div

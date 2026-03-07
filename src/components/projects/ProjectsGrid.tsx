@@ -16,21 +16,15 @@ export function ProjectsGrid({ projects }: { projects: Project[] }) {
           {/* Info Label */}
           <div className="px-2">
             <div className="flex items-baseline gap-3 mb-2">
-              <span
-                className="text-subtle font-heading text-sm-body"
-              >
+              <span className="text-subtle font-heading text-sm-body">
                 {String(idx + 1).padStart(2, "0")}.
               </span>
-              <span
-                className="text-dark font-heading text-2xl font-medium"
-              >
+              <span className="text-dark font-heading text-2xl font-medium">
                 {project.title}
               </span>
             </div>
             {project.summary && (
-              <p
-                className="text-muted leading-relaxed text-base-body"
-              >
+              <p className="text-muted leading-relaxed text-base-body">
                 {project.summary}
               </p>
             )}

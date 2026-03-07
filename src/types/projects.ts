@@ -50,7 +50,7 @@ export const medicPub = {
   description:
     "Medic.pub accompagne la transition des cliniques vers un système moderne en remplaçant le papier et les outils vieillissants par une solution centralisée, sécurisée et simple à adopter.\n\nLa plateforme structure l’activité par cliniques, départements et parcours patient : gestion des dossiers, prescriptions, diagnostics, affectations de lits, mouvements et suivi opérationnel au quotidien.\n\nElle intègre aussi le volet économique et relationnel avec une facturation automatisée du séjour (actes, temps passé, traitements) et une interface patient mobile pour consulter son dossier et confirmer ou annuler ses rendez-vous.",
   imageUrl:
-  "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-dashboard.png",
+    "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/medic-dashboard.png",
   url: "https://medic.pub",
   startedAt: "2025-01-01",
   endedAt: "",
@@ -100,7 +100,7 @@ export const medicPub = {
       ],
     },
   ],
-  lucideIcon: "Ambulance", 
+  lucideIcon: "Ambulance",
   tagIds: ["health", "webapp", "uxui"],
 } satisfies Project;
 
@@ -282,7 +282,8 @@ export const heeroo = {
     {
       type: "cards",
       title: "Gestion avancée",
-      description: "Attribution d'une IA dédiée à chaque collaborateur, avec une configuration automatisée à partir des informations en ligne de l'entreprise pour un onboarding sans friction.",
+      description:
+        "Attribution d'une IA dédiée à chaque collaborateur, avec une configuration automatisée à partir des informations en ligne de l'entreprise pour un onboarding sans friction.",
       subsections: [
         {
           title: "IA par employé",
@@ -383,7 +384,8 @@ export const mtaRegion = {
     "M ta région est une plateforme québécoise qui met en avant des expériences locales vérifiées — spas, restaurants, hôtels, microbrasseries, chalets et plus — avec un pass d'abonnement permettant d'économiser sur les meilleures adresses de la province.",
   description:
     "M ta région a pour mission de soutenir l'économie locale québécoise en inspirant les résidents à découvrir et consommer des expériences de leur région.\n\nLa plateforme centralise un catalogue de près de 400 adresses vérifiées par l'équipe (spas, restaurants, microbrasseries, hôtels, chalets, parcs régionaux, boutiques d'artisans locaux…) et les rend accessibles via un pass d'abonnement annuel rentabilisé dès la première sortie.\n\nUne carte géolocalisée permet d'explorer les expériences disponibles partout au Québec et de créer des itinéraires personnalisés. Plus de 150 guides découvertes complètent l'offre pour inspirer les prochaines sorties en famille ou entre amis.\n\nL'application mobile et un programme de parrainage viennent renforcer la communauté de membres fidèles depuis le lancement de la plateforme.\n\nOtopio a accompagné M ta région dans la conception et le développement de sa plateforme.",
-  imageUrl: "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/mtaregion-landing.png",
+  imageUrl:
+    "https://medicpub.tor1.cdn.digitaloceanspaces.com/otopio/mtaregion-landing.png",
   url: "https://mtaregion.com/",
   startedAt: "2023-06-01",
   endedAt: "2024-06-01",

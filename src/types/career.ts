@@ -14,7 +14,8 @@ export const openPositions: JobOffer[] = [
     department: "Ingénierie",
     type: "CDI • Temps plein",
     location: "Montréal, QC (Hybride)",
-    shortDescription: "Participez à la création d'architectures robustes et d'interfaces intuitives pour nos clients internationaux."
+    shortDescription:
+      "Participez à la création d'architectures robustes et d'interfaces intuitives pour nos clients internationaux.",
   },
   {
     id: "mobile-flutter",
@@ -22,7 +23,8 @@ export const openPositions: JobOffer[] = [
     department: "Ingénierie",
     type: "CDI • Temps plein",
     location: "Remote / France",
-    shortDescription: "Rejoignez notre pôle mobile pour concevoir des applications fluides et performantes sur iOS et Android."
+    shortDescription:
+      "Rejoignez notre pôle mobile pour concevoir des applications fluides et performantes sur iOS et Android.",
   },
   {
     id: "ux-ui-designer",
@@ -30,6 +32,7 @@ export const openPositions: JobOffer[] = [
     department: "Design",
     type: "CDI • Temps plein",
     location: "Montréal, QC (Hybride)",
-    shortDescription: "Donnez vie à des expériences utilisateur mémorables à travers un design épuré et stratégique."
-  }
+    shortDescription:
+      "Donnez vie à des expériences utilisateur mémorables à travers un design épuré et stratégique.",
+  },
 ];
