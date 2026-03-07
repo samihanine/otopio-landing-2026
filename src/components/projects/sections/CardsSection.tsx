@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import type { ProjectSection } from "../../../types/projects";
 import { ClickableImage } from "../../ui/ImageLightbox";
+import { cn } from "../../../utils/cn";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 40 },
@@ -38,7 +39,7 @@ export function CardsSection({ section }: { section: ProjectSection }) {
           {section.description}
         </p>
       )}
-      <div className={`grid grid-cols-1 ${gridCols} gap-6`}>
+      <div className={cn("grid grid-cols-1 gap-6", gridCols)}>
         {section.subsections?.map((sub, i) => {
           const Icon = sub.lucideIcon
             ? (LucideIcons as any)[sub.lucideIcon]

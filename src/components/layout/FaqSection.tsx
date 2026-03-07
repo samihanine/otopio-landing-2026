@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Section } from "./Section";
 import { SectionLabel } from "../ui/SectionLabel";
 import { questions } from "../../types/questions";
+import { cn } from "../../utils/cn";
 
 export function FaqSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
@@ -49,12 +50,22 @@ export function FaqSection() {
                 className="w-full py-4 flex justify-between items-center text-left focus:outline-none group"
               >
                 <span
-                  className={`font-heading text-base md:text-lg transition-colors duration-300 pr-6 ${isActive ? "text-primary/90" : "text-dark/90 group-hover:text-primary/70"}`}
+                  className={cn(
+                    "font-heading text-base md:text-lg transition-colors duration-300 pr-6",
+                    isActive
+                      ? "text-primary/90"
+                      : "text-dark/90 group-hover:text-primary/70",
+                  )}
                 >
                   {q.question}
                 </span>
                 <span
-                  className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300 ${isActive ? "border-primary bg-primary text-dark" : "border-dark/10 text-dark group-hover:border-primary/50 group-hover:text-primary"}`}
+                  className={cn(
+                    "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
+                    isActive
+                      ? "border-primary bg-primary text-dark"
+                      : "border-dark/10 text-dark group-hover:border-primary/50 group-hover:text-primary",
+                  )}
                 >
                   <motion.div
                     animate={{ rotate: isActive ? 45 : 0 }}

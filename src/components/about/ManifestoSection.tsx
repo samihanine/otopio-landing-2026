@@ -4,6 +4,9 @@ import { Section } from "../layout/Section";
 import { SectionLabel } from "../ui/SectionLabel";
 import { defaultManifesto } from "../../types/manifesto";
 import type { ManifestoData } from "../../types/manifesto";
+import { cn } from "../../utils/cn";
+
+import { SectionHeader } from "../ui/SectionHeader";
 
 interface ManifestoSectionProps {
   data?: ManifestoData;
@@ -29,23 +32,12 @@ export function ManifestoSection({
 
   return (
     <Section className="relative py-20 md:py-28 overflow-hidden bg-dark">
-      {/* Section label */}
-      <SectionLabel text={data.label} variant="light" className="mb-10" />
-
-      {/* Decorative background title */}
-      <div
-        className="pointer-events-none select-none font-heading text-light"
-        style={{
-          fontSize: "clamp(40px, 8vw, 60px)",
-          fontWeight: 600,
-          lineHeight: 1,
-          letterSpacing: "-0.03em",
-          opacity: 0.15,
-          marginBottom: "40px",
-        }}
-      >
-        {data.backgroundTitle}
-      </div>
+      <SectionHeader 
+        label={data.label}
+        title={data.backgroundTitle}
+        variant="light"
+        className="mb-16"
+      />
 
       <div>
         {/* Manifesto tokens */}
@@ -172,7 +164,11 @@ export function ManifestoSection({
                         pathLength: isRevealed ? 1 : 0,
                         opacity: isRevealed ? 0.35 : 0,
                       }}
-                      transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+                      transition={{
+                        duration: 0.5,
+                        delay: 0.3,
+                        ease: "easeOut",
+                      }}
                     />
                   </svg>
                 </motion.span>
@@ -251,9 +247,10 @@ export function ManifestoSection({
                 className="border-t border-white/8 py-16 md:py-20"
               >
                 <div
-                  className={`flex flex-col md:flex-row gap-8 md:gap-16 items-start ${
-                    isRight ? "md:flex-row-reverse md:text-right" : ""
-                  }`}
+                  className={cn(
+                    "flex flex-col md:flex-row gap-8 md:gap-16 items-start",
+                    isRight ? "md:flex-row-reverse md:text-right" : "",
+                  )}
                 >
                   {/* Number + Title column */}
                   <div className="md:w-1/3 shrink-0">
@@ -265,9 +262,10 @@ export function ManifestoSection({
                       whileInView={{ width: "2.5rem" }}
                       transition={{ duration: 0.8, delay: 0.3 }}
                       viewport={{ once: true }}
-                      className={`h-[2px] bg-primary mt-3 mb-5 ${
-                        isRight ? "ml-auto" : ""
-                      }`}
+                      className={cn(
+                        "h-[2px] bg-primary mt-3 mb-5",
+                        isRight ? "ml-auto" : "",
+                      )}
                     />
                     <h3
                       className="font-heading text-white uppercase tracking-wider"

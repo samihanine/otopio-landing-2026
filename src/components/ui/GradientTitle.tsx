@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { cn } from "../../utils/cn";
 
 interface GradientTitleProps {
   children: React.ReactNode;
@@ -15,7 +16,7 @@ export function GradientTitle({
       whileInView={{ opacity: 0.15 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className={`text-center pointer-events-none select-none ${className}`}
+      className={cn("text-center pointer-events-none select-none", className)}
       style={{
         position: "relative",
         zIndex: 0,

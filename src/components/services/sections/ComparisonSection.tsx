@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import type { ServiceSection } from "../../../types/services";
+import { cn } from "../../../utils/cn";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 40 },
@@ -37,17 +38,19 @@ export function ComparisonSection({ section }: { section: ServiceSection }) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: ci * 0.15 }}
               viewport={{ once: true }}
-              className={`rounded-2xl p-8 border ${
+              className={cn(
+                "rounded-2xl p-8 border",
                 isPositive
                   ? "bg-primary/3 border-primary/20"
-                  : "bg-white border-border-mid"
-              }`}
+                  : "bg-white border-border-mid",
+              )}
             >
               {col.title && (
                 <h4
-                  className={`font-heading text-xl font-semibold mb-6 ${
-                    isPositive ? "text-primary" : "text-muted"
-                  }`}
+                  className={cn(
+                    "font-heading text-xl font-semibold mb-6",
+                    isPositive ? "text-primary" : "text-muted",
+                  )}
                 >
                   {col.title}
                 </h4>
@@ -60,11 +63,12 @@ export function ComparisonSection({ section }: { section: ServiceSection }) {
                   return (
                     <li key={li} className="flex items-start gap-3">
                       <div
-                        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                        className={cn(
+                          "w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5",
                           isPositive
                             ? "bg-primary/10 text-primary"
-                            : "bg-red-50 text-red-400"
-                        }`}
+                            : "bg-red-50 text-red-400",
+                        )}
                       >
                         <LineIcon size={12} strokeWidth={3} />
                       </div>

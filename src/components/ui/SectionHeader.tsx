@@ -1,12 +1,6 @@
 import type { ReactNode } from "react";
-import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 import { SectionLabel } from "./SectionLabel";
-
-/** Utilitaire interne pour fusionner les classes Tailwind */
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
+import { cn } from "../../utils/cn";
 
 export interface SectionHeaderProps {
   /** Titre principal de la section */
@@ -70,17 +64,17 @@ export function SectionHeader({
         />
       )}
 
-      {/* Titre standardisé - Taille réduite pour plus de subtilité */}
+      {/* Titre standardisé avec max-width pour la lisibilité */}
       <h2
         className={cn(
-          "text-3xl md:text-4xl lg:text-5xl font-heading font-semibold tracking-tight leading-[1.1]",
+          "text-3xl md:text-4xl lg:text-5xl font-heading font-semibold tracking-tight leading-[1.1] max-w-4xl",
           colors[variant].title,
         )}
       >
         {title}
       </h2>
 
-      {/* Sous-texte */}
+      {/* Sous-texte avec max-width identique ou proche pour l'équilibre visuel */}
       {subtext && (
         <p
           className={cn(

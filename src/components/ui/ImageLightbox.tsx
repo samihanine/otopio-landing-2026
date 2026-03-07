@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
+import { cn } from "../../utils/cn";
 
 export function ImageLightbox({
   src,
@@ -15,7 +16,8 @@ export function ImageLightbox({
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = `${scrollbarWidth}px`;
     window.addEventListener("keydown", handleKey);
@@ -71,22 +73,21 @@ export function ClickableImage({
   return (
     <>
       <div
-        className={`cursor-zoom-in group ${containerClassName ?? ""}`}
+        className={cn("cursor-zoom-in group", containerClassName)}
         onClick={() => setOpen(true)}
       >
         <img
           src={src}
           alt={alt}
-          className={`transition-transform duration-300 group-hover:scale-[1.03] ${className ?? ""}`}
+          className={cn(
+            "transition-transform duration-300 group-hover:scale-[1.03]",
+            className,
+          )}
         />
       </div>
       <AnimatePresence>
         {open && (
-          <ImageLightbox
-            src={src}
-            alt={alt}
-            onClose={() => setOpen(false)}
-          />
+          <ImageLightbox src={src} alt={alt} onClose={() => setOpen(false)} />
         )}
       </AnimatePresence>
     </>

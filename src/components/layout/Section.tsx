@@ -1,3 +1,5 @@
+import { cn } from "../../utils/cn";
+
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
@@ -14,8 +16,10 @@ export function Section({
   ref,
 }: SectionProps) {
   return (
-    <Component ref={ref} className={`py-20 md:py-32 px-4 ${className}`}>
-      <div className={`md:max-w-3/4 md:mx-auto mx-auto ${containerClassName}`}>
+    <Component ref={ref} className={cn("py-20 md:py-32 px-4", className)}>
+      <div
+        className={cn("md:max-w-3/4 md:mx-auto mx-auto", containerClassName)}
+      >
         {children}
       </div>
     </Component>

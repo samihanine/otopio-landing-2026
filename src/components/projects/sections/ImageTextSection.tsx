@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import type { ProjectSection } from "../../../types/projects";
 import { ClickableImage } from "../../ui/ImageLightbox";
+import { cn } from "../../../utils/cn";
 
 const sectionAnim = {
   initial: { opacity: 0, y: 40 },
@@ -24,9 +25,10 @@ export function ImageTextSection({
   return (
     <motion.div
       {...sectionAnim}
-      className={`grid grid-cols-1 ${
-        reversed ? "md:grid-cols-[2fr_1fr]" : "md:grid-cols-[1fr_2fr]"
-      } gap-12 md:gap-24 items-center`}
+      className={cn(
+        "grid grid-cols-1 gap-12 md:gap-24 items-center",
+        reversed ? "md:grid-cols-[2fr_1fr]" : "md:grid-cols-[1fr_2fr]",
+      )}
     >
       {/* Text Content */}
       <div className={reversed ? "md:order-2" : "md:order-1"}>

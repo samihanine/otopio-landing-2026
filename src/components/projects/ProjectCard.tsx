@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { type Project } from "../../types/projects";
 import { tags as allTags } from "../../types/tags";
+import { cn } from "../../utils/cn";
 
 export function ProjectCard({
   project,
@@ -26,7 +27,10 @@ export function ProjectCard({
         className="block group no-underline project-card-custom-cursor"
       >
         <div
-          className={`relative ${aspectRatio} rounded-2xl overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl`}
+          className={cn(
+            "relative rounded-2xl overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl",
+            aspectRatio,
+          )}
           style={{ transform: "scale(1)", transformOrigin: "center" }}
         >
           <img

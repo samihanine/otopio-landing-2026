@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Section } from "../layout/Section";
 import { SectionLabel } from "./SectionLabel";
+import { cn } from "../../utils/cn";
 
 interface PageHeroProps {
   title: string;
@@ -16,7 +17,7 @@ export function PageHero({
   className = "",
 }: PageHeroProps) {
   return (
-    <Section className={`sm:py-12 md:py-12 lg:py-12 ${className}`}>
+    <Section className={cn("sm:py-12 md:py-12 lg:py-12", className)}>
       <div className="flex flex-col gap-16 text-left">
         {label && (
           <SectionLabel

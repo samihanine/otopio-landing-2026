@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { cn } from "../../utils/cn";
 
-interface SectionLabelProps {
+export interface SectionLabelProps {
   text: string;
   className?: string;
-  /** "dark" = text-dark (light bg), "light" = text-white/40 (dark bg) */
+  /** "dark" = texte noir (pour fond clair), "light" = texte blanc/40 (pour fond sombre) */
   variant?: "dark" | "light";
-  /** Whether to animate on scroll (whileInView) or on mount (animate) */
+  /** Animation au scroll (whileInView) ou au montage (animate) */
   animateOnScroll?: boolean;
 }
 
@@ -15,6 +16,7 @@ export function SectionLabel({
   variant = "dark",
   animateOnScroll = true,
 }: SectionLabelProps) {
+  // Définition des couleurs de texte selon la variante
   const textColor = variant === "dark" ? "text-dark" : "text-white/40";
 
   return (
@@ -24,11 +26,16 @@ export function SectionLabel({
         ? { whileInView: { opacity: 1, y: 0 }, viewport: { once: true } }
         : { animate: { opacity: 1, y: 0 } })}
       transition={{ duration: 0.6 }}
-      className={`flex items-center gap-2 ${className}`}
+      className={cn("flex items-center gap-2", className)}
     >
+      {/* Le point orange reste constant car il ressort sur les deux fonds */}
       <div className="w-2 h-2 rounded-full bg-primary" />
+      
       <span
-        className={`${textColor} uppercase tracking-widest text-overline font-medium`}
+        className={cn(
+          "uppercase tracking-[0.2em] text-overline font-semibold",
+          textColor
+        )}
       >
         {text}
       </span>

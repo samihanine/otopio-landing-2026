@@ -44,6 +44,8 @@ function Counter({
   return <motion.span ref={ref}>{rounded}</motion.span>;
 }
 
+import { SectionHeader } from "../ui/SectionHeader";
+
 export function StatsSection() {
   const stats = [
     { value: 32, label: "Projets Finalisés", suffix: "+", decimals: 0 },
@@ -53,6 +55,12 @@ export function StatsSection() {
 
   return (
     <Section className="py-12 md:py-20 border-y border-border-light">
+      <SectionHeader 
+        label="EN CHIFFRES"
+        title="Notre impact mesurable"
+        align="center"
+        className="mb-16"
+      />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
         {stats.map((stat, index) => (
           <motion.div

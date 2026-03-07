@@ -4,6 +4,8 @@ import { timelineEvents } from "../../types/timeline";
 import { Section } from "../layout/Section";
 import { SectionLabel } from "../ui/SectionLabel";
 
+import { SectionHeader } from "../ui/SectionHeader";
+
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -30,25 +32,12 @@ export function Timeline() {
   return (
     // <section className="py-20 md:py-28 px-8 md:px-16 overflow-hidden">
     <Section>
-      {/* Section label */}
-      <SectionLabel text="Notre Parcours" className="mb-6" />
-
-      {/* Decorative background title */}
-      <div
-        className="pointer-events-none select-none"
-        style={{
-          fontFamily: "'Clash Display', sans-serif",
-          fontSize: "clamp(40px, 8vw, 100px)",
-          fontWeight: 600,
-          lineHeight: 1,
-          letterSpacing: "-0.03em",
-          opacity: 0.06,
-          color: "var(--color-dark)",
-          marginBottom: "40px",
-        }}
-      >
-        Ligne du Temps
-      </div>
+      <SectionHeader 
+        label="NOTRE PARCOURS"
+        title="Ligne du temps"
+        align="left"
+        className="mb-16"
+      />
 
       {/* Vertical timeline */}
       <div ref={containerRef} className="relative">

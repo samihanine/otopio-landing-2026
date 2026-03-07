@@ -8,6 +8,7 @@ interface JobCardProps {
 }
 
 export function JobCard({ job, index }: JobCardProps) {
+  // Variantes pour le balayage lumineux (shimmer)
   const shimmerVariants: Variants = {
     hover: {
       x: ["-100%", "250%"],
@@ -16,12 +17,27 @@ export function JobCard({ job, index }: JobCardProps) {
     },
   };
 
+  // Variantes pour le conteneur parent (gestion du z-index)
+  const cardVariants: Variants = {
+    initial: { opacity: 0, y: 20, zIndex: 1 },
+    inView: {
+      opacity: 1,
+      y: 0,
+      zIndex: 1,
+      transition: { duration: 0.5, delay: index * 0.1 },
+    },
+    hover: {
+      zIndex: 50,
+      transition: { duration: 0 },
+    },
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={cardVariants}
+      initial="initial"
+      whileInView="inView"
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover="hover"
       className="relative cursor-pointer group flex w-full items-stretch"
       style={{
@@ -29,10 +45,21 @@ export function JobCard({ job, index }: JobCardProps) {
       }}
     >
       {/* --- PARTIE GAUCHE DU TICKET --- */}
-      <div
-        className="flex-3 p-8 md:p-10 bg-white border-y border-l border-border-light group-hover:border-primary/30 transition-colors duration-500 rounded-l-2xl relative overflow-hidden"
+      <motion.div
+        variants={{
+          initial: { rotate: 0, x: 0, rotateX: 0, rotateY: 0 },
+          hover: {
+            rotate: -2,
+            x: -2,
+            rotateX: -10,
+            rotateY: 2,
+            boxShadow: "10px 10px 10px black",
+            transition: { type: "spring", stiffness: 400, damping: 25 },
+          },
+        }}
+        className="flex-[3] p-8 md:p-10 bg-white border-y border-l border-border-light group-hover:border-primary/30 transition-colors duration-500 rounded-l-2xl relative overflow-hidden origin-bottom-right"
         style={{
-          // Encoches en haut à droite et bas à droite
+          transformStyle: "preserve-3d",
           WebkitMaskImage: `radial-gradient(circle at 100% 0%, transparent 12px, black 13px), 
                             radial-gradient(circle at 100% 100%, transparent 12px, black 13px)`,
           maskImage: `radial-gradient(circle at 100% 0%, transparent 12px, black 13px), 
@@ -60,6 +87,9 @@ export function JobCard({ job, index }: JobCardProps) {
           {job.shortDescription}
         </p>
 
+        {/* LIGNE DE PERFORATION - Maintenant solidaire du bloc de gauche */}
+        <div className="absolute top-4 bottom-4 right-0 border-r-2 border-dashed border-border-light group-hover:border-primary/30 transition-colors duration-500 z-20" />
+
         <motion.div
           variants={shimmerVariants}
           className="absolute inset-0 pointer-events-none opacity-0"
@@ -69,12 +99,7 @@ export function JobCard({ job, index }: JobCardProps) {
             transform: "skewX(-20deg)",
           }}
         />
-      </div>
-
-      {/* --- LIGNE DE PERFORATION --- */}
-      <div className="relative w-0 z-10">
-        <div className="absolute top-[16px] bottom-[16px] left-[-1px] border-r-2 border-dashed border-border-light group-hover:border-primary/30 transition-colors duration-500" />
-      </div>
+      </motion.div>
 
       {/* --- PARTIE DROITE DU TICKET (DÉTACHABLE) --- */}
       <motion.div
@@ -83,44 +108,30 @@ export function JobCard({ job, index }: JobCardProps) {
             rotateX: 0,
             rotateY: 0,
             rotate: 0,
+            x: 0,
             z: 0,
             y: 0,
             filter: "drop-shadow(0px 0px 0px rgba(255,85,0,0))",
-            transition: {
-              type: "spring",
-              bounce: 0,
-              duration: 0.5,
-              restDelta: 0.0001, // Empêche le "snap" brutal au retour
-            },
           },
           hover: {
-            zIndex: 50,
             rotateX: -5,
-            rotateY: 5,
-            rotate: 5,
-            z: 20,
-            y: -2,
-            filter: "drop-shadow(-8px 15px 20px rgba(255,85,0,0.35))",
-            transition: {
-              type: "spring",
-              stiffness: 450,
-              damping: 60,
-              mass: 1.5,
-              restDelta: 0.0001, // Oblige Framer Motion à calculer l'animation jusqu'au bout du moindre pixel
-            },
+            rotateY: 4,
+            rotate: 3,
+            x: 4,
+            z: 40,
+            y: -4,
+            filter: [
+              "drop-shadow(-2px 4px 4px rgba(0,0,0,0.1))",
+              "drop-shadow(-10px 20px 30px rgba(255,85,0,0.4))",
+              "drop-shadow(-20px 40px 60px rgba(255,85,0,0.2))",
+            ].join(" "),
+            transition: { type: "spring", stiffness: 400, damping: 30 },
           },
         }}
-        initial="initial"
-        whileHover="hover"
-        className="origin-bottom-left flex-1 min-w-[100px] bg-border-lighter border-y border-r border-border-light flex flex-col items-center justify-center gap-4 relative group-hover:bg-dark group-hover:border-dark transition-colors duration-500 rounded-r-2xl overflow-hidden"
+        className="origin-bottom-left flex-1 min-w-[100px] bg-border-lighter border-y border-r border-border-light flex flex-col items-center justify-center gap-4 relative group-hover:bg-dark-light group-hover:border-dark-light transition-colors duration-500 rounded-r-2xl overflow-hidden"
         style={{
           transformPerspective: 1000,
           transformStyle: "preserve-3d",
-
-          // Les optimisations GPU :
-          willChange: "transform, filter", // Force le navigateur à garder le composant prêt pour l'animation
-          backfaceVisibility: "hidden", // Évite les artefacts de rendu 3D sur les bords
-
           WebkitMaskImage: `radial-gradient(circle at 0% 0%, transparent 12px, black 13px), 
                             radial-gradient(circle at 0% 100%, transparent 12px, black 13px)`,
           maskImage: `radial-gradient(circle at 0% 0%, transparent 12px, black 13px), 
@@ -130,7 +141,7 @@ export function JobCard({ job, index }: JobCardProps) {
         }}
       >
         <span className="hidden md:block text-[9px] font-black uppercase tracking-[0.4em] rotate-90 whitespace-nowrap text-muted group-hover:text-white/40 transition-colors relative z-10">
-          JOIN US
+          REJOIGNEZ-NOUS
         </span>
 
         <motion.div

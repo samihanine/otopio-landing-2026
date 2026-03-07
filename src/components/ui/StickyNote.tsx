@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import * as LucideIcons from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import type { ServiceDetail } from "../../types/services";
+import { cn } from "../../utils/cn";
 
 interface StickyNoteProps {
   service: ServiceDetail;
@@ -52,7 +53,10 @@ export function StickyNote({
       className="w-full h-full"
     >
       <div
-        className={`relative w-full h-full flex flex-col ${compact ? "p-6" : "p-8 md:p-10"}`}
+        className={cn(
+          "relative w-full h-full flex flex-col",
+          compact ? "p-6" : "p-8 md:p-10",
+        )}
         style={{
           background: "var(--sticky-bg-gradient)",
           borderRadius: borderRadiusBase,
@@ -155,24 +159,36 @@ export function StickyNote({
             animate="animate"
             exit="exit"
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className={`relative z-[1] flex flex-col ${compact ? "gap-4" : "gap-5"} h-full`}
+            className={cn(
+              "relative z-[1] flex flex-col h-full",
+              compact ? "gap-4" : "gap-5",
+            )}
           >
             <div className="flex items-center gap-3 md:gap-4">
               <div
-                className={`${compact ? "w-10 h-10 rounded-lg" : "w-12 h-12 rounded-xl"} flex items-center justify-center text-white shrink-0`}
+                className={cn(
+                  "flex items-center justify-center text-white shrink-0",
+                  compact ? "w-10 h-10 rounded-lg" : "w-12 h-12 rounded-xl",
+                )}
                 style={{ backgroundColor: service.hexColor }}
               >
                 <Icon size={compact ? 18 : 22} />
               </div>
               <div>
                 <h3
-                  className={`font-heading font-semibold leading-snug ${compact ? "text-lg" : "text-xl"}`}
+                  className={cn(
+                    "font-heading font-semibold leading-snug",
+                    compact ? "text-lg" : "text-xl",
+                  )}
                   style={{ color: "var(--sticky-text-main)" }}
                 >
                   {service.title}
                 </h3>
                 <p
-                  className={`text-primary font-medium italic mt-0.5 ${compact ? "text-[13px]" : "text-sm"}`}
+                  className={cn(
+                    "text-primary font-medium italic mt-0.5",
+                    compact ? "text-[13px]" : "text-sm",
+                  )}
                 >
                   {service.tagline}
                 </p>
@@ -180,7 +196,10 @@ export function StickyNote({
             </div>
 
             <p
-              className={`leading-relaxed ${compact ? "text-[14px]" : "text-[15px]"}`}
+              className={cn(
+                "leading-relaxed",
+                compact ? "text-[14px]" : "text-[15px]",
+              )}
               style={{ color: "var(--sticky-text-body)" }}
             >
               {service.summary}
@@ -190,7 +209,12 @@ export function StickyNote({
               {service.keywords.map((kw) => (
                 <span
                   key={kw}
-                  className={`rounded-full font-medium tracking-wide ${compact ? "px-2.5 py-0.5 text-[11px]" : "px-3 py-1 text-[12px]"}`}
+                  className={cn(
+                    "rounded-full font-medium tracking-wide",
+                    compact
+                      ? "px-2.5 py-0.5 text-[11px]"
+                      : "px-3 py-1 text-[12px]",
+                  )}
                   style={{
                     border: "1px solid rgba(0,0,0,0.07)",
                     color: "var(--sticky-text-keywords)",
@@ -205,7 +229,10 @@ export function StickyNote({
             <Link
               to="/expertises/$serviceId"
               params={{ serviceId: service.id }}
-              className={`group inline-flex items-center gap-2 no-underline font-heading font-semibold mt-auto hover:text-primary transition-colors duration-300 ${compact ? "text-[14px]" : "text-[15px]"}`}
+              className={cn(
+                "group inline-flex items-center gap-2 no-underline font-heading font-semibold mt-auto hover:text-primary transition-colors duration-300",
+                compact ? "text-[14px]" : "text-[15px]",
+              )}
               style={{ color: "var(--sticky-text-main)" }}
             >
               Découvrir cette expertise
