@@ -54,8 +54,7 @@ export function StickyNote({
       <div
         className={`relative w-full h-full flex flex-col ${compact ? "p-6" : "p-8 md:p-10"}`}
         style={{
-          background:
-            "linear-gradient(172deg, #fffef5 0%, #fff9e2 30%, #fffbea 60%, #fffdf2 100%)",
+          background: "var(--sticky-bg-gradient)",
           borderRadius: borderRadiusBase,
           transformStyle: "preserve-3d",
           transform: `rotateY(-1.8deg) rotateX(1.2deg) scale(${scale}, ${scale * stretchY})`,
@@ -77,8 +76,7 @@ export function StickyNote({
             marginLeft: `${tapeOffsetX}px`,
             width: "88px",
             height: "30px",
-            background:
-              "linear-gradient(180deg, rgba(255,255,255,0.65) 0%, rgba(245,243,235,0.4) 100%)",
+            background: "var(--sticky-tape-bg)",
             borderRadius: "2px",
             border: "1px solid rgba(0,0,0,0.05)",
             boxShadow:
@@ -110,7 +108,7 @@ export function StickyNote({
               style={{
                 top: `${44 + i * 26}px`,
                 height: "1px",
-                background: `rgba(180, 200, 220, ${0.18 + (i % 3 === 0 ? 0.08 : 0)})`,
+                background: `var(--sticky-line-blue)`,
               }}
             />
           ))}
@@ -119,10 +117,22 @@ export function StickyNote({
             style={{
               left: "38px",
               width: "1px",
-              background: "rgba(220, 100, 100, 0.08)",
+              background: "var(--sticky-line-red)",
             }}
           />
         </div>
+
+        {/* Folded corner shadow (area under the fold) */}
+        <div
+          className="absolute bottom-0 right-0 z-[1] pointer-events-none"
+          style={{
+            width: "30px",
+            height: "30px",
+            background:
+              "radial-gradient(circle at bottom right, rgba(0,0,0,0.1) 0%, transparent 70%)",
+            borderRadius: "0 0 5px 0",
+          }}
+        />
 
         {/* Folded corner */}
         <div
@@ -130,9 +140,8 @@ export function StickyNote({
           style={{
             width: "20px",
             height: "20px",
-            background:
-              "linear-gradient(135deg, transparent 50%, #f5f0e0 50%, #ede8d8 100%)",
-            boxShadow: "-1px -1px 3px rgba(0,0,0,0.06)",
+            background: "var(--sticky-fold-bg)",
+            boxShadow: "var(--sticky-fold-shadow)",
             borderRadius: "0 0 5px 0",
           }}
         />
@@ -158,7 +167,7 @@ export function StickyNote({
               <div>
                 <h3
                   className={`font-heading font-semibold leading-snug ${compact ? "text-lg" : "text-xl"}`}
-                  style={{ color: "#2a2a2a" }}
+                  style={{ color: "var(--sticky-text-main)" }}
                 >
                   {service.title}
                 </h3>
@@ -172,7 +181,7 @@ export function StickyNote({
 
             <p
               className={`leading-relaxed ${compact ? "text-[14px]" : "text-[15px]"}`}
-              style={{ color: "#555" }}
+              style={{ color: "var(--sticky-text-body)" }}
             >
               {service.summary}
             </p>
@@ -184,8 +193,8 @@ export function StickyNote({
                   className={`rounded-full font-medium tracking-wide ${compact ? "px-2.5 py-0.5 text-[11px]" : "px-3 py-1 text-[12px]"}`}
                   style={{
                     border: "1px solid rgba(0,0,0,0.07)",
-                    color: "#888",
-                    backgroundColor: "rgba(255,255,255,0.45)",
+                    color: "var(--sticky-text-keywords)",
+                    backgroundColor: "var(--sticky-bg-keywords)",
                   }}
                 >
                   {kw}
@@ -197,7 +206,7 @@ export function StickyNote({
               to="/expertises/$serviceId"
               params={{ serviceId: service.id }}
               className={`group inline-flex items-center gap-2 no-underline font-heading font-semibold mt-auto hover:text-primary transition-colors duration-300 ${compact ? "text-[14px]" : "text-[15px]"}`}
-              style={{ color: "#2a2a2a" }}
+              style={{ color: "var(--sticky-text-main)" }}
             >
               Découvrir cette expertise
               <LucideIcons.ArrowRight
