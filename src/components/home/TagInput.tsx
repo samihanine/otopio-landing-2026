@@ -96,12 +96,12 @@ export function TagInput({ value, onChange }: TagInputProps) {
     cat === "expertise" ? "Expertise" : "Type";
 
   return (
-    <div ref={containerRef} className="relative group">
+    <div ref={containerRef} className="group relative">
       <label className="label-dark">Domaines & expertises</label>
 
       {/* Input area with tags */}
       <div
-        className="flex flex-wrap items-center gap-1.5 min-h-[48px] px-3 py-2 rounded-xl border border-white/10 bg-white/[0.03] focus-within:border-primary/50 transition-colors duration-300 cursor-text"
+        className="focus-within:border-primary/50 flex min-h-[48px] cursor-text flex-wrap items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 transition-colors duration-300"
         onClick={() => inputRef.current?.focus()}
       >
         <AnimatePresence mode="popLayout">
@@ -113,7 +113,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.15 }}
-              className="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary select-none"
+              className="border-primary/30 bg-primary/10 text-primary inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-medium select-none"
             >
               {tag}
               <button
@@ -122,7 +122,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
                   e.stopPropagation();
                   removeTag(tag);
                 }}
-                className="flex items-center justify-center rounded-full hover:bg-primary/20 transition-colors p-0.5 cursor-pointer"
+                className="hover:bg-primary/20 flex cursor-pointer items-center justify-center rounded-full p-0.5 transition-colors"
               >
                 <X size={12} />
               </button>
@@ -143,7 +143,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
           placeholder={
             value.length === 0 ? "Ex: Application Web, UX/UI, IA…" : ""
           }
-          className="flex-1 min-w-[120px] bg-transparent outline-none text-white/80 placeholder-white/25 text-sm font-body"
+          className="font-body min-w-[120px] flex-1 bg-transparent text-sm text-white/80 placeholder-white/25 outline-none"
         />
       </div>
 
@@ -155,7 +155,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -4 }}
             transition={{ duration: 0.15 }}
-            className="absolute z-50 left-0 right-0 mt-1.5 rounded-xl border border-white/10 bg-dark shadow-2xl shadow-black/40 overflow-hidden max-h-[220px] overflow-y-auto styled-scrollbar"
+            className="bg-dark styled-scrollbar absolute right-0 left-0 z-50 mt-1.5 max-h-[220px] overflow-hidden overflow-y-auto rounded-xl border border-white/10 shadow-2xl shadow-black/40"
           >
             {filtered.map((s, idx) => (
               <button
@@ -164,7 +164,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(s.label)}
                 onMouseEnter={() => setHighlightIdx(idx)}
-                className="w-full flex items-center justify-between px-4 py-2.5 text-left text-sm transition-colors cursor-pointer"
+                className="flex w-full cursor-pointer items-center justify-between px-4 py-2.5 text-left text-sm transition-colors"
                 style={{
                   backgroundColor:
                     highlightIdx === idx ? "rgba(255,85,0,0.1)" : "transparent",
@@ -176,7 +176,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
               >
                 <span>{s.label}</span>
                 <span
-                  className="text-[10px] uppercase tracking-wider rounded-full px-2 py-0.5 font-medium"
+                  className="rounded-full px-2 py-0.5 text-[10px] font-medium tracking-wider uppercase"
                   style={{
                     backgroundColor:
                       s.category === "expertise"
@@ -199,7 +199,7 @@ export function TagInput({ value, onChange }: TagInputProps) {
                 onMouseDown={(e) => e.preventDefault()}
                 onClick={() => addTag(query.trim())}
                 onMouseEnter={() => setHighlightIdx(filtered.length)}
-                className="w-full flex items-center gap-2 px-4 py-2.5 text-left text-sm border-t border-white/5 transition-colors cursor-pointer"
+                className="flex w-full cursor-pointer items-center gap-2 border-t border-white/5 px-4 py-2.5 text-left text-sm transition-colors"
                 style={{
                   backgroundColor:
                     highlightIdx === filtered.length

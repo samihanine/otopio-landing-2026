@@ -29,16 +29,16 @@ export function ServicesSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-center mb-10 lg:mb-16"
+        className="mb-10 text-center lg:mb-16"
       >
         <p
-          className="text-primary mb-4 font-heading"
+          className="text-primary font-heading mb-4"
           style={{ fontSize: "28px", fontStyle: "italic" }}
         >
           Nos Expertises
         </p>
         <h2
-          className="text-dark font-heading max-w-3xl mx-auto"
+          className="text-dark font-heading mx-auto max-w-3xl"
           style={{
             fontSize: "clamp(26px, 3.5vw, 44px)",
             fontWeight: 500,
@@ -51,7 +51,7 @@ export function ServicesSection() {
       </motion.div>
 
       {/* ── Tabs + Content ── */}
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-stretch">
+      <div className="grid grid-cols-1 items-stretch gap-8 lg:grid-cols-[1fr_1.2fr] lg:gap-12">
         {/* Selector (Mobile: expanding row, Desktop: vertical list) */}
         <SideSelector
           items={servicesDetails.map((s) => ({

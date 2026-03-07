@@ -49,7 +49,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "flex flex-col gap-5 w-full",
+        "flex w-full flex-col gap-5",
         alignmentMap[align],
         className,
       )}
@@ -67,7 +67,7 @@ export function SectionHeader({
       {/* Titre standardisé avec max-width pour la lisibilité */}
       <h2
         className={cn(
-          "text-3xl md:text-4xl lg:text-5xl font-heading font-semibold tracking-tight leading-[1.1] max-w-4xl",
+          "font-heading max-w-4xl text-3xl leading-[1.1] font-semibold tracking-tight md:text-4xl lg:text-5xl",
           colors[variant].title,
         )}
       >
@@ -78,7 +78,7 @@ export function SectionHeader({
       {subtext && (
         <p
           className={cn(
-            "text-md-body md:text-lg-body font-body leading-relaxed max-w-3xl",
+            "text-md-body md:text-lg-body font-body max-w-3xl leading-relaxed",
             colors[variant].subtext,
           )}
         >

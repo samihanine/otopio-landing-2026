@@ -38,7 +38,7 @@ export function ContactSection() {
   return (
     <Section className="py-16 md:py-24" containerClassName="relative">
       {/* Title Section */}
-      <div className="md:-mb-5 lg:-mb-8 mb-12">
+      <div className="mb-12 md:-mb-5 lg:-mb-8">
         <GradientTitle>Contact</GradientTitle>
       </div>
 
@@ -50,29 +50,29 @@ export function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto rounded-2xl overflow-hidden relative min-h-[500px] z-10 shadow-2xl group/card"
+        className="group/card relative z-10 mx-auto min-h-[500px] max-w-5xl overflow-hidden rounded-2xl shadow-2xl"
       >
         {/* Background */}
-        <div className="absolute inset-0 bg-dark">
+        <div className="bg-dark absolute inset-0">
           {/* Grid pattern */}
           <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4 opacity-10">
             {Array.from({ length: 9 }).map((_, i) => (
-              <div key={i} className="rounded-2xl bg-dark-light" />
+              <div key={i} className="bg-dark-light rounded-2xl" />
             ))}
           </div>
 
           {/* Base gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/40 to-primary/5" />
+          <div className="to-primary/5 absolute inset-0 bg-gradient-to-br from-black/80 via-black/40" />
 
           {/* Mouse-following radial gradient */}
           <motion.div
-            className="absolute inset-0 pointer-events-none opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 ease-out group-hover/card:duration-300"
+            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-out group-hover/card:opacity-100 group-hover/card:duration-300"
             style={{ background }}
           />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 grid md:grid-cols-2 gap-8 p-8 md:p-16">
+        <div className="relative z-10 grid gap-8 p-8 md:grid-cols-2 md:p-16">
           {/* Left side */}
           <div className="flex flex-col justify-center">
             <motion.h2
@@ -80,7 +80,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-white mb-6 font-heading"
+              className="font-heading mb-6 text-white"
               style={{
                 fontSize: "clamp(36px, 5vw, 56px)",
                 fontWeight: 500,
@@ -95,7 +95,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-white/50 leading-relaxed w-full max-w-xs sm:max-w-sm font-body text-md-body"
+              className="font-body text-md-body w-full max-w-xs leading-relaxed text-white/50 sm:max-w-sm"
             >
               Prêt à donner vie à vos idées ? Envoyez-nous un message et
               commençons l'aventure ensemble.
@@ -155,7 +155,7 @@ export function ContactSection() {
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
               type="submit"
-              className="w-full py-5 rounded-full bg-white text-dark mt-2 cursor-pointer hover:bg-primary hover:text-white transition-all duration-500 ease-out shadow-xl shadow-black/20 font-bold uppercase tracking-wider text-caption"
+              className="text-dark hover:bg-primary text-caption mt-2 w-full cursor-pointer rounded-full bg-white py-5 font-bold tracking-wider uppercase shadow-xl shadow-black/20 transition-all duration-500 ease-out hover:text-white"
             >
               Envoyer le message
             </motion.button>

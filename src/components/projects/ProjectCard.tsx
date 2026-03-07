@@ -24,11 +24,11 @@ export function ProjectCard({
       <Link
         to="/projets/$projectId"
         params={{ projectId: project.id }}
-        className="block group no-underline project-card-custom-cursor"
+        className="group project-card-custom-cursor block no-underline"
       >
         <div
           className={cn(
-            "relative rounded-2xl overflow-hidden bg-border/10 transition-transform duration-500 shadow-xl",
+            "bg-border/10 relative overflow-hidden rounded-2xl shadow-xl transition-transform duration-500",
             aspectRatio,
           )}
           style={{ transform: "scale(1)", transformOrigin: "center" }}
@@ -36,13 +36,13 @@ export function ProjectCard({
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-[800ms] ease-out group-hover:scale-110"
           />
           {/* Subtle dark overlay on hover to make image slightly darker without the button */}
-          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/60 transition-colors duration-500 pointer-events-none" />
+          <div className="pointer-events-none absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/60" />
 
           {/* Tags */}
-          <div className="absolute top-4 left-4 flex flex-wrap gap-2 pointer-events-none z-10">
+          <div className="pointer-events-none absolute top-4 left-4 z-10 flex flex-wrap gap-2">
             {project.tagIds?.map((tagId) => {
               const tagObj = allTags.find((t) => t.id === tagId);
               if (!tagObj) return null;
@@ -50,7 +50,7 @@ export function ProjectCard({
               return (
                 <span
                   key={tagId}
-                  className="px-3 py-1 rounded-full shadow-sm tracking-wide transition-colors duration-300 group-hover:!bg-primary text-label font-semibold"
+                  className="group-hover:!bg-primary text-label rounded-full px-3 py-1 font-semibold tracking-wide shadow-sm transition-colors duration-300"
                   style={{
                     backgroundColor: tagObj.hexColor,
                     color: "#ffffff",

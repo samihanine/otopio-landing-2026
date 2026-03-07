@@ -29,11 +29,11 @@ export function SectionLabel({
       className={cn("flex items-center gap-2", className)}
     >
       {/* Le point orange reste constant car il ressort sur les deux fonds */}
-      <div className="w-2 h-2 rounded-full bg-primary" />
+      <div className="bg-primary h-2 w-2 rounded-full" />
 
       <span
         className={cn(
-          "uppercase tracking-[0.2em] text-overline font-semibold",
+          "text-overline font-semibold tracking-[0.2em] uppercase",
           textColor,
         )}
       >

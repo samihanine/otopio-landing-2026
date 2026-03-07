@@ -16,9 +16,9 @@ export function Section({
   ref,
 }: SectionProps) {
   return (
-    <Component ref={ref} className={cn("py-20 md:py-32 px-4", className)}>
+    <Component ref={ref} className={cn("px-4 py-20 md:py-32", className)}>
       <div
-        className={cn("md:max-w-3/4 md:mx-auto mx-auto", containerClassName)}
+        className={cn("mx-auto md:mx-auto md:max-w-3/4", containerClassName)}
       >
         {children}
       </div>

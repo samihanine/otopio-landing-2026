@@ -22,19 +22,19 @@ export function Header() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="flex items-center justify-between py-6 md:max-w-3/4 md:mx-auto"
+        className="flex items-center justify-between py-6 md:mx-auto md:max-w-3/4"
       >
-        <div className="text-primary font-semibold text-[28px] border-none font-heading">
+        <div className="text-primary font-heading border-none text-[28px] font-semibold">
           <Link to="/">Otopio.</Link>
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-base-body">
+        <nav className="text-base-body hidden items-center gap-8 md:flex">
           {navLinks.map((item) => (
             <Link
               key={item.name}
               to={item.path}
-              className="text-dark-light hover:text-primary transition-colors duration-300 font-medium [&.active]:text-primary"
+              className="text-dark-light hover:text-primary [&.active]:text-primary font-medium transition-colors duration-300"
             >
               {item.name}
             </Link>
@@ -47,7 +47,7 @@ export function Header() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-dark px-6 py-2.5 text-sm-body"
+              className="btn-dark text-sm-body px-6 py-2.5"
             >
               Contact
             </motion.button>
@@ -56,7 +56,7 @@ export function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-dark-light"
+          className="text-dark-light md:hidden"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open Menu"
         >
@@ -83,22 +83,22 @@ export function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="relative ml-auto w-[80%] max-w-sm h-full shadow-xl flex flex-col p-6 font-medium"
+              className="relative ml-auto flex h-full w-[80%] max-w-sm flex-col p-6 font-medium shadow-xl"
             >
               <button
-                className="self-end mb-8 text-dark-light"
+                className="text-dark-light mb-8 self-end"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <X size={28} />
               </button>
 
-              <nav className="flex flex-col gap-6 text-lg-body">
+              <nav className="text-lg-body flex flex-col gap-6">
                 {navLinks.map((item) => (
                   <Link
                     key={item.name}
                     to={item.path}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-dark-light hover:text-primary transition-colors [&.active]:text-primary"
+                    className="text-dark-light hover:text-primary [&.active]:text-primary transition-colors"
                   >
                     {item.name}
                   </Link>
@@ -106,7 +106,7 @@ export function Header() {
                 <Link
                   to="/contact"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 btn-dark px-6 py-3 text-md-body text-center"
+                  className="btn-dark text-md-body mt-4 px-6 py-3 text-center"
                 >
                   Contact
                 </Link>

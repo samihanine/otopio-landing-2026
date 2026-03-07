@@ -14,7 +14,7 @@ export function StatsSection({ section }: { section: ProjectSection }) {
     <motion.div {...sectionAnim}>
       {section.title && (
         <h3
-          className="text-dark mb-10 font-heading text-center"
+          className="text-dark font-heading mb-10 text-center"
           style={{
             fontSize: "clamp(24px, 3.5vw, 36px)",
             fontWeight: 600,
@@ -24,7 +24,7 @@ export function StatsSection({ section }: { section: ProjectSection }) {
           {section.title}
         </h3>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
         {section.subsections?.map((sub, i) => {
           const Icon = sub.lucideIcon
             ? (LucideIcons as any)[sub.lucideIcon]
@@ -36,10 +36,10 @@ export function StatsSection({ section }: { section: ProjectSection }) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col items-center text-center gap-3 p-6 rounded-2xl border border-border-mid bg-white shadow-sm"
+              className="border-border-mid flex flex-col items-center gap-3 rounded-2xl border bg-white p-6 text-center shadow-sm"
             >
               {Icon && (
-                <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-border-lighter">
+                <div className="border-border-lighter flex h-10 w-10 items-center justify-center rounded-xl border bg-white shadow-sm">
                   <Icon size={20} className="text-primary" />
                 </div>
               )}
@@ -56,7 +56,7 @@ export function StatsSection({ section }: { section: ProjectSection }) {
                 </p>
               )}
               {sub.description && (
-                <p className="text-muted text-sm font-medium uppercase tracking-wide">
+                <p className="text-muted text-sm font-medium tracking-wide uppercase">
                   {sub.description}
                 </p>
               )}

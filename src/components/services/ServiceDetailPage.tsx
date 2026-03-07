@@ -21,7 +21,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
     return (
       <Section
         as="div"
-        className="min-h-screen flex flex-col items-center justify-center font-body"
+        className="font-body flex min-h-screen flex-col items-center justify-center"
       >
         <h1
           className="font-heading"
@@ -31,7 +31,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
         </h1>
         <Link
           to="/expertises"
-          className="mt-6 text-primary hover:underline no-underline text-base-body"
+          className="text-primary text-base-body mt-6 no-underline hover:underline"
         >
           &larr; Retour aux Expertises
         </Link>
@@ -59,11 +59,11 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center w-full justify-end px-8 md:px-16 py-6"
+        className="flex w-full items-center justify-end px-8 py-6 md:px-16"
       >
         <button
           onClick={() => navigate({ to: "/expertises" })}
-          className="btn-dark px-6 py-2.5 flex items-center gap-2 text-sm-body"
+          className="btn-dark text-sm-body flex items-center gap-2 px-6 py-2.5"
         >
           <LucideIcons.ArrowLeft size={16} />
           Toutes les Expertises
@@ -71,7 +71,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
       </motion.header>
 
       {/* ─── Hero: Icon + Title + Tagline ─── */}
-      <div className="px-8 md:px-16 pt-8 pb-14">
+      <div className="px-8 pt-8 pb-14 md:px-16">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 border border-border-mid shadow-sm"
+              className="border-border-mid mb-8 flex h-14 w-14 items-center justify-center rounded-2xl border shadow-sm"
               style={{ backgroundColor: `${service.hexColor}10` }}
             >
               <Icon size={26} style={{ color: service.hexColor }} />
@@ -113,7 +113,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
             {service.tagline}
           </p>
 
-          <p className="text-body leading-relaxed font-light text-prose max-w-3xl text-lg">
+          <p className="text-body text-prose max-w-3xl text-lg leading-relaxed font-light">
             {service.summary}
           </p>
         </motion.div>
@@ -124,12 +124,12 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-wrap gap-2 mt-10"
+            className="mt-10 flex flex-wrap gap-2"
           >
             {service.keywords.map((kw) => (
               <span
                 key={kw}
-                className="px-4 py-1.5 rounded-full border border-border-dark text-muted text-caption"
+                className="border-border-dark text-muted text-caption rounded-full border px-4 py-1.5"
               >
                 {kw}
               </span>
@@ -139,7 +139,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
       </div>
 
       {/* ─── Modular Content Sections ─── */}
-      <div className="px-8 md:px-16 pb-16 space-y-24">
+      <div className="space-y-24 px-8 pb-16 md:px-16">
         {service.sections.map((section, index) => (
           <ServiceSectionRenderer key={index} section={section} />
         ))}
@@ -151,7 +151,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
       )}
 
       {/* ─── Service Navigation ─── */}
-      <div className="px-8 md:px-16 py-16 border-t border-border">
+      <div className="border-border border-t px-8 py-16 md:px-16">
         <div className="flex items-center justify-between">
           {prevService && (
             <Link
@@ -159,11 +159,11 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
               params={{ serviceId: prevService.id }}
               className="group flex items-center gap-4 no-underline"
             >
-              <div className="w-12 h-12 icon-circle">
+              <div className="icon-circle h-12 w-12">
                 <LucideIcons.ArrowLeft size={20} />
               </div>
               <div className="hidden md:block">
-                <p className="text-subtle uppercase tracking-wider text-label">
+                <p className="text-subtle text-label tracking-wider uppercase">
                   Précédent
                 </p>
                 <p className="text-dark font-heading text-xl font-medium">
@@ -175,7 +175,7 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
 
           <Link
             to="/expertises"
-            className="text-subtle hover:text-primary transition-colors no-underline uppercase tracking-wider font-semibold text-overline"
+            className="text-subtle hover:text-primary text-overline font-semibold tracking-wider uppercase no-underline transition-colors"
           >
             Toutes les Expertises
           </Link>
@@ -186,15 +186,15 @@ export function ServiceDetailPage({ serviceId }: { serviceId: string }) {
               params={{ serviceId: nextService.id }}
               className="group flex items-center gap-4 no-underline"
             >
-              <div className="hidden md:block text-right">
-                <p className="text-subtle uppercase tracking-wider text-label">
+              <div className="hidden text-right md:block">
+                <p className="text-subtle text-label tracking-wider uppercase">
                   Suivant
                 </p>
                 <p className="text-dark font-heading text-xl font-medium">
                   {nextService.title}
                 </p>
               </div>
-              <div className="w-12 h-12 icon-circle">
+              <div className="icon-circle h-12 w-12">
                 <LucideIcons.ArrowRight size={20} />
               </div>
             </Link>

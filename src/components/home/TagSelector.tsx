@@ -40,7 +40,7 @@ export function TagSelector({ selected, onChange }: TagSelectorProps) {
                 type="button"
                 whileTap={{ scale: 0.95 }}
                 onClick={() => toggle(opt.id)}
-                className="rounded-full border px-3 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 cursor-pointer select-none"
+                className="cursor-pointer rounded-full border px-3 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 select-none"
                 style={{
                   borderColor: active
                     ? "var(--color-primary)"
@@ -72,7 +72,7 @@ export function TagSelector({ selected, onChange }: TagSelectorProps) {
                 type="button"
                 whileTap={{ scale: 0.95 }}
                 onClick={() => toggle(opt.id)}
-                className="rounded-full border px-3 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 cursor-pointer select-none"
+                className="cursor-pointer rounded-full border px-3 py-1.5 text-xs font-medium tracking-wide transition-colors duration-200 select-none"
                 style={{
                   borderColor: active
                     ? "var(--color-primary)"

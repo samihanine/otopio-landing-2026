@@ -50,11 +50,11 @@ export function StickyNote({
       whileInView={{ opacity: 1, rotateX: 0, y: 0 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true }}
-      className="w-full h-full"
+      className="h-full w-full"
     >
       <div
         className={cn(
-          "relative w-full h-full flex flex-col",
+          "relative flex h-full w-full flex-col",
           compact ? "p-6" : "p-8 md:p-10",
         )}
         style={{
@@ -74,7 +74,7 @@ export function StickyNote({
       >
         {/* Tape strip at top */}
         <div
-          className="absolute left-1/2 -translate-x-1/2 z-10"
+          className="absolute left-1/2 z-10 -translate-x-1/2"
           style={{
             top: `${tapeTop}px`,
             marginLeft: `${tapeOffsetX}px`,
@@ -92,7 +92,7 @@ export function StickyNote({
 
         {/* Paper grain texture overlay */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          className="pointer-events-none absolute inset-0 opacity-[0.03]"
           style={{
             borderRadius: "3px 3px 5px 5px",
             backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`,
@@ -102,13 +102,13 @@ export function StickyNote({
 
         {/* Ruled lines */}
         <div
-          className="absolute inset-0 pointer-events-none overflow-hidden"
+          className="pointer-events-none absolute inset-0 overflow-hidden"
           style={{ borderRadius: "3px 3px 5px 5px" }}
         >
           {Array.from({ length: 18 }).map((_, i) => (
             <div
               key={i}
-              className="absolute left-0 right-0"
+              className="absolute right-0 left-0"
               style={{
                 top: `${44 + i * 26}px`,
                 height: "1px",
@@ -128,7 +128,7 @@ export function StickyNote({
 
         {/* Folded corner shadow (area under the fold) */}
         <div
-          className="absolute bottom-0 right-0 z-[1] pointer-events-none"
+          className="pointer-events-none absolute right-0 bottom-0 z-[1]"
           style={{
             width: "30px",
             height: "30px",
@@ -140,7 +140,7 @@ export function StickyNote({
 
         {/* Folded corner */}
         <div
-          className="absolute bottom-0 right-0 z-[2] pointer-events-none"
+          className="pointer-events-none absolute right-0 bottom-0 z-[2]"
           style={{
             width: "20px",
             height: "20px",
@@ -160,15 +160,15 @@ export function StickyNote({
             exit="exit"
             transition={{ duration: 0.25, ease: "easeOut" }}
             className={cn(
-              "relative z-[1] flex flex-col h-full",
+              "relative z-[1] flex h-full flex-col",
               compact ? "gap-4" : "gap-5",
             )}
           >
             <div className="flex items-center gap-3 md:gap-4">
               <div
                 className={cn(
-                  "flex items-center justify-center text-white shrink-0",
-                  compact ? "w-10 h-10 rounded-lg" : "w-12 h-12 rounded-xl",
+                  "flex shrink-0 items-center justify-center text-white",
+                  compact ? "h-10 w-10 rounded-lg" : "h-12 w-12 rounded-xl",
                 )}
                 style={{ backgroundColor: service.hexColor }}
               >
@@ -177,7 +177,7 @@ export function StickyNote({
               <div>
                 <h3
                   className={cn(
-                    "font-heading font-semibold leading-snug",
+                    "font-heading leading-snug font-semibold",
                     compact ? "text-lg" : "text-xl",
                   )}
                   style={{ color: "var(--sticky-text-main)" }}
@@ -186,7 +186,7 @@ export function StickyNote({
                 </h3>
                 <p
                   className={cn(
-                    "text-primary font-medium italic mt-0.5",
+                    "text-primary mt-0.5 font-medium italic",
                     compact ? "text-[13px]" : "text-sm",
                   )}
                 >
@@ -230,7 +230,7 @@ export function StickyNote({
               to="/expertises/$serviceId"
               params={{ serviceId: service.id }}
               className={cn(
-                "group inline-flex items-center gap-2 no-underline font-heading font-semibold mt-auto hover:text-primary transition-colors duration-300",
+                "group font-heading hover:text-primary mt-auto inline-flex items-center gap-2 font-semibold no-underline transition-colors duration-300",
                 compact ? "text-[14px]" : "text-[15px]",
               )}
               style={{ color: "var(--sticky-text-main)" }}
@@ -246,7 +246,7 @@ export function StickyNote({
 
         {/* Bottom curl shadow */}
         <div
-          className="absolute -bottom-1 left-4 right-4 h-5 -z-1"
+          className="absolute right-4 -bottom-1 left-4 -z-1 h-5"
           style={{
             background: "transparent",
             boxShadow: "0 10px 16px -6px rgba(0,0,0,0.15)",

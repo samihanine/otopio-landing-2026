@@ -27,7 +27,7 @@ export function ComparisonSection({ section }: { section: ServiceSection }) {
           {section.title}
         </h3>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {columns.map((col, ci) => {
           const isPositive = col.iconName === "Check";
           const lines = col.description?.split("|") ?? [];
@@ -39,16 +39,16 @@ export function ComparisonSection({ section }: { section: ServiceSection }) {
               transition={{ duration: 0.5, delay: ci * 0.15 }}
               viewport={{ once: true }}
               className={cn(
-                "rounded-2xl p-8 border",
+                "rounded-2xl border p-8",
                 isPositive
                   ? "bg-primary/3 border-primary/20"
-                  : "bg-white border-border-mid",
+                  : "border-border-mid bg-white",
               )}
             >
               {col.title && (
                 <h4
                   className={cn(
-                    "font-heading text-xl font-semibold mb-6",
+                    "font-heading mb-6 text-xl font-semibold",
                     isPositive ? "text-primary" : "text-muted",
                   )}
                 >
@@ -64,7 +64,7 @@ export function ComparisonSection({ section }: { section: ServiceSection }) {
                     <li key={li} className="flex items-start gap-3">
                       <div
                         className={cn(
-                          "w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5",
+                          "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
                           isPositive
                             ? "bg-primary/10 text-primary"
                             : "bg-red-50 text-red-400",

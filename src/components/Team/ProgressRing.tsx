@@ -23,10 +23,10 @@ export function ProgressRing({
 
   return (
     <div
-      className="relative flex items-center justify-center font-heading"
+      className="font-heading relative flex items-center justify-center"
       style={{ width: size, height: size }}
     >
-      <svg width={size} height={size} className="transform -rotate-90">
+      <svg width={size} height={size} className="-rotate-90 transform">
         <circle
           cx={size / 2}
           cy={size / 2}

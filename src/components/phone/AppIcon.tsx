@@ -28,7 +28,7 @@ export default function AppIcon({
           <img
             src={imageUrl}
             alt={name}
-            className="w-full h-full object-contain p-2"
+            className="h-full w-full object-contain p-2"
           />
         ) : Icon ? (
           <Icon size={28} strokeWidth={1.5} color="white" />

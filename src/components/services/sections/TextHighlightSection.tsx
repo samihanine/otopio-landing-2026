@@ -15,10 +15,10 @@ export function TextHighlightSection({ section }: { section: ServiceSection }) {
   return (
     <motion.div
       {...sectionAnim}
-      className="relative rounded-3xl bg-dark p-10 md:p-16 overflow-hidden"
+      className="bg-dark relative overflow-hidden rounded-3xl p-10 md:p-16"
     >
       {/* Subtle gradient orb */}
-      <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="bg-primary/10 pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-3xl">
         {Icon && (
@@ -27,14 +27,14 @@ export function TextHighlightSection({ section }: { section: ServiceSection }) {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center mb-8 border border-white/10"
+            className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10"
           >
             <Icon size={22} className="text-primary" />
           </motion.div>
         )}
         {section.title && (
           <h3
-            className="text-white font-heading mb-5"
+            className="font-heading mb-5 text-white"
             style={{
               fontSize: "clamp(22px, 3vw, 32px)",
               fontWeight: 600,
@@ -45,7 +45,7 @@ export function TextHighlightSection({ section }: { section: ServiceSection }) {
           </h3>
         )}
         {section.description && (
-          <p className="text-white/65 leading-relaxed font-light text-base md:text-lg">
+          <p className="text-base leading-relaxed font-light text-white/65 md:text-lg">
             {section.description}
           </p>
         )}

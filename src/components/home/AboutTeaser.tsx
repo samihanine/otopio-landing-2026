@@ -25,7 +25,7 @@ const pillars = [
 export function AboutTeaser() {
   return (
     <Section>
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-20">
         {/* Left — text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -33,7 +33,7 @@ export function AboutTeaser() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <p className="text-primary font-heading italic text-lg mb-3">
+          <p className="text-primary font-heading mb-3 text-lg italic">
             Qui sommes-nous ?
           </p>
           <h2
@@ -47,7 +47,7 @@ export function AboutTeaser() {
             Un studio tech basé à Montréal, obsédé par{" "}
             <span className="text-primary">l'impact.</span>
           </h2>
-          <p className="text-body leading-relaxed text-[15px] md:text-base mb-8 max-w-xl">
+          <p className="text-body mb-8 max-w-xl text-[15px] leading-relaxed md:text-base">
             Nous accompagnons les startups et les marques ambitieuses à
             concevoir des produits digitaux qui se démarquent — grâce à un
             design réfléchi, une ingénierie solide et l'intégration de
@@ -56,7 +56,7 @@ export function AboutTeaser() {
 
           <Link
             to="/a-propos"
-            className="group inline-flex items-center gap-2.5 btn-dark px-6 py-3 text-[15px] font-heading font-semibold no-underline"
+            className="group btn-dark font-heading inline-flex items-center gap-2.5 px-6 py-3 text-[15px] font-semibold no-underline"
           >
             En savoir plus
             <ArrowRight
@@ -75,13 +75,13 @@ export function AboutTeaser() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="flex items-start gap-4 p-5 rounded-xl border border-border hover:border-primary/30 transition-colors duration-300 bg-white"
+              className="border-border hover:border-primary/30 flex items-start gap-4 rounded-xl border bg-white p-5 transition-colors duration-300"
             >
-              <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+              <div className="bg-primary/10 text-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-lg">
                 <pillar.icon size={20} />
               </div>
               <div>
-                <h3 className="font-heading text-dark font-semibold text-[15px] mb-1">
+                <h3 className="font-heading text-dark mb-1 text-[15px] font-semibold">
                   {pillar.title}
                 </h3>
                 <p className="text-muted text-[14px] leading-relaxed">

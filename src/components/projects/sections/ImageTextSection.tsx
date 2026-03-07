@@ -26,7 +26,7 @@ export function ImageTextSection({
     <motion.div
       {...sectionAnim}
       className={cn(
-        "grid grid-cols-1 gap-12 md:gap-24 items-center",
+        "grid grid-cols-1 items-center gap-12 md:gap-24",
         reversed ? "md:grid-cols-[2fr_1fr]" : "md:grid-cols-[1fr_2fr]",
       )}
     >
@@ -34,14 +34,14 @@ export function ImageTextSection({
       <div className={reversed ? "md:order-2" : "md:order-1"}>
         <div className="flex flex-col gap-6">
           {Icon && (
-            <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-border-lighter">
+            <div className="border-border-lighter flex h-10 w-10 items-center justify-center rounded-xl border bg-white shadow-sm">
               <Icon size={20} className="text-primary" />
             </div>
           )}
           <div>
             {section.title && (
               <h3
-                className="text-dark mb-4 font-heading"
+                className="text-dark font-heading mb-4"
                 style={{
                   fontSize: "clamp(24px, 3.5vw, 36px)",
                   fontWeight: 600,
@@ -52,7 +52,7 @@ export function ImageTextSection({
               </h3>
             )}
             {section.description && (
-              <p className="text-body leading-relaxed font-light text-prose">
+              <p className="text-body text-prose leading-relaxed font-light">
                 {section.description}
               </p>
             )}
@@ -67,7 +67,7 @@ export function ImageTextSection({
             src={section.imageUrl}
             alt={section.title || ""}
             containerClassName="rounded-2xl overflow-hidden aspect-project bg-border/10 shadow-sm border border-border-mid"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         )}
       </div>

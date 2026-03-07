@@ -16,7 +16,7 @@ export function GradientTitle({
       whileInView={{ opacity: 0.15 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className={cn("text-center pointer-events-none select-none", className)}
+      className={cn("pointer-events-none text-center select-none", className)}
       style={{
         position: "relative",
         zIndex: 0,

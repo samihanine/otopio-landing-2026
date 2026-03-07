@@ -10,13 +10,13 @@ export function TeamLanyards() {
       Conteneur visible : h-[50vh]
       On restaure l'ombre et le masquage des débordements.
     */
-    <div className="hidden md:block relative w-full z-10 pointer-events-auto h-[50vh] overflow-hidden inset-shadow-[0_16px_32px_-10px_rgba(0,0,0,0.15)]">
+    <div className="pointer-events-auto relative z-10 hidden h-[50vh] w-full overflow-hidden inset-shadow-[0_16px_32px_-10px_rgba(0,0,0,0.15)] md:block">
       {/* 
         On agrandit le Canvas (120vh) et on le décale (-35vh).
         Le centre du Canvas (y=0) est maintenant aligné au centre du bloc de 50vh.
         Le Canvas commence bien au-dessus de la section, ce qui évite le culling.
       */}
-      <div className="absolute -top-[35vh] left-0 w-full h-[120vh]">
+      <div className="absolute -top-[35vh] left-0 h-[120vh] w-full">
         <Lanyard
           position={[0, 0, 30]}
           gravity={[0, -40, 0]}

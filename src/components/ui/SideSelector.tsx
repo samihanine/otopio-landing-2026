@@ -44,22 +44,22 @@ export function SideSelector({
               key={item.id}
               onClick={() => onSelect(item.id)}
               className={cn(
-                "relative group flex flex-col items-start text-left p-4 md:p-5 rounded-2xl transition-all duration-500 cursor-pointer overflow-hidden",
+                "group relative flex cursor-pointer flex-col items-start overflow-hidden rounded-2xl p-4 text-left transition-all duration-500 md:p-5",
                 isActive
                   ? "bg-dark shadow-xl"
-                  : "bg-transparent hover:bg-border-lighter",
+                  : "hover:bg-border-lighter bg-transparent",
               )}
             >
               {isActive && (
                 <motion.div
                   layoutId={`${layoutIdPrefix}-active-bg`}
-                  className="absolute inset-0 bg-dark z-0 rounded-2xl"
+                  className="bg-dark absolute inset-0 z-0 rounded-2xl"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
               <span
                 className={cn(
-                  "relative z-10 text-left text-lg md:text-3xl font-heading font-bold uppercase tracking-tight transition-colors duration-300",
+                  "font-heading relative z-10 text-left text-lg font-bold tracking-tight uppercase transition-colors duration-300 md:text-3xl",
                   isActive
                     ? "text-white"
                     : "text-dark group-hover:text-primary",
@@ -69,7 +69,7 @@ export function SideSelector({
               </span>
               <span
                 className={cn(
-                  "relative z-10 text-left text-[9px] md:text-xs font-body uppercase tracking-widest mt-0.5 transition-colors duration-300",
+                  "font-body relative z-10 mt-0.5 text-left text-[9px] tracking-widest uppercase transition-colors duration-300 md:text-xs",
                   isActive ? "text-primary" : "text-muted",
                 )}
               >
@@ -79,7 +79,7 @@ export function SideSelector({
               {isActive && (
                 <motion.div
                   layoutId={`${layoutIdPrefix}-dot-large`}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary z-10"
+                  className="bg-primary absolute top-1/2 right-4 z-10 h-1.5 w-1.5 -translate-y-1/2 rounded-full"
                 />
               )}
             </button>
@@ -105,26 +105,26 @@ export function SideSelector({
             key={item.id}
             onClick={() => onSelect(item.id)}
             className={cn(
-              "group relative flex transition-all duration-300 cursor-pointer rounded-xl",
+              "group relative flex cursor-pointer rounded-xl transition-all duration-300",
               direction === "responsive"
-                ? "flex-1 flex-col h-20 items-center justify-center gap-2 lg:flex-row lg:h-auto lg:px-5 lg:py-4 lg:justify-start lg:gap-4"
-                : "flex-row items-center gap-4 px-5 py-4 justify-start",
+                ? "h-20 flex-1 flex-col items-center justify-center gap-2 lg:h-auto lg:flex-row lg:justify-start lg:gap-4 lg:px-5 lg:py-4"
+                : "flex-row items-center justify-start gap-4 px-5 py-4",
               isActive
                 ? "bg-dark text-white shadow-lg"
-                : "bg-border-lighter lg:bg-transparent text-body hover:bg-border-lighter",
+                : "bg-border-lighter text-body hover:bg-border-lighter lg:bg-transparent",
             )}
           >
             {/* Icône */}
             {item.icon && (
               <div
                 className={cn(
-                  "relative z-10 shrink-0 flex items-center justify-center transition-colors duration-300",
+                  "relative z-10 flex shrink-0 items-center justify-center transition-colors duration-300",
                   direction === "responsive"
                     ? isActive
-                      ? "text-primary lg:bg-primary lg:text-white lg:w-10 lg:h-10 lg:rounded-lg"
-                      : "text-body lg:bg-border-light lg:w-10 lg:h-10 lg:rounded-lg lg:group-hover:bg-border"
+                      ? "text-primary lg:bg-primary lg:h-10 lg:w-10 lg:rounded-lg lg:text-white"
+                      : "text-body lg:bg-border-light lg:group-hover:bg-border lg:h-10 lg:w-10 lg:rounded-lg"
                     : cn(
-                        "w-10 h-10 rounded-lg",
+                        "h-10 w-10 rounded-lg",
                         isActive
                           ? "bg-primary text-white"
                           : "bg-border-light group-hover:bg-border text-body",
@@ -145,11 +145,11 @@ export function SideSelector({
 
             {/* Texte (Uniquement Desktop) */}
             <div
-              className={cn("relative z-10 min-w-0 hidden lg:block text-left")}
+              className={cn("relative z-10 hidden min-w-0 text-left lg:block")}
             >
               <p
                 className={cn(
-                  "text-left font-heading font-semibold text-[15px] leading-snug transition-colors duration-300",
+                  "font-heading text-left text-[15px] leading-snug font-semibold transition-colors duration-300",
                   isActive
                     ? "text-white"
                     : "text-dark group-hover:text-primary",
@@ -159,7 +159,7 @@ export function SideSelector({
               </p>
               <p
                 className={cn(
-                  "text-left text-[13px] leading-snug mt-0.5 transition-colors duration-300 truncate",
+                  "mt-0.5 truncate text-left text-[13px] leading-snug transition-colors duration-300",
                   isActive ? "text-white/60" : "text-subtle",
                 )}
               >
@@ -172,10 +172,10 @@ export function SideSelector({
               <motion.div
                 layoutId={`${layoutIdPrefix}-moving-dot`}
                 className={cn(
-                  "bg-primary rounded-full shrink-0 absolute",
+                  "bg-primary absolute shrink-0 rounded-full",
                   direction === "responsive"
-                    ? "bottom-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 lg:bottom-auto lg:left-auto lg:right-4 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-0 lg:w-2 lg:h-2"
-                    : "right-4 top-1/2 -translate-y-1/2 w-2 h-2",
+                    ? "bottom-3 left-1/2 h-1.5 w-1.5 -translate-x-1/2 lg:top-1/2 lg:right-4 lg:bottom-auto lg:left-auto lg:h-2 lg:w-2 lg:translate-x-0 lg:-translate-y-1/2"
+                    : "top-1/2 right-4 h-2 w-2 -translate-y-1/2",
                 )}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />

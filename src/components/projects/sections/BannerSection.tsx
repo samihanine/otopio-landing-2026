@@ -17,21 +17,21 @@ export function BannerSection({ section }: { section: ProjectSection }) {
     <>
       <motion.div
         {...sectionAnim}
-        className="relative rounded-2xl overflow-hidden cursor-zoom-in group"
+        className="group relative cursor-zoom-in overflow-hidden rounded-2xl"
         onClick={() => section.imageUrl && setLightboxOpen(true)}
       >
         {section.imageUrl && (
           <img
             src={section.imageUrl}
             alt={section.title || ""}
-            className="w-full h-full object-cover min-h-[300px] md:min-h-[450px] transition-transform duration-300 group-hover:scale-[1.03]"
+            className="h-full min-h-[300px] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] md:min-h-[450px]"
           />
         )}
         {(section.title || section.description) && (
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-8 md:p-12">
+          <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-8 md:p-12">
             {section.title && (
               <h3
-                className="text-white mb-3 font-heading"
+                className="font-heading mb-3 text-white"
                 style={{
                   fontSize: "clamp(24px, 3.5vw, 40px)",
                   fontWeight: 600,
@@ -42,7 +42,7 @@ export function BannerSection({ section }: { section: ProjectSection }) {
               </h3>
             )}
             {section.description && (
-              <p className="text-white/80 leading-relaxed font-light max-w-2xl text-base md:text-lg">
+              <p className="max-w-2xl text-base leading-relaxed font-light text-white/80 md:text-lg">
                 {section.description}
               </p>
             )}

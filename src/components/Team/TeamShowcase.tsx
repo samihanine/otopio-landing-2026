@@ -9,9 +9,9 @@ export function TeamShowcase() {
   const selectedMember = team.find((m) => m.id === selectedId) || team[0];
 
   return (
-    <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+    <div className="flex w-full flex-col items-start gap-8 lg:flex-row lg:gap-16">
       {/* Left Column: Discrete Selector */}
-      <div className="w-full lg:w-[25%] flex flex-col justify-start lg:sticky lg:top-32">
+      <div className="flex w-full flex-col justify-start lg:sticky lg:top-32 lg:w-[25%]">
         <SideSelector
           items={team.map((m) => ({
             id: m.id,
@@ -27,8 +27,8 @@ export function TeamShowcase() {
       </div>
 
       {/* Right Column: Permanent Detail Container */}
-      <div className="w-full lg:w-[75%] px-4 lg:px-0">
-        <div className="w-full relative bg-dark rounded-[var(--radius-card)] overflow-hidden shadow-2xl transition-all duration-500">
+      <div className="w-full px-4 lg:w-[75%] lg:px-0">
+        <div className="bg-dark relative w-full overflow-hidden rounded-[var(--radius-card)] shadow-2xl transition-all duration-500">
           <AnimatePresence initial={false}>
             <motion.div
               key={selectedMember.id}
@@ -36,21 +36,21 @@ export function TeamShowcase() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              className="w-full h-full flex flex-col md:flex-row absolute inset-0 z-10"
+              className="absolute inset-0 z-10 flex h-full w-full flex-col md:flex-row"
             >
               {/* Image Column */}
               <motion.div
                 layoutId="member-image-container"
-                className="relative w-full md:w-[45%] h-[300px] md:h-full bg-border-lighter overflow-hidden shrink-0"
+                className="bg-border-lighter relative h-[300px] w-full shrink-0 overflow-hidden md:h-full md:w-[45%]"
               >
-                <div className="absolute inset-0 w-full h-full">
+                <div className="absolute inset-0 h-full w-full">
                   <motion.img
                     layoutId="member-image"
                     src={selectedMember.imageUrl}
                     alt={selectedMember.name}
-                    className="h-full w-full object-cover grayscale opacity-90 mix-blend-luminosity"
+                    className="h-full w-full object-cover opacity-90 mix-blend-luminosity grayscale"
                   />
-                  <div className="absolute inset-0 bg-dark/20 mix-blend-multiply pointer-events-none" />
+                  <div className="bg-dark/20 pointer-events-none absolute inset-0 mix-blend-multiply" />
                 </div>
 
                 <motion.div
@@ -58,36 +58,36 @@ export function TeamShowcase() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: 20, opacity: 0 }}
                   transition={{ delay: 0.3 }}
-                  className="absolute bottom-4 left-4 right-4 md:bottom-6 md:left-6 md:right-6 bg-white/95 backdrop-blur-xl p-4 md:p-5 rounded-2xl flex items-center gap-4 shadow-xl border border-border-lighter"
+                  className="border-border-lighter absolute right-4 bottom-4 left-4 flex items-center gap-4 rounded-2xl border bg-white/95 p-4 shadow-xl backdrop-blur-xl md:right-6 md:bottom-6 md:left-6 md:p-5"
                 >
-                  <div className="flex -space-x-3 shrink-0">
+                  <div className="flex shrink-0 -space-x-3">
                     {selectedMember.collaborators.items.map((c, i) => (
                       <img
                         key={i}
                         src={c.avatarUrl}
-                        className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-white object-cover shadow-sm"
+                        className="h-8 w-8 rounded-full border-2 border-white object-cover shadow-sm md:h-10 md:w-10"
                         alt={c.name}
                       />
                     ))}
                   </div>
-                  <p className="text-[11px] md:text-caption font-body font-semibold text-dark leading-snug">
+                  <p className="md:text-caption font-body text-dark text-[11px] leading-snug font-semibold">
                     {selectedMember.collaborators.text}
                   </p>
                 </motion.div>
               </motion.div>
 
               {/* Text Column */}
-              <div className="w-full md:w-[55%] flex flex-col h-full bg-dark">
-                <div className="p-6 md:p-14 text-white flex-1 overflow-y-auto styled-scrollbar">
+              <div className="bg-dark flex h-full w-full flex-col md:w-[55%]">
+                <div className="styled-scrollbar flex-1 overflow-y-auto p-6 text-white md:p-14">
                   <motion.h2
                     layoutId="member-name"
-                    className="text-4xl md:text-7xl font-heading font-black uppercase leading-none mb-2"
+                    className="font-heading mb-2 text-4xl leading-none font-black uppercase md:text-7xl"
                   >
                     {selectedMember.name}
                   </motion.h2>
                   <motion.p
                     layoutId="member-role"
-                    className="text-primary font-body uppercase tracking-[0.2em] font-bold text-[10px] md:text-sm mb-6 md:mb-10"
+                    className="text-primary font-body mb-6 text-[10px] font-bold tracking-[0.2em] uppercase md:mb-10 md:text-sm"
                   >
                     {selectedMember.role}
                   </motion.p>
@@ -99,7 +99,7 @@ export function TeamShowcase() {
                     {selectedMember.bio.map((p, i) => (
                       <p
                         key={i}
-                        className="text-sm md:text-prose font-body leading-relaxed text-white/70"
+                        className="md:text-prose font-body text-sm leading-relaxed text-white/70"
                       >
                         {p}
                       </p>
@@ -110,7 +110,7 @@ export function TeamShowcase() {
                 {/* Stats Footer */}
                 <motion.div
                   layoutId="member-stats"
-                  className="bg-darker p-6 md:p-10 border-t border-white/5 mt-auto shrink-0"
+                  className="bg-darker mt-auto shrink-0 border-t border-white/5 p-6 md:p-10"
                 >
                   <div className="grid grid-cols-3 gap-4 md:gap-6">
                     {selectedMember.stats.map((stat, i) => (
@@ -125,10 +125,10 @@ export function TeamShowcase() {
                           trackColor="var(--color-dark-border)"
                           textColor="white"
                         />
-                        <h4 className="mt-3 md:mt-5 font-heading font-bold uppercase text-[8px] md:text-[11px] tracking-widest text-white/90">
+                        <h4 className="font-heading mt-3 text-[8px] font-bold tracking-widest text-white/90 uppercase md:mt-5 md:text-[11px]">
                           {stat.label}
                         </h4>
-                        <p className="text-[9px] text-white/40 mt-1.5 uppercase font-body font-medium leading-tight hidden md:block">
+                        <p className="font-body mt-1.5 hidden text-[9px] leading-tight font-medium text-white/40 uppercase md:block">
                           {stat.description}
                         </p>
                       </div>
@@ -140,16 +140,16 @@ export function TeamShowcase() {
           </AnimatePresence>
 
           {/* Placeholder structurel invisible pour dicter la hauteur réelle */}
-          <div className="invisible w-full flex flex-col md:flex-row pointer-events-none select-none">
-            <div className="w-full md:w-[45%] h-[300px] md:h-[700px]" />
-            <div className="w-full md:w-[55%] p-6 md:p-14">
-              <h2 className="text-4xl md:text-7xl font-heading mb-2">
+          <div className="pointer-events-none invisible flex w-full flex-col select-none md:flex-row">
+            <div className="h-[300px] w-full md:h-[700px] md:w-[45%]" />
+            <div className="w-full p-6 md:w-[55%] md:p-14">
+              <h2 className="font-heading mb-2 text-4xl md:text-7xl">
                 {selectedMember.name}
               </h2>
               <div className="mb-6 md:mb-10">{selectedMember.role}</div>
               <div className="space-y-4 md:space-y-6">
                 {selectedMember.bio.map((p, i) => (
-                  <p key={i} className="text-sm md:text-prose">
+                  <p key={i} className="md:text-prose text-sm">
                     {p}
                   </p>
                 ))}

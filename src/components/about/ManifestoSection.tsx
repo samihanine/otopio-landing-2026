@@ -31,7 +31,7 @@ export function ManifestoSection({
   let renderableIndex = 0;
 
   return (
-    <Section className="relative py-20 md:py-28 overflow-hidden bg-dark">
+    <Section className="bg-dark relative overflow-hidden py-20 md:py-28">
       <SectionHeader
         label={data.label}
         title={data.backgroundTitle}
@@ -43,7 +43,7 @@ export function ManifestoSection({
         {/* Manifesto tokens */}
         <div
           ref={containerRef}
-          className="flex flex-wrap items-center gap-x-[0.3em] gap-y-[0.1em] font-heading"
+          className="font-heading flex flex-wrap items-center gap-x-[0.3em] gap-y-[0.1em]"
           style={{
             fontSize: "clamp(20px, 3vw, 30px)",
             fontWeight: 500,
@@ -52,7 +52,7 @@ export function ManifestoSection({
         >
           {data.tokens.map((token, i) => {
             if (token.type === "break") {
-              return <div key={`br-${i}`} className="w-full h-0" />;
+              return <div key={`br-${i}`} className="h-0 w-full" />;
             }
 
             const idx = renderableIndex;
@@ -64,7 +64,7 @@ export function ManifestoSection({
               return (
                 <motion.div
                   key={`img-${i}`}
-                  className="inline-flex items-center rounded-full overflow-hidden mx-1"
+                  className="mx-1 inline-flex items-center overflow-hidden rounded-full"
                   style={{
                     width: "clamp(60px, 10vw, 120px)",
                     height: "clamp(28px, 4.2vw, 44px)",
@@ -78,7 +78,7 @@ export function ManifestoSection({
                   <img
                     src={token.src}
                     alt={token.alt}
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                   />
                 </motion.div>
               );
@@ -88,7 +88,7 @@ export function ManifestoSection({
               return (
                 <motion.span
                   key={`tag-${i}`}
-                  className="inline-flex items-center justify-center rounded-full mx-1"
+                  className="mx-1 inline-flex items-center justify-center rounded-full"
                   style={{
                     backgroundColor: isRevealed
                       ? "var(--color-primary)"
@@ -110,7 +110,7 @@ export function ManifestoSection({
               return (
                 <motion.span
                   key={`circ-${i}`}
-                  className="relative inline-block mx-0.5"
+                  className="relative mx-0.5 inline-block"
                   animate={{
                     color: isRevealed ? "#fff" : "rgba(255,255,255,0.1)",
                   }}
@@ -118,7 +118,7 @@ export function ManifestoSection({
                 >
                   {token.text}
                   <svg
-                    className="absolute -inset-x-3 -inset-y-1 w-[calc(100%+24px)] h-[calc(100%+8px)] pointer-events-none"
+                    className="pointer-events-none absolute -inset-x-3 -inset-y-1 h-[calc(100%+8px)] w-[calc(100%+24px)]"
                     viewBox="0 0 200 80"
                     preserveAspectRatio="none"
                   >
@@ -179,7 +179,7 @@ export function ManifestoSection({
             return (
               <motion.span
                 key={`w-${i}`}
-                className="inline-block relative"
+                className="relative inline-block"
                 animate={{
                   color: isRevealed
                     ? token.highlight
@@ -194,7 +194,7 @@ export function ManifestoSection({
                 {token.text}
                 {token.highlight && (
                   <motion.span
-                    className="absolute bottom-0 left-0 h-[2px] rounded-full bg-primary"
+                    className="bg-primary absolute bottom-0 left-0 h-[2px] rounded-full"
                     animate={{ width: isRevealed ? "100%" : "0%" }}
                     transition={{ duration: 0.45, delay: 0.08 }}
                   />
@@ -210,7 +210,7 @@ export function ManifestoSection({
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
           viewport={{ once: true }}
-          className="mt-12 flex flex-col md:flex-row items-start gap-10 md:gap-16 border-t border-white/10 pt-10"
+          className="mt-12 flex flex-col items-start gap-10 border-t border-white/10 pt-10 md:flex-row md:gap-16"
         >
           <div className="flex flex-wrap gap-2">
             {data.tags.map((tag, idx) => (
@@ -220,7 +220,7 @@ export function ManifestoSection({
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35, delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="px-3.5 py-1.5 rounded-full border border-white/10 text-white/40 hover:border-primary/40 hover:text-primary transition-all duration-300 cursor-default text-overline"
+                className="hover:border-primary/40 hover:text-primary text-overline cursor-default rounded-full border border-white/10 px-3.5 py-1.5 text-white/40 transition-all duration-300"
               >
                 {tag}
               </motion.span>
@@ -248,12 +248,12 @@ export function ManifestoSection({
               >
                 <div
                   className={cn(
-                    "flex flex-col md:flex-row gap-8 md:gap-16 items-start",
+                    "flex flex-col items-start gap-8 md:flex-row md:gap-16",
                     isRight ? "md:flex-row-reverse md:text-right" : "",
                   )}
                 >
                   {/* Number + Title column */}
-                  <div className="md:w-1/3 shrink-0">
+                  <div className="shrink-0 md:w-1/3">
                     <span className="text-primary font-heading text-overline font-medium tracking-widest">
                       {num}
                     </span>
@@ -263,12 +263,12 @@ export function ManifestoSection({
                       transition={{ duration: 0.8, delay: 0.3 }}
                       viewport={{ once: true }}
                       className={cn(
-                        "h-[2px] bg-primary mt-3 mb-5",
+                        "bg-primary mt-3 mb-5 h-[2px]",
                         isRight ? "ml-auto" : "",
                       )}
                     />
                     <h3
-                      className="font-heading text-white uppercase tracking-wider"
+                      className="font-heading tracking-wider text-white uppercase"
                       style={{
                         fontSize: "clamp(18px, 2.2vw, 26px)",
                         fontWeight: 600,
@@ -281,7 +281,7 @@ export function ManifestoSection({
 
                   {/* Text column */}
                   <div className="md:w-2/3">
-                    <p className="text-white/45 text-base-body leading-[1.9] font-light">
+                    <p className="text-base-body leading-[1.9] font-light text-white/45">
                       {section.text}
                     </p>
                   </div>

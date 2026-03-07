@@ -17,7 +17,7 @@ export function CtaBlockSection({ section }: { section: ServiceSection }) {
   return (
     <motion.div
       {...sectionAnim}
-      className="rounded-3xl bg-gradient-to-br from-primary/5 via-transparent to-primary/3 border border-primary/10 p-10 md:p-16 text-center"
+      className="from-primary/5 to-primary/3 border-primary/10 rounded-3xl border bg-gradient-to-br via-transparent p-10 text-center md:p-16"
     >
       {section.title && (
         <h3
@@ -32,14 +32,14 @@ export function CtaBlockSection({ section }: { section: ServiceSection }) {
         </h3>
       )}
       {section.description && (
-        <p className="text-body leading-relaxed font-light text-prose max-w-xl mx-auto mb-8">
+        <p className="text-body text-prose mx-auto mb-8 max-w-xl leading-relaxed font-light">
           {section.description}
         </p>
       )}
       {cta && (
         <Link
           to={cta.href || "/contact"}
-          className="inline-flex items-center gap-2 btn-primary px-8 py-3.5 no-underline text-base font-medium"
+          className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-base font-medium no-underline"
         >
           {cta.title}
           {Icon && <Icon size={16} />}

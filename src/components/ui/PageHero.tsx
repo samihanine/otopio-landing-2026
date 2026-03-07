@@ -47,7 +47,7 @@ export function PageHero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-muted leading-relaxed max-w-2xl text-lg-body"
+            className="text-muted text-lg-body max-w-2xl leading-relaxed"
           >
             {description}
           </motion.p>

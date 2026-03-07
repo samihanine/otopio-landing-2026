@@ -43,13 +43,13 @@ export function Timeline() {
       <div ref={containerRef} className="relative">
         {/* Background track line */}
         <div
-          className="absolute left-[23px] md:left-[31px] top-0 bottom-0 w-[2px]"
+          className="absolute top-0 bottom-0 left-[23px] w-[2px] md:left-[31px]"
           style={{ backgroundColor: "var(--color-border-light)" }}
         />
 
         {/* Filled orange line — grows with scroll */}
         <motion.div
-          className="absolute left-[23px] md:left-[31px] top-0 w-[2px] origin-top"
+          className="absolute top-0 left-[23px] w-[2px] origin-top md:left-[31px]"
           style={{
             backgroundColor: "var(--color-primary)",
             scaleY: scrollYProgress,
@@ -68,10 +68,10 @@ export function Timeline() {
             return (
               <div
                 key={evt.year}
-                className="relative flex items-start gap-6 md:gap-10 pb-16 last:pb-0"
+                className="relative flex items-start gap-6 pb-16 last:pb-0 md:gap-10"
               >
                 {/* Dot */}
-                <div className="relative z-10 shrink-0 flex flex-col items-center">
+                <div className="relative z-10 flex shrink-0 flex-col items-center">
                   <motion.div
                     animate={{
                       scale: isActive ? 1 : 0.6,
@@ -89,14 +89,14 @@ export function Timeline() {
                       initial={{ scale: 0, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ duration: 0.5 }}
-                      className="absolute rounded-full border-2 border-primary/30"
+                      className="border-primary/30 absolute rounded-full border-2"
                       style={{ width: 28, height: 28, top: -7 }}
                     />
                   )}
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 -mt-1">
+                <div className="-mt-1 flex-1">
                   {/* Year */}
                   <motion.p
                     animate={{
@@ -127,7 +127,7 @@ export function Timeline() {
                       y: isActive ? 0 : 12,
                     }}
                     transition={{ duration: 0.5, delay: 0.05 }}
-                    className="mt-3 text-dark"
+                    className="text-dark mt-3"
                     style={{
                       fontFamily: "'Clash Display', sans-serif",
                       fontSize: "clamp(20px, 3vw, 28px)",
@@ -145,7 +145,7 @@ export function Timeline() {
                       y: isActive ? 0 : 16,
                     }}
                     transition={{ duration: 0.5, delay: 0.12 }}
-                    className="mt-2 text-mid max-w-xl"
+                    className="text-mid mt-2 max-w-xl"
                     style={{ fontSize: "14px", lineHeight: 1.8 }}
                   >
                     {evt.description}
@@ -158,7 +158,7 @@ export function Timeline() {
                       scale: isActive ? 1 : 0.85,
                     }}
                     transition={{ duration: 0.4, delay: 0.2 }}
-                    className="inline-block mt-3 px-4 py-1.5 rounded-full bg-primary/10 text-primary origin-left"
+                    className="bg-primary/10 text-primary mt-3 inline-block origin-left rounded-full px-4 py-1.5"
                     style={{ fontSize: "12px", fontWeight: 500 }}
                   >
                     {evt.highlight}

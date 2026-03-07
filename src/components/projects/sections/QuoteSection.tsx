@@ -12,21 +12,21 @@ export function QuoteSection({ section }: { section: ProjectSection }) {
   return (
     <motion.div
       {...sectionAnim}
-      className="flex flex-col items-center text-center py-8 md:py-16"
+      className="flex flex-col items-center py-8 text-center md:py-16"
     >
       <div className="max-w-3xl">
         {section.imageUrl && (
-          <div className="w-16 h-16 rounded-full overflow-hidden mx-auto mb-6 border-2 border-border-mid shadow-sm">
+          <div className="border-border-mid mx-auto mb-6 h-16 w-16 overflow-hidden rounded-full border-2 shadow-sm">
             <img
               src={section.imageUrl}
               alt={section.title || ""}
-              className="w-full h-full object-cover"
+              className="h-full w-full object-cover"
             />
           </div>
         )}
         {section.description && (
           <blockquote
-            className="text-dark font-heading italic mb-6"
+            className="text-dark font-heading mb-6 italic"
             style={{
               fontSize: "clamp(20px, 3vw, 32px)",
               fontWeight: 500,
@@ -37,7 +37,7 @@ export function QuoteSection({ section }: { section: ProjectSection }) {
           </blockquote>
         )}
         {section.title && (
-          <p className="text-muted font-medium text-base uppercase tracking-wide">
+          <p className="text-muted text-base font-medium tracking-wide uppercase">
             — {section.title}
           </p>
         )}

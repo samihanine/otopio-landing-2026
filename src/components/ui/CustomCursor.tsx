@@ -48,7 +48,7 @@ export function CustomCursor() {
     <AnimatePresence>
       {isHovering && (
         <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-50 flex items-center justify-center rounded-full text-white shadow-md backdrop-blur-md opacity-50"
+          className="pointer-events-none fixed top-0 left-0 z-50 flex items-center justify-center rounded-full text-white opacity-50 shadow-md backdrop-blur-md"
           style={{
             width: "56px",
             height: "56px",

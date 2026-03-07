@@ -24,7 +24,7 @@ export function CardsSection({ section }: { section: ProjectSection }) {
     <motion.div {...sectionAnim}>
       {section.title && (
         <h3
-          className="text-dark mb-10 font-heading text-center"
+          className="text-dark font-heading mb-10 text-center"
           style={{
             fontSize: "clamp(24px, 3.5vw, 36px)",
             fontWeight: 600,
@@ -35,7 +35,7 @@ export function CardsSection({ section }: { section: ProjectSection }) {
         </h3>
       )}
       {section.description && (
-        <p className="text-body leading-relaxed font-light text-prose text-center max-w-2xl mx-auto mb-10">
+        <p className="text-body text-prose mx-auto mb-10 max-w-2xl text-center leading-relaxed font-light">
           {section.description}
         </p>
       )}
@@ -51,7 +51,7 @@ export function CardsSection({ section }: { section: ProjectSection }) {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-border-mid bg-white shadow-sm overflow-hidden flex flex-col"
+              className="border-border-mid flex flex-col overflow-hidden rounded-2xl border bg-white shadow-sm"
             >
               {sub.imageUrl && (
                 <div className="p-3">
@@ -59,14 +59,14 @@ export function CardsSection({ section }: { section: ProjectSection }) {
                     src={sub.imageUrl}
                     alt={sub.title || ""}
                     containerClassName="rounded-2xl overflow-hidden"
-                    className="w-full aspect-video object-cover rounded-2xl"
+                    className="aspect-video w-full rounded-2xl object-cover"
                   />
                 </div>
               )}
               {!sub.imageUrl && <div className="flex-1" />}
-              <div className="p-6 flex flex-col gap-3">
+              <div className="flex flex-col gap-3 p-6">
                 {Icon && (
-                  <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center shadow-sm border border-border-lighter">
+                  <div className="border-border-lighter flex h-9 w-9 items-center justify-center rounded-lg border bg-white shadow-sm">
                     <Icon size={18} className="text-primary" />
                   </div>
                 )}

@@ -15,7 +15,7 @@ export function RecentWorksSection() {
   return (
     <Section className="relative overflow-hidden">
       <CustomCursor />
-      <div className="md:-mb-5 lg:-mb-8 mb-12">
+      <div className="mb-12 md:-mb-5 lg:-mb-8">
         <GradientTitle>Réalisations</GradientTitle>
       </div>
 

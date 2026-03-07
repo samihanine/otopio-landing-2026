@@ -57,7 +57,7 @@ export default function Lanyard({
   }, []);
 
   return (
-    <div className="relative z-0 w-full h-full flex justify-center items-center">
+    <div className="relative z-0 flex h-full w-full items-center justify-center">
       <Canvas
         frameloop="always"
         camera={{ position: new THREE.Vector3(...position), fov: fov }}

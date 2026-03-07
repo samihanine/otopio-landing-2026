@@ -12,14 +12,14 @@ export function AnimatedBanner() {
   ];
 
   return (
-    <div className="w-full bg-darker overflow-hidden py-4 md:py-6 relative z-10 shadow-[0_4px_20px_rgba(0,0,0,0.1)] border-y border-dark-border">
+    <div className="bg-darker border-dark-border relative z-10 w-full overflow-hidden border-y py-4 shadow-[0_4px_20px_rgba(0,0,0,0.1)] md:py-6">
       {/* 
         We use a flex container that is twice as wide to create the infinite scroll effect.
         By translating from 0 to -50%, we seamlessly loop the content.
         Since we duplicate the array of items, -50% exactly matches the start of the second half.
       */}
       <motion.div
-        className="flex whitespace-nowrap items-center w-max"
+        className="flex w-max items-center whitespace-nowrap"
         animate={{
           x: ["0%", "-50%"],
         }}
@@ -36,14 +36,14 @@ export function AnimatedBanner() {
             {bannerItems.map((item, index) => (
               <div
                 key={`${arrayIndex}-${index}`}
-                className="flex items-center px-8 md:px-12 text-subtle hover:text-white transition-colors duration-300"
+                className="text-subtle flex items-center px-8 transition-colors duration-300 hover:text-white md:px-12"
               >
-                <span className="text-xl md:text-2xl font-medium tracking-wider font-heading">
+                <span className="font-heading text-xl font-medium tracking-wider md:text-2xl">
                   {item}
                 </span>
 
                 {/* Decorative dot separator */}
-                <div className="w-2 h-2 rounded-full bg-primary ml-16 md:ml-24 opacity-80 shadow-[0_0_8px_rgba(255,85,0,0.5)]"></div>
+                <div className="bg-primary ml-16 h-2 w-2 rounded-full opacity-80 shadow-[0_0_8px_rgba(255,85,0,0.5)] md:ml-24"></div>
               </div>
             ))}
           </Fragment>

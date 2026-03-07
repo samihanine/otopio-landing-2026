@@ -54,14 +54,14 @@ export function StatsSection() {
   ];
 
   return (
-    <Section className="py-12 md:py-20 border-y border-border-light">
+    <Section className="border-border-light border-y py-12 md:py-20">
       <SectionHeader
         label="EN CHIFFRES"
         title="Notre impact mesurable"
         align="center"
         className="mb-16"
       />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+      <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8">
         {stats.map((stat, index) => (
           <motion.div
             key={stat.label}
@@ -86,7 +86,7 @@ export function StatsSection() {
                 decimals={stat.decimals}
               />
             </p>
-            <p className="text-muted uppercase tracking-widest text-overline font-medium">
+            <p className="text-muted text-overline font-medium tracking-widest uppercase">
               {stat.label}
             </p>
           </motion.div>

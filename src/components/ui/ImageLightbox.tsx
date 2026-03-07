@@ -34,12 +34,12 @@ export function ImageLightbox({
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-zoom-out"
+      className="fixed inset-0 z-[9999] flex cursor-zoom-out items-center justify-center bg-black/80 backdrop-blur-sm"
       onClick={onClose}
     >
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors cursor-pointer"
+        className="absolute top-6 right-6 flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white/10 transition-colors hover:bg-white/20"
       >
         <X size={20} className="text-white" />
       </button>
@@ -50,7 +50,7 @@ export function ImageLightbox({
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         src={src}
         alt={alt}
-        className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
+        className="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       />
     </motion.div>
@@ -73,7 +73,7 @@ export function ClickableImage({
   return (
     <>
       <div
-        className={cn("cursor-zoom-in group", containerClassName)}
+        className={cn("group cursor-zoom-in", containerClassName)}
         onClick={() => setOpen(true)}
       >
         <img

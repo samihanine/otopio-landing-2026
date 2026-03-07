@@ -14,7 +14,7 @@ export function FaqSection() {
 
   return (
     <Section
-      className="relative py-12 md:py-16 overflow-hidden bg-border-mid border-t border-white/5"
+      className="bg-border-mid relative overflow-hidden border-t border-white/5 py-12 md:py-16"
       containerClassName="max-w-3xl"
     >
       <SectionLabel text="FAQ" variant="dark" className="mb-8" />
@@ -26,9 +26,9 @@ export function FaqSection() {
         transition={{ duration: 0.6 }}
         className="mb-10 space-y-3"
       >
-        <h2 className="text-dark font-heading uppercase text-2xl md:text-3xl font-semibold tracking-wide leading-tight">
+        <h2 className="text-dark font-heading text-2xl leading-tight font-semibold tracking-wide uppercase md:text-3xl">
           Foire Aux{" "}
-          <span className="text-primary italic font-light">Questions</span>
+          <span className="text-primary font-light italic">Questions</span>
         </h2>
       </motion.div>
 
@@ -43,15 +43,15 @@ export function FaqSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="border-b border-dark/15"
+              className="border-dark/15 border-b"
             >
               <button
                 onClick={() => toggleQuestion(index)}
-                className="w-full py-4 flex justify-between items-center text-left focus:outline-none group"
+                className="group flex w-full items-center justify-between py-4 text-left focus:outline-none"
               >
                 <span
                   className={cn(
-                    "font-heading text-base md:text-lg transition-colors duration-300 pr-6",
+                    "font-heading pr-6 text-base transition-colors duration-300 md:text-lg",
                     isActive
                       ? "text-primary/90"
                       : "text-dark/90 group-hover:text-primary/70",
@@ -61,7 +61,7 @@ export function FaqSection() {
                 </span>
                 <span
                   className={cn(
-                    "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center border transition-all duration-300",
+                    "flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-300",
                     isActive
                       ? "border-primary bg-primary text-dark"
                       : "border-dark/10 text-dark group-hover:border-primary/50 group-hover:text-primary",
@@ -72,7 +72,7 @@ export function FaqSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
                     <svg
-                      className="w-4 h-4"
+                      className="h-4 w-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -97,7 +97,7 @@ export function FaqSection() {
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <p className="pb-4 pt-0.5 text-dark/50 text-sm leading-relaxed max-w-2xl pr-10">
+                    <p className="text-dark/50 max-w-2xl pt-0.5 pr-10 pb-4 text-sm leading-relaxed">
                       {q.answer}
                     </p>
                   </motion.div>

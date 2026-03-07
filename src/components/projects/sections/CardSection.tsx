@@ -17,26 +17,26 @@ export function CardSection({ section }: { section: ProjectSection }) {
 
   return (
     <motion.div {...sectionAnim} className="flex justify-center">
-      <div className="w-full max-w-3xl lg:max-w-4xl rounded-2xl border border-border-mid bg-white shadow-sm overflow-hidden">
+      <div className="border-border-mid w-full max-w-3xl overflow-hidden rounded-2xl border bg-white shadow-sm lg:max-w-4xl">
         {section.imageUrl && (
           <ClickableImage
             src={section.imageUrl}
             alt={section.title || ""}
             containerClassName="aspect-video bg-border/10"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         )}
         <div className="p-8 md:p-10">
           <div className="flex items-start gap-4">
             {Icon && (
-              <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm border border-border-lighter shrink-0">
+              <div className="border-border-lighter flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border bg-white shadow-sm">
                 <Icon size={20} className="text-primary" />
               </div>
             )}
             <div>
               {section.title && (
                 <h3
-                  className="text-dark mb-3 font-heading"
+                  className="text-dark font-heading mb-3"
                   style={{
                     fontSize: "clamp(22px, 3vw, 30px)",
                     fontWeight: 600,
@@ -47,7 +47,7 @@ export function CardSection({ section }: { section: ProjectSection }) {
                 </h3>
               )}
               {section.description && (
-                <p className="text-body leading-relaxed font-light text-prose">
+                <p className="text-body text-prose leading-relaxed font-light">
                   {section.description}
                 </p>
               )}

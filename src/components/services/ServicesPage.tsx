@@ -13,7 +13,7 @@ export function ServicesPage() {
         description="Du conseil stratégique à l'ingénierie logicielle, en passant par l'IA et l'automatisation — découvrez comment nous aidons les entreprises à construire des produits qui comptent."
       />
       <Section className="sm:py-12 md:py-12 lg:py-12" containerClassName="">
-        <div className="pb-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6 pb-24 md:grid-cols-2 lg:grid-cols-3">
           {servicesDetails.map((service, i) => {
             // Predictable pseudo-random rotation between -3deg and 3deg based on index
             const rotations = [-2.5, 1.5, -1, 2, -3, 1];

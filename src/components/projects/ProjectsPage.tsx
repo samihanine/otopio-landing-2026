@@ -49,7 +49,7 @@ export function ProjectsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="px-4 md:px-8 pb-12 flex flex-wrap gap-3"
+          className="flex flex-wrap gap-3 px-4 pb-12 md:px-8"
         >
           {filterTags.map((tag) => {
             const isSelected = selectedTags.includes(tag.id);
@@ -57,7 +57,7 @@ export function ProjectsPage() {
               <button
                 key={tag.id}
                 onClick={() => toggleTag(tag.id)}
-                className="px-4 py-2 rounded-full border transition-all duration-300 font-medium tracking-wide cursor-pointer flex items-center gap-2 text-caption"
+                className="text-caption flex cursor-pointer items-center gap-2 rounded-full border px-4 py-2 font-medium tracking-wide transition-all duration-300"
                 style={{
                   borderColor: isSelected
                     ? tag.hexColor
@@ -79,7 +79,7 @@ export function ProjectsPage() {
         </motion.div>
 
         {/* Simple Grid */}
-        <div className="px-4 md:px-8 pb-24 min-h-[50vh]">
+        <div className="min-h-[50vh] px-4 pb-24 md:px-8">
           <ProjectsGrid projects={filteredProjects} />
         </div>
       </Section>

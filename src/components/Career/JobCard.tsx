@@ -39,7 +39,7 @@ export function JobCard({ job, index }: JobCardProps) {
       whileInView="inView"
       viewport={{ once: true }}
       whileHover="hover"
-      className="relative cursor-pointer group flex w-full h-full items-stretch"
+      className="group relative flex h-full w-full cursor-pointer items-stretch"
       style={{
         filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.05))",
       }}
@@ -57,7 +57,7 @@ export function JobCard({ job, index }: JobCardProps) {
             transition: { type: "spring", stiffness: 400, damping: 25 },
           },
         }}
-        className="flex-[3] min-w-0 p-8 md:p-10 bg-white border-y border-l border-border-light group-hover:border-primary/30 transition-colors duration-500 rounded-l-2xl relative overflow-hidden origin-bottom-right"
+        className="border-border-light group-hover:border-primary/30 relative min-w-0 flex-[3] origin-bottom-right overflow-hidden rounded-l-2xl border-y border-l bg-white p-8 transition-colors duration-500 md:p-10"
         style={{
           transformStyle: "preserve-3d",
           WebkitMaskImage: `radial-gradient(circle at 100% 0%, transparent 12px, black 13px), 
@@ -68,31 +68,31 @@ export function JobCard({ job, index }: JobCardProps) {
           maskComposite: "intersect",
         }}
       >
-        <div className="flex flex-col gap-3 text-left relative z-10 min-w-0">
-          <div className="flex items-center gap-2 min-w-0">
+        <div className="relative z-10 flex min-w-0 flex-col gap-3 text-left">
+          <div className="flex min-w-0 items-center gap-2">
             <Ticket size={14} className="text-primary shrink-0" />
-            <span className="text-[10px] font-body font-black uppercase tracking-[0.2em] text-primary truncate">
+            <span className="font-body text-primary truncate text-[10px] font-black tracking-[0.2em] uppercase">
               {job.department} • {job.type}
             </span>
           </div>
-          <h3 className="text-2xl lg:text-3xl font-heading font-bold text-dark leading-tight break-words">
+          <h3 className="font-heading text-dark text-2xl leading-tight font-bold break-words lg:text-3xl">
             {job.title}
           </h3>
-          <div className="flex items-center gap-2 text-overline font-body text-muted font-medium min-w-0">
-            <span className="w-1.5 h-1.5 rounded-full bg-border-dark shrink-0" />
+          <div className="text-overline font-body text-muted flex min-w-0 items-center gap-2 font-medium">
+            <span className="bg-border-dark h-1.5 w-1.5 shrink-0 rounded-full" />
             <span className="truncate">{job.location}</span>
           </div>
         </div>
-        <p className="mt-6 text-sm font-body text-body leading-relaxed w-full text-left opacity-80 relative z-10">
+        <p className="font-body text-body relative z-10 mt-6 w-full text-left text-sm leading-relaxed opacity-80">
           {job.shortDescription}
         </p>
 
         {/* LIGNE DE PERFORATION - Maintenant solidaire du bloc de gauche */}
-        <div className="absolute top-4 bottom-4 right-0 border-r-2 border-dashed border-border-light group-hover:border-primary/30 transition-colors duration-500 z-20" />
+        <div className="border-border-light group-hover:border-primary/30 absolute top-4 right-0 bottom-4 z-20 border-r-2 border-dashed transition-colors duration-500" />
 
         <motion.div
           variants={shimmerVariants}
-          className="absolute inset-0 pointer-events-none opacity-0"
+          className="pointer-events-none absolute inset-0 opacity-0"
           style={{
             background:
               "linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.6) 50%, transparent 65%)",
@@ -128,7 +128,7 @@ export function JobCard({ job, index }: JobCardProps) {
             transition: { type: "spring", stiffness: 400, damping: 30 },
           },
         }}
-        className="origin-bottom-left flex-1 min-w-0 bg-border-lighter border-y border-r border-border-light flex flex-col items-center justify-center gap-4 relative group-hover:bg-dark-light group-hover:border-dark-light transition-colors duration-500 rounded-r-2xl overflow-hidden"
+        className="bg-border-lighter border-border-light group-hover:bg-dark-light group-hover:border-dark-light relative flex min-w-0 flex-1 origin-bottom-left flex-col items-center justify-center gap-4 overflow-hidden rounded-r-2xl border-y border-r transition-colors duration-500"
         style={{
           transformPerspective: 1000,
           transformStyle: "preserve-3d",
@@ -140,13 +140,13 @@ export function JobCard({ job, index }: JobCardProps) {
           maskComposite: "intersect",
         }}
       >
-        <span className="md:block text-[9px] font-black uppercase tracking-[0.4em] rotate-90 whitespace-nowrap text-muted group-hover:text-white/40 transition-colors relative z-10">
+        <span className="text-muted relative z-10 rotate-90 text-[9px] font-black tracking-[0.4em] whitespace-nowrap uppercase transition-colors group-hover:text-white/40 md:block">
           REJOIGNEZ-NOUS
         </span>
 
         <motion.div
           variants={shimmerVariants}
-          className="absolute inset-0 pointer-events-none opacity-0"
+          className="pointer-events-none absolute inset-0 opacity-0"
           style={{
             background:
               "linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.6) 50%, transparent 65%)",

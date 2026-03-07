@@ -14,7 +14,7 @@ export function GallerySection({ section }: { section: ProjectSection }) {
     <motion.div {...sectionAnim}>
       {section.title && (
         <h3
-          className="text-dark mb-4 font-heading text-center"
+          className="text-dark font-heading mb-4 text-center"
           style={{
             fontSize: "clamp(24px, 3.5vw, 36px)",
             fontWeight: 600,
@@ -25,11 +25,11 @@ export function GallerySection({ section }: { section: ProjectSection }) {
         </h3>
       )}
       {section.description && (
-        <p className="text-body leading-relaxed font-light text-prose text-center max-w-2xl mx-auto mb-10">
+        <p className="text-body text-prose mx-auto mb-10 max-w-2xl text-center leading-relaxed font-light">
           {section.description}
         </p>
       )}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
         {section.subsections?.map((sub, i) => (
           <motion.div
             key={i}
@@ -44,11 +44,11 @@ export function GallerySection({ section }: { section: ProjectSection }) {
                 src={sub.imageUrl}
                 alt={sub.title || ""}
                 containerClassName="rounded-xl overflow-hidden aspect-video bg-border/10 shadow-sm border border-border-mid"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
               />
             )}
             {sub.title && (
-              <p className="text-dark text-sm font-medium text-center">
+              <p className="text-dark text-center text-sm font-medium">
                 {sub.title}
               </p>
             )}

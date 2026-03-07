@@ -28,7 +28,7 @@ export function Footer() {
 
   return (
     <footer
-      className="relative overflow-hidden bg-darkest"
+      className="bg-darkest relative overflow-hidden"
       style={{ minHeight: "340px" }}
     >
       {/* Background gradient - Lightened Neon Effect */}
@@ -42,7 +42,7 @@ export function Footer() {
 
       {/* Dot texture overlay */}
       <div
-        className="absolute inset-0 opacity-15 pointer-events-none"
+        className="pointer-events-none absolute inset-0 opacity-15"
         style={{
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)",
@@ -54,25 +54,25 @@ export function Footer() {
       />
 
       {/* Top bar */}
-      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between px-8 md:px-16 py-10 text-white/40 font-body text-caption">
-        <div className="flex flex-col gap-4 order-2 sm:order-1 mt-6 sm:mt-0 items-center sm:items-start text-center sm:text-left">
+      <div className="font-body text-caption relative z-10 flex flex-col items-center justify-between px-8 py-10 text-white/40 sm:flex-row md:px-16">
+        <div className="order-2 mt-6 flex flex-col items-center gap-4 text-center sm:order-1 sm:mt-0 sm:items-start sm:text-left">
           <p>&copy; {new Date().getFullYear()} Otopio. Tous droits réservés.</p>
 
           <div className="flex flex-col gap-2.5 opacity-60">
             <a
               href={email.url}
-              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
+              className="hover:text-primary group flex items-center gap-2.5 transition-colors"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
+              <div className="group-hover:bg-primary/10 flex h-5 w-5 items-center justify-center rounded-full bg-white/5">
                 <Mail size={12} />
               </div>
               <span>{email.value}</span>
             </a>
             <a
               href={phoneNumber.url}
-              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
+              className="hover:text-primary group flex items-center gap-2.5 transition-colors"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
+              <div className="group-hover:bg-primary/10 flex h-5 w-5 items-center justify-center rounded-full bg-white/5">
                 <Phone size={12} />
               </div>
               <span>{phoneNumber.value}</span>
@@ -81,9 +81,9 @@ export function Footer() {
               href={formattedAddress.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2.5 hover:text-primary transition-colors group"
+              className="hover:text-primary group flex items-center gap-2.5 transition-colors"
             >
-              <div className="w-5 h-5 flex items-center justify-center rounded-full bg-white/5 group-hover:bg-primary/10">
+              <div className="group-hover:bg-primary/10 flex h-5 w-5 items-center justify-center rounded-full bg-white/5">
                 <MapPin size={12} />
               </div>
               <span className="max-w-[200px] sm:max-w-none">
@@ -93,14 +93,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-12 order-1 sm:order-2">
+        <div className="order-1 flex flex-col items-center gap-6 sm:order-2 sm:flex-row sm:gap-12">
           <p className="flex items-center gap-2">
             Montréal <span className="text-white/20">/</span> {time}
           </p>
 
           <button
             onClick={scrollToTop}
-            className="text-primary hover:text-primary-light transition-colors cursor-pointer bg-transparent border-none uppercase tracking-widest font-semibold text-label"
+            className="text-primary hover:text-primary-light text-label cursor-pointer border-none bg-transparent font-semibold tracking-widest uppercase transition-colors"
           >
             Retour en haut ↑
           </button>
@@ -113,13 +113,13 @@ export function Footer() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         viewport={{ once: true }}
-        className="absolute bottom-0 left-0 right-0 w-full text-center pointer-events-none select-none flex justify-center overflow-visible"
+        className="pointer-events-none absolute right-0 bottom-0 left-0 flex w-full justify-center overflow-visible text-center select-none"
         style={{
           transform: "translateY(20%)",
         }}
       >
         <span
-          className="w-full font-heading"
+          className="font-heading w-full"
           style={{
             fontSize: "clamp(90px, 16vw, 300px)",
             fontWeight: 700,

@@ -14,7 +14,7 @@ export const Route = createFileRoute("/equipe")({
 
 function EquipePage() {
   return (
-    <main className="min-h-screen bg-light overflow-hidden">
+    <main className="bg-light min-h-screen overflow-hidden">
       {/* Hero Section */}
       <PageHero
         title="Notre Équipe"
@@ -26,7 +26,7 @@ function EquipePage() {
       <TeamLanyards />
 
       {/* Team Showcase */}
-      <Section className="bg-white relative z-20">
+      <Section className="relative z-20 bg-white">
         <SectionHeader
           label="RENCONTREZ L'ÉQUIPE"
           title="Une équipe à taille humaine"

@@ -83,37 +83,37 @@
 
 /* Standard dark button (Header, Hero, ProjectDetail) */
 @utility btn-dark {
-  @apply bg-dark text-white rounded-full hover:bg-dark-light transition-colors duration-300 cursor-pointer;
+  @apply bg-dark hover:bg-dark-light cursor-pointer rounded-full text-white transition-colors duration-300;
 }
 
 /* Primary/accent button */
 @utility btn-primary {
-  @apply bg-primary text-white rounded-full hover:bg-primary-dark transition-colors duration-300 cursor-pointer;
+  @apply bg-primary hover:bg-primary-dark cursor-pointer rounded-full text-white transition-colors duration-300;
 }
 
 /* Dark-on-hover circle (nav arrows in ProjectDetail) */
 @utility icon-circle {
-  @apply rounded-full bg-dark text-white flex items-center justify-center group-hover:bg-primary transition-colors duration-300;
+  @apply bg-dark group-hover:bg-primary flex items-center justify-center rounded-full text-white transition-colors duration-300;
 }
 
 /* Form input on dark bg (ContactSection) */
 @utility input-dark {
-  @apply w-full bg-transparent border-b border-white/10 pb-4 text-white placeholder:text-white/20 focus:outline-none focus:border-primary transition-colors duration-300;
+  @apply focus:border-primary w-full border-b border-white/10 bg-transparent pb-4 text-white transition-colors duration-300 placeholder:text-white/20 focus:outline-none;
 }
 
 /* Form label on dark bg (ContactSection) */
 @utility label-dark {
-  @apply text-white/80 block mb-3 uppercase tracking-widest font-semibold text-label;
+  @apply text-label mb-3 block font-semibold tracking-widest text-white/80 uppercase;
 }
 
 /* Section heading (About) */
 @utility section-heading {
-  @apply text-2xl font-bold mb-6 text-dark uppercase tracking-wider font-heading;
+  @apply text-dark font-heading mb-6 text-2xl font-bold tracking-wider uppercase;
 }
 
 /* Project image container */
 @utility project-image {
-  @apply rounded-2xl overflow-hidden aspect-project bg-border/10;
+  @apply aspect-project bg-border/10 overflow-hidden rounded-2xl;
 }
 
 /* Styled dark scrollbar */
