@@ -71,12 +71,12 @@
     #d8d8d8 100%
   );
   --sticky-fold-shadow: -2px -2px 5px rgba(0, 0, 0, 0.12);
-  --sticky-line-blue: rgba(180, 200, 220, 0.40);
-  --sticky-line-red: rgba(220, 100, 100, 0.40);
+  --sticky-line-blue: rgba(180, 200, 220, 0.25);
+  --sticky-line-red: rgba(220, 100, 100, 0.25);
   --sticky-text-main: #2a2a2a;
   --sticky-text-body: #555555;
   --sticky-text-keywords: #888888;
-  --sticky-bg-keywords: rgba(255, 255, 255, 0.45);
+  --sticky-bg-keywords: rgba(255, 255, 255, 0.80);
 }
 
 /* ── Reusable component utilities ── */

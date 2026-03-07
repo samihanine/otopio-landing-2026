@@ -1,12 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "../components/ui/PageHero";
-import Lanyard from "../components/ui/Lanyard/Lanyard";
 import { Section } from "../components/layout/Section";
-
-import maissaneGLB from "../components/ui/Lanyard/maissane.glb";
-import mathildeGLB from "../components/ui/Lanyard/mathilde.glb";
-import noahGLB from "../components/ui/Lanyard/noah.glb";
-import samiGLB from "../components/ui/Lanyard/sami.glb";
+import { TeamLanyards } from "../components/ui/Lanyard/TeamLanyards";
+import { TeamShowcase } from "../components/Team/TeamShowcase";
+import { VennSection } from "../components/about/VennSection";
+import { teamStrengthData } from "../types/strength";
+import { SectionHeader } from "../components/ui/SectionHeader";
+import { CareerSection } from "#/components/Career/CareerSection";
 
 export const Route = createFileRoute("/equipe")({
   component: EquipePage,
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/equipe")({
 
 function EquipePage() {
   return (
-    <main className="min-h-screen pt-24 bg-light overflow-hidden">
+    <main className="min-h-screen bg-light overflow-hidden">
       {/* Hero Section */}
       <PageHero
         title="Notre Équipe"
@@ -23,27 +23,22 @@ function EquipePage() {
       />
 
       {/* Multiple Lanyards hanging below hero sharing one space */}
-      <div className="relative w-full z-10 pointer-events-auto h-[70vh] inset-shadow-[0_16px_32px_-10px_rgba(0,0,0,0.15)]">
-        <Lanyard
-          position={[0, 0, 30]}
-          gravity={[0, -40, 0]}
-          fov={20}
-          items={[
-            {
-              id: "maissane",
-              modelSrc: maissaneGLB,
-              startPosition: [-4.5, 6, 0],
-            },
-            {
-              id: "mathilde",
-              modelSrc: mathildeGLB,
-              startPosition: [-1.5, 6, 0],
-            },
-            { id: "noah", modelSrc: noahGLB, startPosition: [1.5, 6, 0] },
-            { id: "sami", modelSrc: samiGLB, startPosition: [4.5, 6, 0] },
-          ]}
+      <TeamLanyards />
+
+      {/* Team Showcase */}
+      <Section className="bg-white relative z-20">
+        <SectionHeader
+          label="RENCONTREZ L'ÉQUIPE"
+          title="Une équipe à taille humaine"
+          align="left"
+          className="mb-12"
         />
-      </div>
+        <TeamShowcase />
+      </Section>
+
+      {/* Team Strengths Venn Diagram */}
+      <VennSection data={teamStrengthData} />
+      <CareerSection />
     </main>
   );
 }

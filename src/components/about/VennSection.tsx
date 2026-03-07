@@ -4,6 +4,8 @@ import { defaultVennData, type VennData } from "../../types/venn";
 import { Section } from "../layout/Section";
 import { SectionLabel } from "../ui/SectionLabel";
 
+import { SectionHeader } from "../ui/SectionHeader";
+
 interface VennSectionProps {
   data?: VennData;
 }
@@ -39,23 +41,14 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
   const showLabels = morphProgress > 0.5;
 
   return (
-    <Section ref={sectionRef} className="bg-border-mid">
-      <SectionLabel text={data.label} className="mb-4" />
-
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="text-dark mb-12 max-w-2xl font-heading"
-        style={{
-          fontSize: "clamp(28px, 4vw, 44px)",
-          fontWeight: 500,
-          lineHeight: 1.25,
-        }}
-      >
-        {data.title} <span className="text-subtle">{data.titleAccent}</span>
-      </motion.h2>
+    <Section ref={sectionRef} className="bg-dark">
+      <SectionHeader
+        label={data.label}
+        title={<>{data.title} <span className="text-white/40">{data.titleAccent}</span></>}
+        align="left"
+        variant="light"
+        className="mb-12"
+      />
 
       <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
         {/* SVG — morphs from logo to Venn */}
@@ -104,7 +97,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                   cy={cy}
                   r={r}
                   fill="none"
-                  stroke="var(--color-dark)"
+                  stroke="rgba(255,255,255,0.15)"
                   strokeWidth="0.5"
                   strokeDasharray="4 6"
                   style={{
@@ -132,7 +125,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
               const strokeColor =
                 isHovered && isMorphed
                   ? "var(--color-primary)"
-                  : "var(--color-dark)";
+                  : "rgba(255,255,255,0.4)";
               const dimmed = isMorphed && hoveredId !== null && !isHovered;
 
               return (
@@ -161,7 +154,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                       rx={rx}
                       ry={ry}
                       fill="var(--color-primary)"
-                      style={{ opacity: 0.06, pointerEvents: "none" }}
+                      style={{ opacity: 0.1, pointerEvents: "none" }}
                     />
                   )}
                   {/* Stroke */}
@@ -209,7 +202,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
               fill="var(--color-primary)"
               filter="url(#center-glow)"
               style={{
-                opacity: isMorphed ? 0.2 : 0,
+                opacity: isMorphed ? 0.3 : 0,
                 transition: "opacity 0.6s ease 0.2s",
               }}
             />
@@ -234,7 +227,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                   y={e.ly}
                   textAnchor="middle"
                   fill={
-                    isHovered ? "var(--color-primary)" : "var(--color-dark)"
+                    isHovered ? "var(--color-primary)" : "rgba(255,255,255,0.8)"
                   }
                   style={{
                     fontFamily: "var(--font-heading)",
@@ -272,12 +265,12 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                 key={val.id}
                 onMouseEnter={() => setHoveredId(val.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className="p-4 rounded-xl transition-all duration-300 cursor-pointer"
+                className="p-5 rounded-2xl transition-all duration-300 cursor-pointer border"
                 style={{
-                  backgroundColor: isActive ? "white" : "transparent",
-                  border: isActive
-                    ? "1px solid var(--color-border)"
-                    : "1px solid transparent",
+                  backgroundColor: isActive ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.03)",
+                  borderColor: isActive
+                    ? "rgba(255,255,255,0.15)"
+                    : "rgba(255,255,255,0.05)",
                   opacity: isMorphed ? 1 : 0,
                   transform: isMorphed ? "translateY(0)" : "translateY(16px)",
                   transition: `all 0.4s ease ${0.1 + i * 0.1}s`,
@@ -289,7 +282,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                     style={{
                       backgroundColor: isActive
                         ? "var(--color-primary)"
-                        : val.color,
+                        : "rgba(255,255,255,0.2)",
                       transition: "background-color 0.3s",
                     }}
                   />
@@ -301,13 +294,13 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                         fontWeight: 600,
                         color: isActive
                           ? "var(--color-primary)"
-                          : "var(--color-dark)",
+                          : "white",
                       }}
                     >
                       {val.label}
                     </h4>
                     <p
-                      className="text-muted mt-0.5"
+                      className="text-white/50 mt-1"
                       style={{
                         fontSize: "var(--text-caption)",
                         lineHeight: 1.6,
@@ -323,7 +316,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
 
           {/* Intersection summary */}
           <div
-            className="p-4 rounded-xl bg-dark mt-2"
+            className="p-5 rounded-2xl bg-white/10 mt-4 border border-white/10"
             style={{
               opacity: isMorphed ? 1 : 0,
               transform: isMorphed ? "translateY(0)" : "translateY(16px)",
@@ -346,7 +339,7 @@ export function VennSection({ data = defaultVennData }: VennSectionProps) {
                   {data.intersectionTitle}
                 </h4>
                 <p
-                  className="text-white/60 mt-0.5"
+                  className="text-white/40 mt-1"
                   style={{ fontSize: "var(--text-caption)", lineHeight: 1.6 }}
                 >
                   {data.intersectionDesc}

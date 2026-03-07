@@ -19,7 +19,6 @@ import {
 import type { RigidBodyProps, RapierRigidBody } from "@react-three/rapier";
 import { MeshLineGeometry, MeshLineMaterial } from "meshline";
 import * as THREE from "three";
-import "./Lanyard.css";
 
 import cardGLB from "./sami.glb";
 import lanyard from "./otopio.jpg";
@@ -58,8 +57,9 @@ export default function Lanyard({
   }, []);
 
   return (
-    <div className="lanyard-wrapper">
+    <div className="relative z-0 w-full h-full flex justify-center items-center">
       <Canvas
+        frameloop="always"
         camera={{ position: new THREE.Vector3(...position), fov: fov }}
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
@@ -298,7 +298,7 @@ function Band({
               }
             }}
           >
-            <mesh geometry={nodes.card.geometry}>
+            <mesh geometry={nodes.card.geometry} frustumCulled={false}>
               <meshPhysicalMaterial
                 map={materials.base.map || null}
                 map-anisotropy={materials.base.map ? 16 : undefined}
@@ -312,12 +312,17 @@ function Band({
               geometry={nodes.clip.geometry}
               material={materials.metal}
               material-roughness={0.3}
+              frustumCulled={false}
             />
-            <mesh geometry={nodes.clamp.geometry} material={materials.metal} />
+            <mesh
+              geometry={nodes.clamp.geometry}
+              material={materials.metal}
+              frustumCulled={false}
+            />
           </group>
         </RigidBody>
       </group>
-      <mesh ref={band}>
+      <mesh ref={band} frustumCulled={false}>
         <meshLineGeometry />
         <meshLineMaterial
           color="white"
