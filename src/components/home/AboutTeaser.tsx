@@ -47,7 +47,7 @@ export function AboutTeaser() {
             Un studio tech basé à Montréal, obsédé par{" "}
             <span className="text-primary">l'impact.</span>
           </h2>
-          <p className="text-body mb-8 max-w-xl text-[15px] leading-relaxed md:text-base">
+          <p className="text-body text-base-body mb-8 max-w-xl leading-relaxed md:text-base">
             Nous accompagnons les startups et les marques ambitieuses à
             concevoir des produits digitaux qui se démarquent — grâce à un
             design réfléchi, une ingénierie solide et l'intégration de
