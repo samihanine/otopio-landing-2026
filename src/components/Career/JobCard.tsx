@@ -39,7 +39,7 @@ export function JobCard({ job, index }: JobCardProps) {
       whileInView="inView"
       viewport={{ once: true }}
       whileHover="hover"
-      className="relative cursor-pointer group flex w-full items-stretch"
+      className="relative cursor-pointer group flex flex-wrap w-full items-stretch"
       style={{
         filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.05))",
       }}
@@ -140,7 +140,7 @@ export function JobCard({ job, index }: JobCardProps) {
           maskComposite: "intersect",
         }}
       >
-        <span className="hidden md:block text-[9px] font-black uppercase tracking-[0.4em] rotate-90 whitespace-nowrap text-muted group-hover:text-white/40 transition-colors relative z-10">
+        <span className="md:block text-[9px] font-black uppercase tracking-[0.4em] rotate-90 whitespace-nowrap text-muted group-hover:text-white/40 transition-colors relative z-10">
           REJOIGNEZ-NOUS
         </span>
 
