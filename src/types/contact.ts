@@ -12,15 +12,15 @@ export const email: Contact = {
 };
 
 export const phoneNumber: Contact = {
-  url: "tel:+1234567890",
+  url: "tel:+1 (514) 558-6420",
   name: "Phone",
-  value: "+1234567890",
+  value: "+1 (514) 558-6420",
 };
 
 export const formattedAddress: Contact = {
-  url: "https://maps.app.goo.gl/1234567890",
+  url: "https://maps.app.goo.gl/8ufcMJk2Fj4SjCEq9",
   name: "Address",
-  value: "123 Main St, Anytown, USA",
+  value: "5255 Avenue Decelles HEC, 5e étage, bureau 5.200, Montréal, QC H3T 2B1",
 };
 
 export const contactMethods: Contact[] = [
