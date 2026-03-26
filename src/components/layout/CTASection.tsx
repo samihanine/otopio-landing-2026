@@ -3,13 +3,13 @@ import { Section } from "./Section";
 
 export function CTASection() {
   return (
-    <Section className="from-border-mid to-darkest relative bg-gradient-to-b py-20 md:py-32">
+    <Section className=" py-20 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        className="relative mx-auto overflow-hidden rounded-3xl p-10 shadow-2xl md:p-16 lg:p-20"
+        className="relative mx-auto overflow-hidden rounded-3xl p-10 md:p-16 lg:p-20"
       >
         {/* Card Background */}
         <div className="bg-dark-light absolute inset-0 border border-white/5" />

@@ -17,7 +17,6 @@ function Home() {
       <AnimatedBanner />
       <RecentWorksSection />
       <ServicesSection />
-      <TestimonialsSection />
       <AboutTeaser />
     </div>
   );
