@@ -1,4 +1,10 @@
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
+import {
+  HeadContent,
+  Scripts,
+  createRootRoute,
+  redirect,
+  useRouterState,
+} from "@tanstack/react-router";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { FaqSection } from "../components/layout/FaqSection";
@@ -6,6 +12,11 @@ import { CTASection } from "../components/layout/CTASection";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRoute({
+  beforeLoad: ({ location }) => {
+    if (!location.pathname.startsWith("/maintenance")) {
+      throw redirect({ to: "/maintenance", replace: true });
+    }
+  },
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -35,17 +46,28 @@ export const Route = createRootRoute({
 });
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const pathname = useRouterState({
+    select: (state) => state.location.pathname,
+  });
+  const isMaintenancePage = pathname.startsWith("/maintenance");
+
   return (
     <html lang="fr">
       <head>
         <HeadContent />
       </head>
       <body>
-        <Header />
-        {children}
-        <FaqSection />
-        <CTASection />
-        <Footer />
+        {isMaintenancePage ? (
+          children
+        ) : (
+          <>
+            <Header />
+            {children}
+            <FaqSection />
+            <CTASection />
+            <Footer />
+          </>
+        )}
         <Scripts />
       </body>
     </html>
